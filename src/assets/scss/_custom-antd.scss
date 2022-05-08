@@ -1,0 +1,97 @@
+@import 'default-antd.scss';
+
+.ant-input,
+.ant-input-affix-wrapper {
+  padding: 7.5px 11px;
+}
+
+.ant-input-affix-wrapper .ant-input {
+  border-radius: 2px;
+}
+
+// Button
+.ant-btn {
+  svg {
+    display: inline-block;
+  }
+
+  display: flex;
+  align-items: center;
+  // border-radius: 6px;
+  height: 37px;
+}
+
+// Tooltip
+.ant-tooltip-inner {
+  border-radius: 4px;
+}
+
+.ant-select-single:not(.ant-select-customize-input) .ant-select-selector {
+  height: 37px;
+}
+
+.ant-select-single .ant-select-selector .ant-select-selection-item,
+.ant-select-single .ant-select-selector .ant-select-selection-placeholder {
+  line-height: 35px;
+}
+
+// Picker (Datepicker)
+.ant-picker {
+  padding: 7px 11px 8px;
+  width: 100%;
+  // border-radius: 6px;
+}
+
+// Pagination
+.ant-table-pagination.ant-pagination {
+  align-items: center;
+}
+
+.ant-pagination-prev .ant-pagination-item-link,
+.ant-pagination-next .ant-pagination-item-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ant-pagination-item {
+  // height: 38px;
+  // min-width: 38px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Modal
+.ant-modal-close:focus {
+  border: 0;
+  outline: none;
+}
+
+.ant-modal-confirm .ant-modal-confirm-btns {
+  display: flex;
+}
+
+// Radio
+.ant-checkbox-inner {
+  border-radius: 4px;
+}
+
+// Icon
+.anticon-loading {
+  top: -3px;
+  position: relative;
+}
+
+.ant-table-row-level-0:hover {
+  .float-action__wrapper {
+    display: inline-flex;
+  }
+}
+
+.ant-table-tbody > tr:hover {
+  .float-action__wrapper {
+    min-width: 80px;
+    display: inline-flex;
+  }
+}

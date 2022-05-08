@@ -1,0 +1,17 @@
+deploy-fe-dev:
+  script:
+    - echo "Start build dev"
+    - rm -rf node_modules
+    - rm -f yarn.lock
+    - npm cache clear --force
+    - export NODE_OPTIONS=--openssl-legacy-provider
+    - npm install
+    - npm run build
+    - echo "End build dev"
+    - find /home/ubuntu/QLF0/01.dev/02.FE/* -type f -not -name 'SystemConfig.js' -delete
+    - rsync -r --exclude 'SystemConfig.js' ./build/* /home/ubuntu/DTH_TAYNINH/01.DEV/02.FE/
+  only:
+    - develop
+  tags:
+    - linux
+  when: always
