@@ -10,7 +10,6 @@ import { persistor, store } from 'redux/store';
 import ThemeProvider from 'themes';
 import App from './App';
 import './index.scss';
-import IntlProvider from './languages';
 import reportWebVitals from './reportWebVitals';
 
 moment.locale('vi');
@@ -28,13 +27,11 @@ ReactDOM.render(
   <React.StrictMode>
     <Provider store={store}>
       <PersistGate loading={null} persistor={persistor}>
-        <IntlProvider>
-          <ThemeProvider>
-            <ConfigProvider locale={vnVN}>
-              <App />
-            </ConfigProvider>
-          </ThemeProvider>
-        </IntlProvider>
+        <ThemeProvider>
+          <ConfigProvider locale={vnVN}>
+            <App />
+          </ConfigProvider>
+        </ThemeProvider>
       </PersistGate>
     </Provider>
   </React.StrictMode>,

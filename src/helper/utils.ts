@@ -1,6 +1,5 @@
 // Deep flatten object
 
-import { SystemKey } from 'core/http/apis/common/types';
 import { TabItem } from 'core/models/Tab';
 
 /**
@@ -131,17 +130,6 @@ export function validatePhone(phone: string) {
 
 export const formatDateAndTime = (date: any) => {
   return moment(date).format('DD/MM/YYYY HH:mm');
-};
-
-export const getListComboByKey = (key: string, listSystemKey: SystemKey[]): SystemKey[] => {
-  const parent = listSystemKey.find(x => x.CodeKey === key);
-  if (parent)
-    return listSystemKey
-      .filter(x => x.ParentId === parent.Id)
-      .sort((a, b) => {
-        return a.SortOrder - b.SortOrder;
-      });
-  return [];
 };
 
 export const downLoadFile = (response: any, fileName: string = '') => {

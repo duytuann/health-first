@@ -1,5 +1,5 @@
 import { Layout } from 'antd';
-import { getListTabStart } from 'modules/app-global/redux';
+// import { getListTabStart } from 'modules/app-global/redux';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -15,19 +15,20 @@ const MainLayout: React.FC = ({ children }) => {
 
   const { isAuthenticated } = useSelector((state: RootState) => state.auth.data);
 
-  const { status } = useSelector((state: RootState) => state.appGlobal);
+  // const { status } = useSelector((state: RootState) => state.appGlobal);
 
   useEffect(() => {
     if (isAuthenticated) {
-      dispatch(getListTabStart());
+      // dispatch(getListTabStart());
     } else {
       history.push('/Login');
     }
   }, [isAuthenticated]);
 
-  return status === ReduxStateType.LOADING ? (
-    <Loading />
-  ) : status === ReduxStateType.INIT ? null : (
+  // return status === ReduxStateType.LOADING ? (
+  //   <Loading />
+  // ) : status === ReduxStateType.INIT ? null : (
+  return (
     <LayoutWrapper>
       <AppHeader />
       <Layout>

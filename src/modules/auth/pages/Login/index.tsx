@@ -39,7 +39,7 @@ const Login: React.FC = () => {
       <Row className="w-100">
         <Col xs={{ span: 0 }} lg={{ span: 14 }}>
           <LoginBanner>
-            <div className="banner-name-app">Đài phát thanh và truyền hình Tây Ninh</div>
+            <div className="banner-name-app">Health First</div>
             <img src={loginBackGround} alt="Login V2" className="img-fluid" />
           </LoginBanner>
         </Col>

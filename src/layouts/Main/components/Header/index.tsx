@@ -5,7 +5,6 @@ import Modal from 'components/Modal';
 import { memo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
-import { toggleSideMenu } from 'modules/app-global/redux';
 import { HeaderWrapper } from './styles';
 import UserInfo from '../UserInfo/UserInfo';
 
@@ -31,11 +30,11 @@ export const dataTopMenu = [
 ];
 const AppHeader: React.FC = () => {
   const dispatch = useDispatch();
-  const { isCloseSideMenu } = useSelector((state: RootState) => state.appGlobal.data);
+  // const { isCloseSideMenu } = useSelector((state: RootState) => state.appGlobal.data);
   const [isShowModalAddProduct, setIsShowModalAddProduct] = useState(false);
   const handleToggleCollapse = (e: any) => {
     e.stopPropagation();
-    dispatch(toggleSideMenu(!isCloseSideMenu));
+    // dispatch(toggleSideMenu(!isCloseSideMenu));
   };
 
   const handleAddProduct = () => {

@@ -57,10 +57,11 @@ const SideBar: React.FC = React.memo(() => {
   const pathArray = pathName.split(path);
   const mainPath = pathArray[2] ? pathArray[2] : pathArray[1];
   const mainPathSplit = mainPath.split('/');
-  const { isCloseSideMenu } = useSelector((state: RootState) => state.appGlobal.data);
+  // const { isCloseSideMenu } = useSelector((state: RootState) => state.appGlobal.data);
 
   return (
-    <SideBarWrapper theme="light" collapsed={isCloseSideMenu} width={220}>
+    // collapsed={isCloseSideMenu}
+    <SideBarWrapper theme="light" width={220}>
       <Menu
         mode="inline"
         defaultSelectedKeys={mainPathSplit ? mainPathSplit : ['']}
@@ -75,7 +76,7 @@ const SideBar: React.FC = React.memo(() => {
         {dataSideBarMenu.map(({ label, key, icon, path, submenu }) => {
           return submenu ? (
             <SubMenu
-              title={!isCloseSideMenu ? label : ''}
+              title={label}
               key={key}
               icon={<Icon name={icon} size={22} color="primary" className="sibar-icon" />}
             >
