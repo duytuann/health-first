@@ -1,12 +1,10 @@
-import React from 'react';
-
 import { Menu } from 'antd';
-import { NavLink, useRouteMatch } from 'react-router-dom';
-import Icon from 'components/Icon/Icon';
-import { RootState } from 'redux/store';
-import { useSelector } from 'react-redux';
 import SubMenu from 'antd/lib/menu/SubMenu';
+import Icon from 'components/Icon/Icon';
+import React from 'react';
+import { NavLink, useRouteMatch } from 'react-router-dom';
 import { SideBarWrapper } from './styles';
+
 const dataSideBarMenu: {
   label: string;
   key: string;
@@ -20,34 +18,34 @@ const dataSideBarMenu: {
   }[];
 }[] = [
   {
-    label: 'Danh sách chủ đề/đề tài',
-    key: 'dashboard',
+    label: 'Quản lý cơ sở',
+    key: 'facilities',
     icon: 'work_outline',
-    path: '/dashboard',
+    path: '/facilities',
   },
   {
-    label: 'Duyệt sản phẩm',
+    label: 'Quản lý giấy chứng nhận',
     key: 'workflow',
     icon: 'location_city',
     path: '/workflow',
   },
   {
-    label: 'Danh sách sản phẩm',
+    label: 'Quản lý hoạt thông thanh',
     key: 'releases',
     icon: 'layers',
     path: '/releases',
   },
   {
-    label: 'Báo cáo thống kê',
+    label: 'Quản lý người dùng',
     key: 'report',
     icon: 'description',
     path: '/report',
   },
   {
-    label: 'Quản trị hề thống',
+    label: '...More',
     key: 'issues',
     icon: 'phan-quyen',
-    path: '/permissions',
+    path: '/user',
   },
 ];
 
@@ -68,11 +66,6 @@ const SideBar: React.FC = React.memo(() => {
         selectedKeys={mainPathSplit[0] ? [mainPathSplit[0]] : ['']}
         style={{ height: '100%', borderRight: 0 }}
       >
-        <div className="title-header">
-          <Menu.Item icon={<Icon name="people" className="icon-title" size={20} color="primary" />}>
-            <h3 className="text-title">Bản tin trực tiếp</h3>
-          </Menu.Item>
-        </div>
         {dataSideBarMenu.map(({ label, key, icon, path, submenu }) => {
           return submenu ? (
             <SubMenu

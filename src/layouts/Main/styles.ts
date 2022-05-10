@@ -79,7 +79,7 @@ export const ContentWrapper = styled(Layout)`
   overflow: hidden;
   .ant-layout-content {
     margin: 0;
-    padding: 16px;
+    padding-left: 16px;
     max-height: 100%;
     overflow-y: auto;
   }

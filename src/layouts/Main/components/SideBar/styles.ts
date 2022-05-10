@@ -2,6 +2,7 @@ import { Layout } from 'antd';
 import styled from 'styled-components/macro';
 
 export const SideBarWrapper = styled(Layout.Sider)`
+  padding-top: 15px;
   overflow: hidden;
   background-color: ${({ theme }) => theme.primaryColor};
   .sibar-icon {

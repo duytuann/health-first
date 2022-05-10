@@ -10,21 +10,21 @@ import UserInfo from '../UserInfo/UserInfo';
 
 export const dataTopMenu = [
   {
-    label: 'Chủ đề/Đề tài',
+    label: '',
     key: 'dashboard',
     submenu: [
       {
-        label: 'View System Dashboard',
+        label: '',
         key: '1_1',
       },
       {
-        label: 'Manage Dashboards',
+        label: '',
         key: '1_2',
       },
     ],
   },
   {
-    label: 'Sản phẩm',
+    label: '',
     key: 'product',
   },
 ];
@@ -45,7 +45,7 @@ const AppHeader: React.FC = () => {
     <HeaderWrapper>
       <Space align="center" style={{ width: '230px' }}>
         <Icon className="menu-toggle" name="menu" size={22} color="primary" onClick={e => handleToggleCollapse(e)} />
-        <div className="brand-name">Đài PT-TH Tây Ninh</div>
+        <div className="brand-name">HEALTH FIRST</div>
       </Space>
       <div className="menu-action">
         <Menu mode="horizontal" defaultSelectedKeys={['1']}>

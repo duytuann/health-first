@@ -1,5 +1,5 @@
-import React from 'react';
 import logo from 'assets/images/logo.png';
+import React from 'react';
 import styled from 'styled-components';
 const WellcomeWrapper = styled.div`
   width: 100%;

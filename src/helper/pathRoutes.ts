@@ -1,7 +1,7 @@
 const paths = {
   login: '/login',
   register: '/register',
-  dashboard: '/dashboard',
+  facilities: '/facilities',
 };
 
 export default paths;
