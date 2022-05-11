@@ -24,11 +24,11 @@ const authSlice = createSlice({
       state.status = ReduxStateType.LOADING;
       state.error = undefined;
     },
-    loginSuccess: (state, action: PayloadAction<{ user: User; userToken: UserToken }>) => {
+    loginSuccess: (state, action: PayloadAction) => {
       state.status = ReduxStateType.SUCCESS;
       state.data.isAuthenticated = true;
-      state.data.user = action.payload.user;
-      state.data.userToken = action.payload.userToken;
+      // state.data.user = action.payload.user;
+      // state.data.userToken = action.payload.userToken;
     },
     loginFailed: (state, action: PayloadAction<Error>) => {
       state.status = ReduxStateType.ERROR;

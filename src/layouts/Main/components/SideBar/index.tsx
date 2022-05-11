@@ -25,9 +25,9 @@ const dataSideBarMenu: {
   },
   {
     label: 'Quản lý giấy chứng nhận',
-    key: 'workflow',
+    key: 'certificate',
     icon: 'location_city',
-    path: '/workflow',
+    path: '/certificate',
   },
   {
     label: 'Quản lý hoạt thông thanh',
@@ -37,16 +37,16 @@ const dataSideBarMenu: {
   },
   {
     label: 'Quản lý người dùng',
-    key: 'report',
-    icon: 'description',
-    path: '/report',
-  },
-  {
-    label: '...More',
-    key: 'issues',
+    key: 'user',
     icon: 'phan-quyen',
     path: '/user',
   },
+  // {
+  //   label: '...More',
+  //   key: 'issues',
+  //   icon: 'phan-quyen',
+  //   path: '/user',
+  // },
 ];
 
 const SideBar: React.FC = React.memo(() => {

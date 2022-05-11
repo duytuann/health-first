@@ -23,8 +23,8 @@ export const logoutApi = async () => {
   return res.data;
 };
 
-export const getListTab = async () => {
-  const res = await httpAuth.get<ResultResponse<ListTabResponse>>(getListTabUrl);
-  if (!res || !res.data) throw new Error('Opps');
-  return res.data;
-};
+// export const getListTab = async () => {
+//   const res = await httpAuth.get<ResultResponse<ListTabResponse>>(getListTabUrl);
+//   if (!res || !res.data) throw new Error('Opps');
+//   return res.data;
+// };

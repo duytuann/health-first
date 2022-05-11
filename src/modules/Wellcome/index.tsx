@@ -14,7 +14,7 @@ export default function Wellcome() {
   return (
     <WellcomeWrapper>
       <div className="mb-3">
-        <img alt="logo" src={logo} width="70px" />
+        <img alt="logo" src={logo} width="800px" />
       </div>
       <h1>Wellcome</h1>
     </WellcomeWrapper>
