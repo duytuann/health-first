@@ -4,6 +4,7 @@ import { Breadcrumb, Form } from 'antd';
 export const RoleGroupWrapper = styled.div`
   width: 100%;
   display: flex;
+  height: 100%;
 `;
 export const RoleGroupLeftWrapper = styled.div`
   width: 20%;

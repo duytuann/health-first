@@ -1,18 +1,15 @@
-import React, { useState } from 'react';
 import { DeleteOutlined } from '@ant-design/icons';
-import { Badge, Breadcrumb, Space, Tooltip } from 'antd';
+import { Space, Tooltip } from 'antd';
 import confirm from 'antd/lib/modal/confirm';
-import Text from 'antd/lib/typography/Text';
 import Button, { LinkButton } from 'components/Button';
+import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import { TableHeadingWrapper } from 'components/Table/styles';
-import { Link } from 'react-router-dom';
-import ModalRoleGroupForm from 'modules/user/components/ModalRoleGroupForm';
-import Icon from 'components/Icon/Icon';
-import TruncateText from 'components/TruncateText';
-import { useDispatch, useSelector } from 'react-redux';
 import CustomFormLeft from 'modules/user/components/CustomFormLeft';
-import { BreadcrumbWrapper, RoleGroupRightWrapper, RoleGroupWrapper } from './styles';
+import ModalRoleGroupForm from 'modules/user/components/ModalRoleGroupForm';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { RoleGroupRightWrapper, RoleGroupWrapper } from './styles';
 
 interface IAuthorizeProps {}
 

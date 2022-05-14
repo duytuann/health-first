@@ -1,9 +1,9 @@
-import React from 'react';
-import { Checkbox, Form, Input, Radio, RadioChangeEvent, Space, Spin } from 'antd';
+import { Form, Input, Checkbox, Space } from 'antd';
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
-import { FormDetailWrapper, TabRoleWrapper } from './styles';
+import React from 'react';
+import { FormDetailWrapper } from './styles';
 
 interface IModalRoleGroupFormProps {
   visible?: boolean | undefined;
@@ -59,9 +59,32 @@ const ModalRoleGroupForm: React.FC<IModalRoleGroupFormProps> = ({ visible, onOk,
         >
           <Input placeholder="Nhập tên nhóm quyền" />
         </Form.Item>
-        <Form.Item label="Loại nhóm quyền" name="RoleGroupType">
-          <Radio.Group></Radio.Group>
+        <Form.Item
+          label="Mô tả"
+          name="RoleGroupDescription"
+          rules={[
+            {
+              required: true,
+              message: 'Bạn phải mô tả cách hoạt động của nhóm quyền',
+              whitespace: true,
+            },
+          ]}
+        >
+          <Input placeholder="Nhập mô tả" />
         </Form.Item>
+        {/* <Form.Item
+          label="Quyền hệ thống"
+          name="..."
+          rules={[
+            {
+              required: false,
+              whitespace: true,
+            },
+          ]}
+        >
+          <Checkbox onChange={() => {}}>View</Checkbox>
+          <Checkbox onChange={() => {}}>Managerment</Checkbox>
+        </Form.Item> */}
       </FormDetailWrapper>
     </Modal>
   );
