@@ -35,6 +35,20 @@
   line-height: 35px;
 }
 
+.ant-select:not(.ant-select-customize-input) .ant-select-selector,
+.ant-input-group > .ant-input-affix-wrapper:not(:last-child) .ant-input,
+.ant-input-search .ant-input-group .ant-input-affix-wrapper:not(:last-child),
+.ant-picker,
+.ant-input-affix-wrapper,
+.ant-input-affix-wrapper > input.ant-input,
+.ant-input:placeholder-shown {
+  background-color: #ecedf0;
+}
+
+.ant-select:not(.ant-select-customize-input) .ant-select-selector {
+  height: 37px;
+}
+
 // Picker (Datepicker)
 .ant-picker {
   padding: 7px 11px 8px;

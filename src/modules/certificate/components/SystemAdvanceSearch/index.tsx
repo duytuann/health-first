@@ -9,7 +9,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
   const [form] = Form.useForm();
 
   const handleChange = (allValues: any) => {
-    // dispatch(changeSearchCondition(allValues));
+    // dispatch
   };
 
   useEffect(() => {

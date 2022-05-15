@@ -46,6 +46,7 @@ export interface ThemeDataDefault {
   red600: string;
   green: string;
   blue: string;
+  bgApp: string;
   yellow: string;
   violet: string;
   white: string;

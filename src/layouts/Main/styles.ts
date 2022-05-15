@@ -24,7 +24,7 @@ export const LayoutWrapper = styled(Layout)`
 
   .ant-layout-sider {
     color: ${({ theme }) => theme.primaryColor};
-    background: ${({ theme }) => theme.white};
+    background: ${({ theme }) => theme.bgApp};
   }
 
   .ant-layout.ant-layout-has-sider {
@@ -77,10 +77,12 @@ export const ContentWrapper = styled(Layout)`
   height: calc(100vh - 64px);
   min-height: calc(100vh - 64px);
   overflow: hidden;
+  background-color: white;
   .ant-layout-content {
     margin: 0;
-    padding-left: 16px;
+    padding: 0 16px 0 16px;
     max-height: 100%;
     overflow-y: auto;
+    overflow-x: hidden;
   }
 `;

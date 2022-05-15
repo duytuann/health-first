@@ -6,15 +6,12 @@ import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
 import { FacilitiesContainer } from './styles';
 
 interface IWeeklyNewsProps {}
 
 const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
   const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
-  const [record, setRecord] = useState<any>({});
-  const dispatch = useDispatch();
   const APIPlaceHoder = [
     {
       FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc5',
@@ -104,7 +101,6 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
                 size="small"
                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                 onClick={() => {
-                  setRecord(record);
                   setIsUpdateFacilityForm(true);
                 }}
               />

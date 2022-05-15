@@ -27,6 +27,7 @@ const defaults: ThemeDataDefault = {
   bgGreen: '#00B98D',
   bgRed: '#DD3640',
   bgWhite: '#FFFFFF',
+  bgApp: '#F4F5F7',
   tdborder: 'f0f0f0',
   rowInactiveColor: '#c1eac1',
 };
