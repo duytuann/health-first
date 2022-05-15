@@ -1,7 +1,7 @@
 import MainLayout from 'layouts/Main';
 import { RouterConfig } from 'router/AppRoute';
-import User from './pages/User';
 import Authorize from './pages/Authorize';
+import User from './pages/User';
 
 const routes: RouterConfig[] = [
   {

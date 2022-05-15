@@ -1,6 +1,6 @@
+import React from 'react';
 import { Route, RouteProps } from 'react-router-dom';
 
-import React from 'react';
 
 export interface RouterConfig extends RouteProps {
   path: string;

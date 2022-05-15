@@ -1,10 +1,9 @@
-import { Form, Space, Select, Input } from 'antd';
+import { Form, Input, Select, Space } from 'antd';
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
 import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { RootState } from 'redux/store';
+import { useDispatch } from 'react-redux';
 import { FormDetailWrapper } from './styles';
 
 interface IAddTopicFormProps {

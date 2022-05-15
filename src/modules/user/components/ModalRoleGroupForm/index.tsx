@@ -1,4 +1,4 @@
-import { Form, Input, Checkbox, Space } from 'antd';
+import { Form, Input, Space } from 'antd';
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';

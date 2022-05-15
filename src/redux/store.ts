@@ -1,8 +1,8 @@
-import { persistReducer, persistStore } from 'redux-persist';
 import { AnyAction, CombinedState, configureStore, Reducer } from '@reduxjs/toolkit';
+import { persistReducer, persistStore } from 'redux-persist';
 import sagaMiddleware, { setupMiddleware } from './middleware';
-import rootReducer from './reducers';
 import { persistConfig } from './options';
+import rootReducer from './reducers';
 
 export type RootState = ReturnType<typeof rootReducer>;
 
