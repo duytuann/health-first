@@ -16,7 +16,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
     form.setFieldsValue({
       TypeOfBusiness: 'Tất cả',
       Ward: 'Tất cả',
-      Province: 'TP Hồ Chí Minh',
+      Province: 'Tất cả',
       CertificateState: 'Tất cả',
       FacilityName: '',
     });
@@ -24,7 +24,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
 
   const TypeOfBusinessPlaceHoder = ['Tất cả', 'Sản xuất thực phẩm', 'Dịch vụ ăn uống'];
   const WardPlaceHoder = ['Tất cả', 'Quận 1', 'Quận 2', 'Quận 3', 'Quận 4', 'Quận 5', 'Quận 6', 'Quận 7'];
-  const ProvincePlaceHoder = ['TP Hồ Chí Minh', 'Hà Nội', 'Nghệ An', 'Vĩnh Phúc'];
+  const ProvincePlaceHoder = ['Tất cả', 'TP Hồ Chí Minh', 'Hà Nội', 'Nghệ An', 'Vĩnh Phúc'];
   const CertificateStatePlaceHoder = ['Tất cả', 'Trong thời hạn', 'Quá thời hạn', 'Chưa được cấp'];
 
   return (
@@ -48,7 +48,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
             </Form.Item>
           </Col>
           <Col span={4}>
-            <Form.Item label="Khu vực" name="Ward">
+            <Form.Item label="Quận/huyện" name="Ward">
               <Select style={{ width: '100%' }}>
                 {WardPlaceHoder.map((item: any, index: number) => (
                   <Select.Option key={index} value={item}>
@@ -70,7 +70,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
             </Form.Item>
           </Col>
           <Col span={4}>
-            <Form.Item label="Trạng thái bằng chứng nhận" name="CertificateState">
+            <Form.Item label="Trạng thái cơ sở" name="CertificateState">
               <Select style={{ width: '100%' }}>
                 {CertificateStatePlaceHoder.map((item: any, index: number) => (
                   <Select.Option key={index} value={item}>
@@ -90,9 +90,6 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
             <Space className="action action-search">
               <Icon className="search" name="search" size={34} color="primary" />
             </Space>
-            {/* <Space className="action action-filter">
-            <Icon className="filter" name="filter_alt" size={34} color="primary" />
-          </Space> */}
           </Col>
         </Row>
       </Form>

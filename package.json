@@ -47,7 +47,7 @@
     "lint-staged": "^11.1.2",
     "prettier": "^2.5.0"
   },
-  "scripts": {
+  "scripts": { 
     "start": "react-scripts start",
     "build": "set \"CI=false\" && env-cmd -f .env.development react-scripts build",
     "test": "react-scripts test",

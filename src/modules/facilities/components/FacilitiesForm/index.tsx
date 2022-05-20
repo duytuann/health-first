@@ -100,7 +100,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
           </Select>
         </Form.Item>
         <Form.Item
-          label="Tỉnh/Thành phố"
+          label="Địa chỉ"
           name="Province"
           rules={[
             {
@@ -111,11 +111,12 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
             },
           ]}
         >
-          <Select placeholder="Chọn Tỉnh/Thành phố">
+          <Input placeholder="Nhập địa chỉ" />
+          {/* <Select placeholder="Chọn Tỉnh/Thành phố">
             {ProvincePlaceHoder.map((item: any, index: number) =>
               index !== 0 ? <Select.Option value={item}>{item}</Select.Option> : null
             )}
-          </Select>
+          </Select> */}
         </Form.Item>
         <Form.Item
           label="Khu vực"
@@ -135,7 +136,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
             )}
           </Select>
         </Form.Item>
-        <Form.Item
+        {/* <Form.Item
           label="Số điện thoại"
           name="PhoneNumber"
           rules={[
@@ -148,7 +149,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
           ]}
         >
           <Input placeholder="Nhập số điện thoại" />
-        </Form.Item>
+        </Form.Item> */}
       </FormDetailWrapper>
     </Modal>
   );

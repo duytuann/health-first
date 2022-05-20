@@ -1,10 +1,9 @@
-import React from 'react';
-import { RedoOutlined } from '@ant-design/icons';
 import { Collapse, Space, Tooltip } from 'antd';
 import { LinkButton } from 'components/Button';
-import Table from 'components/Table';
 import Icon from 'components/Icon/Icon';
+import Table from 'components/Table';
 import SystemAdvanceSearchWrapper from 'modules/certificate/components/SystemAdvanceSearch';
+import React from 'react';
 import { CertificateContainer } from './styles';
 
 const Certificate: React.FC = () => {
