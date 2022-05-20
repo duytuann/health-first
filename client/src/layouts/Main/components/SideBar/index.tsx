@@ -33,7 +33,7 @@ const dataSideBarMenu: {
     label: 'Quản lý hoạt thông thanh',
     key: 'releases',
     icon: 'layers',
-    path: '/releases',
+    path: '/plan',
   },
   {
     label: 'Quản lý người dùng',

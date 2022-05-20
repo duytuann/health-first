@@ -1,4 +1,4 @@
 window.env = {
-  API: 'http://103.163.215.105:8006/api/',
+  API: 'http://thanhtung.tech/api/',
   Password: 'Ab@123456',
 };

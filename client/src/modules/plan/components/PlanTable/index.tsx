@@ -6,44 +6,40 @@ import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
 import React, { useState } from 'react';
-import { FacilitiesContainer } from './styles';
+import { FacilitiesContainer, ViewDetail } from './styles';
 
-interface IWeeklyNewsProps {}
+interface IPlanTableProps {}
 
-const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
+const PlanTable: React.FC<IPlanTableProps> = () => {
   const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
   const APIPlaceHoder = [
     {
       FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc5',
-      FacilityName: 'Highlands Coffee',
-      MaCS: 'FC001',
-      Address: '545 P. Kim Mã, Ba Đình, Hà Nội',
-      TypeOfBusiness: 'Dịch vụ ăn uống',
-      FacilityStatus: 'Đang hoạt động',
+      NguoiTao: 'Trần Thanh Tùng',
+      NgayTao: '01/02/2022',
+      Status: 'Đang diễn ra',
+      TenKeHoach: 'Dịch vụ ăn uống',
     },
     {
       FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc6',
-      FacilityName: 'The Coffee House',
-      MaCS: 'FC002',
-      Address: 'B3-01 Gardenia, Hàm Nghi, Nam Từ Liêm, Hà Nội',
-      TypeOfBusiness: 'Dịch vụ ăn uống',
-      FacilityStatus: 'Đã đóng cửa',
+      NguoiTao: 'Đỗ Duy Tuấn',
+      NgayTao: '13/04/2022',
+      Status: 'Đang diễn ra',
+      TenKeHoach: 'Dịch vụ ăn uống',
     },
     {
       FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc7',
-      FacilityName: 'Haidilao',
-      MaCS: 'FC003',
-      Address: 'Vincom Center, Tầng 3, 119 Đ. Trần Duy Hưng, Trung Hoà, Cầu Giấy',
-      TypeOfBusiness: 'Dịch vụ ăn uống',
-      FacilityStatus: 'Đang hoạt động',
+      NguoiTao: 'Đỗ Duy Tuấn',
+      NgayTao: '11/05/2022',
+      Status: 'Đã đóng',
+      TenKeHoach: 'Dịch vụ ăn uống',
     },
     {
       FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc8',
-      FacilityName: 'Công ty sản xuất thực phẩm Vissan',
-      MaCS: 'FC004',
-      Address: '420 Nơ Trang Long, P. 13, Quận Bình Thạnh, TP.HCM, Việt Nam',
-      TypeOfBusiness: 'Sản xuất thực phẩm',
-      FacilityStatus: 'Đang hoạt động',
+      NguoiTao: 'Đỗ Ngọc Long',
+      NgayTao: '21/02/2022',
+      Status: 'Đang diễn ra',
+      TenKeHoach: 'Sản xuất thực phẩm',
     },
   ];
 
@@ -55,33 +51,28 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
       render: (text: string, row: any, index: number) => <div className="text-center">{index + 1}</div>,
     },
     {
-      title: 'Tên cơ sở',
-      key: 'FacilityName',
-      width: 180,
-      render: (text: string, row: any, index: number) => <div className="text-center">{row.FacilityName}</div>,
+      title: 'Người tạo',
+      key: 'NguoiTao',
+      width: 200,
+      render: (text: string, row: any, index: number) => <div className="text-center">{row.NguoiTao}</div>,
     },
     {
-      title: 'Mã cơ sở',
-      key: 'MaCS',
-      width: 120,
-      render: (text: string, row: any, index: number) => <div className="text-center">{row.MaCS}</div>,
-    },
-    {
-      title: 'Loại hình kinh doanh',
-      key: 'TypeOfBusiness',
-      width: 180,
-      render: (text: string, row: any, index: number) => <div className="text-center">{row.TypeOfBusiness}</div>,
-    },
-    {
-      title: 'Địa chỉ',
-      key: 'Address',
-      render: (text: string, row: any, index: number) => <div className="text-center">{row.Address}</div>,
-    },
-    {
+      title: 'Ngày tạo',
+      key: 'NgayTao',
       width: 150,
-      title: 'Trạng thái cơ sở',
-      key: 'CertificateStatus',
-      render: (text: string, row: any, index: number) => <div className="text-center">{row.FacilityStatus}</div>,
+      render: (text: string, row: any, index: number) => <div className="text-center">{row.NgayTao}</div>,
+    },
+    {
+      title: 'Tên kế hoạch',
+      key: 'TenKeHoach',
+      render: (text: string, row: any, index: number) => <div className="text-center">{row.TenKeHoach}</div>,
+    },
+
+    {
+      title: 'Trạng thái',
+      key: 'Status',
+      width: 180,
+      render: (text: string, row: any, index: number) => <div className="text-center">{row.Status}</div>,
     },
     {
       width: 150,
@@ -113,6 +104,12 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
           </Space>
         </div>
       ),
+    },
+    {
+      title: 'Chi tiết',
+      key: 'PlanDetail',
+      width: 150,
+      render: (text: string, row: any, index: number) => <ViewDetail>Xem chi tiết</ViewDetail>,
     },
   ];
 
@@ -157,4 +154,4 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
   );
 };
 
-export default FacilitiesTable;
+export default PlanTable;

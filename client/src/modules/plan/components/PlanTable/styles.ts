@@ -10,3 +10,13 @@ export const FacilitiesContainer = styled.div`
     display: flex;
   }
 `;
+
+export const ViewDetail = styled.div`
+  color: #2260bd;
+  font-weight: bold;
+  text-align: center;
+
+  :hover {
+    cursor: pointer;
+  }
+`;
