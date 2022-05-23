@@ -1,5 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getDetailById } from 'core/http/apis/static/types';
+import { CreateParams } from 'core/http/apis/facilities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface ConditionSearch {
@@ -21,7 +22,7 @@ export interface FacilitiesState {
     currentDistrictId: number;
     provincesList: AddressResp[];
     districtsListById: AddressResp[];
-    wardsById: AddressResp[];
+    wardsByListId: AddressResp[];
 }
 const initialState: ReduxData<FacilitiesState> = {
     data: {
@@ -36,12 +37,12 @@ const initialState: ReduxData<FacilitiesState> = {
         currentDistrictId: 0,
         provincesList: [],
         districtsListById: [],
-        wardsById: [],
+        wardsByListId: [],
     },
     status: ReduxStateType.INIT,
 };
-const Facilities = createSlice({
-    name: 'authSlice',
+const facilitiesSlice = createSlice({
+    name: 'facilitiesSlice',
     initialState,
     reducers: {
         changeSearchCondition: (state, action: PayloadAction<ConditionSearch>) => {
@@ -52,6 +53,9 @@ const Facilities = createSlice({
         },
         changeCurrentDistrictId: (state, action: PayloadAction<number>) => {
             state.data.currentDistrictId = action.payload;
+        },
+        resetWardsByList: state => {
+            state.data.wardsByListId = [];
         },
         postGetListProvincesStart: (state, action: PayloadAction) => {
             state.status = ReduxStateType.LOADING;
@@ -78,9 +82,18 @@ const Facilities = createSlice({
         },
         postGetListWardsByIdSuccess: (state, action: PayloadAction<any>) => {
             state.status = ReduxStateType.SUCCESS;
-            state.data.wardsById = action.payload;
+            state.data.wardsByListId = action.payload;
         },
         postGetListWardsByIdError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postCreateFacilityStart: (state, action: PayloadAction<CreateParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postCreateFacilitySuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postCreateFacilityError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
     },
@@ -88,6 +101,7 @@ const Facilities = createSlice({
 export const {
     changeSearchCondition,
     changeCurrentProvinceId,
+    resetWardsByList,
     changeCurrentDistrictId,
     postGetListProvincesStart,
     postGetListProvincesSuccess,
@@ -98,5 +112,8 @@ export const {
     postGetListWardsByIdStart,
     postGetListWardsByIdSuccess,
     postGetListWardsByIdError,
-} = Facilities.actions;
-export default Facilities.reducer;
+    postCreateFacilityStart,
+    postCreateFacilitySuccess,
+    postCreateFacilityError,
+} = facilitiesSlice.actions;
+export default facilitiesSlice.reducer;

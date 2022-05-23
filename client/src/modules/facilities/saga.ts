@@ -1,15 +1,19 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
+import { postCreateFacitityApi } from 'core/http/apis/facilities';
 import { getListDistrictsByIdApi, getListProvincesApi, getListWardsUrlByIdApi } from 'core/http/apis/static';
 import {
+    postCreateFacilityError,
+    postCreateFacilityStart,
+    postCreateFacilitySuccess,
     postGetListDistrictsByIdError,
     postGetListDistrictsByIdStart,
     postGetListDistrictsByIdSuccess,
     postGetListProvincesError,
     postGetListProvincesStart,
     postGetListProvincesSuccess,
+    postGetListWardsByIdError,
     postGetListWardsByIdStart,
     postGetListWardsByIdSuccess,
-    postGetListWardsByIdError,
 } from './redux';
 
 function* postGetListProvinces(action: ReturnType<typeof postGetListProvincesStart>) {
@@ -54,6 +58,19 @@ function* postGetListWardsById(action: ReturnType<typeof postGetListWardsByIdSta
     }
 }
 
+function* postCreateFacility(action: ReturnType<typeof postCreateFacilityStart>) {
+    try {
+        const res: [] = yield call(postCreateFacitityApi, action.payload);
+        if (res) {
+            yield put({
+                type: postCreateFacilitySuccess.type,
+            });
+        }
+    } catch (error) {
+        yield put({ type: postCreateFacilityError });
+    }
+}
+
 function* watchPostGetListProvinces() {
     yield takeLatest(postGetListProvincesStart.type, postGetListProvinces);
 }
@@ -63,7 +80,15 @@ function* watchPostGetListDistrictsById() {
 function* watchPostGetListWardsById() {
     yield takeLatest(postGetListWardsByIdStart.type, postGetListWardsById);
 }
+function* watchPostCreateFacility() {
+    yield takeLatest(postCreateFacilityStart.type, postCreateFacility);
+}
 
 export default function* facilitiesSaga() {
-    yield all([watchPostGetListProvinces(), watchPostGetListDistrictsById(), watchPostGetListWardsById()]);
+    yield all([
+        watchPostGetListProvinces(),
+        watchPostGetListDistrictsById(),
+        watchPostGetListWardsById(),
+        watchPostCreateFacility(),
+    ]);
 }

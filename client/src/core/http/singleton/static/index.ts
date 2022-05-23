@@ -1,4 +1,4 @@
-import HttpStaticData from './authHttp';
+import HttpStaticData from './staticHttp';
 
 const service = HttpStaticData.getInstance();
 
