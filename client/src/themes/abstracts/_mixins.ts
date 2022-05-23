@@ -1,5 +1,5 @@
 const transitionFade = (what = 'fade-in', time = '2s', how = 'ease-in') =>
-  `
+    `
     opacity: 1;
     animation-name: ${what === 'fade-in' ? 'fadeInOpacity' : 'fadeOutOpacity'};
     animation-iteration-count: 1;
@@ -26,14 +26,14 @@ const transitionFade = (what = 'fade-in', time = '2s', how = 'ease-in') =>
   `;
 
 const position = (place: string, type: string, coordinate: string) =>
-  `
+    `
     position: ${place};
     ${type}: ${coordinate};
   `;
 
 const mixins = {
-  transitionFade,
-  position,
+    transitionFade,
+    position,
 };
 
 export default mixins;

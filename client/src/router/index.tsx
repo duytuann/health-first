@@ -8,29 +8,29 @@ import PrivateRoute from './PrivateRoute';
 import { privateRoutes, publicRouter } from './routes';
 
 const AppRouter: React.FC = () => {
-  return (
-    <Router>
-      <Switch>
-        {/* Page ko có header, sideBar thì đặt ở đây */}
-        {/* <Route path="abc" component={NotFoundPage} /> */}
-        {publicRouter.map(route => {
-          return <AppRoute key={route.path} {...route} />;
-        })}
-
-        <MainLayout>
-          <Suspense fallback={<Spin />}>
+    return (
+        <Router>
             <Switch>
-              {privateRoutes.map(route => {
-                return <PrivateRoute key={route.path} {...route} />;
-              })}
-            </Switch>
-          </Suspense>
-        </MainLayout>
+                {/* Page ko có header, sideBar thì đặt ở đây */}
+                {/* <Route path="abc" component={NotFoundPage} /> */}
+                {publicRouter.map(route => {
+                    return <AppRoute key={route.path} {...route} />;
+                })}
 
-        <Route path="*" exact={true} component={NotFoundPage} />
-      </Switch>
-    </Router>
-  );
+                <MainLayout>
+                    <Suspense fallback={<Spin />}>
+                        <Switch>
+                            {privateRoutes.map(route => {
+                                return <PrivateRoute key={route.path} {...route} />;
+                            })}
+                        </Switch>
+                    </Suspense>
+                </MainLayout>
+
+                <Route path="*" exact={true} component={NotFoundPage} />
+            </Switch>
+        </Router>
+    );
 };
 
 export default AppRouter;

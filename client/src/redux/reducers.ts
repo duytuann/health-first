@@ -5,8 +5,8 @@ import { combineReducers } from 'redux';
 import themeReducer from 'themes/redux';
 
 export default combineReducers({
-  theme: themeReducer,
-  auth: authReducer,
-  facilities: facilitiesReducer,
-  user: userReducer,
+    theme: themeReducer,
+    auth: authReducer,
+    facilities: facilitiesReducer,
+    user: userReducer,
 });

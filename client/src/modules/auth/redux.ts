@@ -3,53 +3,53 @@ import { LoginParams } from 'core/http/apis/auth/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface AuthState {
-  isAuthenticated: boolean;
-  user: string;
-  userToken: string;
+    isAuthenticated: boolean;
+    user: string;
+    userToken: string;
 }
 const initialState: ReduxData<AuthState> = {
-  data: {
-    isAuthenticated: false,
-    user: '',
-    userToken: '',
-  },
-  status: ReduxStateType.INIT,
+    data: {
+        isAuthenticated: false,
+        user: '',
+        userToken: '',
+    },
+    status: ReduxStateType.INIT,
 };
 const authSlice = createSlice({
-  name: 'authSlice',
-  initialState,
-  reducers: {
-    loginStart: (state, action: PayloadAction<LoginParams>) => {
-      state.status = ReduxStateType.LOADING;
-      state.error = undefined;
+    name: 'authSlice',
+    initialState,
+    reducers: {
+        loginStart: (state, action: PayloadAction<LoginParams>) => {
+            state.status = ReduxStateType.LOADING;
+            state.error = undefined;
+        },
+        loginSuccess: (state, action: PayloadAction) => {
+            state.status = ReduxStateType.SUCCESS;
+            state.data.isAuthenticated = true;
+            // state.data.user = action.payload.user;
+            // state.data.userToken = action.payload.accessToken;
+        },
+        loginFailed: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+            state.data.isAuthenticated = false;
+            state.error = action.payload;
+        },
+        logoutStart: (state, action: PayloadAction) => {
+            state.status = ReduxStateType.LOADING;
+            state.error = undefined;
+        },
+        logoutSuccess: state => {
+            state.status = ReduxStateType.SUCCESS;
+            state.data.isAuthenticated = false;
+            state.data.user = '';
+            state.data.userToken = '';
+        },
+        logoutFailed: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+            state.data.isAuthenticated = false;
+            state.error = action.payload;
+        },
     },
-    loginSuccess: (state, action: PayloadAction) => {
-      state.status = ReduxStateType.SUCCESS;
-      state.data.isAuthenticated = true;
-      // state.data.user = action.payload.user;
-      // state.data.userToken = action.payload.accessToken;
-    },
-    loginFailed: (state, action: PayloadAction<Error>) => {
-      state.status = ReduxStateType.ERROR;
-      state.data.isAuthenticated = false;
-      state.error = action.payload;
-    },
-    logoutStart: (state, action: PayloadAction) => {
-      state.status = ReduxStateType.LOADING;
-      state.error = undefined;
-    },
-    logoutSuccess: state => {
-      state.status = ReduxStateType.SUCCESS;
-      state.data.isAuthenticated = false;
-      state.data.user = '';
-      state.data.userToken = '';
-    },
-    logoutFailed: (state, action: PayloadAction<Error>) => {
-      state.status = ReduxStateType.ERROR;
-      state.data.isAuthenticated = false;
-      state.error = action.payload;
-    },
-  },
 });
 export const { loginFailed, loginStart, loginSuccess, logoutStart, logoutSuccess, logoutFailed } = authSlice.actions;
 export default authSlice.reducer;

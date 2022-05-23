@@ -9,11 +9,11 @@ export type RootState = ReturnType<typeof rootReducer>;
 const persistedReducer = persistReducer(persistConfig, rootReducer) as Reducer<CombinedState<RootState>, AnyAction>;
 
 const store = configureStore({
-  reducer: persistedReducer,
-  middleware: getDefaultMiddleware =>
-    getDefaultMiddleware({
-      serializableCheck: false,
-    }).concat(sagaMiddleware),
+    reducer: persistedReducer,
+    middleware: getDefaultMiddleware =>
+        getDefaultMiddleware({
+            serializableCheck: false,
+        }).concat(sagaMiddleware),
 });
 
 setupMiddleware();

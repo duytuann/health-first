@@ -8,9 +8,9 @@ import { RouterConfig } from 'router/AppRoute';
 
 export const publicRouter: RouterConfig[] = [...authRouters];
 export const privateRoutes: RouterConfig[] = [
-  ...wellComeRouters,
-  ...facilitiesRouters,
-  ...userRouters,
-  ...certificateRouters,
-  ...planRouters,
+    ...wellComeRouters,
+    ...facilitiesRouters,
+    ...userRouters,
+    ...certificateRouters,
+    ...planRouters,
 ];

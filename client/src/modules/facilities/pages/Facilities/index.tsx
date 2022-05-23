@@ -9,18 +9,18 @@ import { FacilitiesContainer } from './styles';
 interface IFacilitiesProps {}
 
 const Facilities: React.FC<IFacilitiesProps> = () => {
-  const dispatch = useDispatch();
+    const dispatch = useDispatch();
 
-  useEffect(() => {
-    dispatch(postGetListProvincesStart());
-  }, []);
+    useEffect(() => {
+        dispatch(postGetListProvincesStart());
+    }, []);
 
-  return (
-    <FacilitiesContainer>
-      <SystemAdvanceSearch />
-      <Toolbar />
-      <FacilitiesTable />
-    </FacilitiesContainer>
-  );
+    return (
+        <FacilitiesContainer>
+            <SystemAdvanceSearch />
+            <Toolbar />
+            <FacilitiesTable />
+        </FacilitiesContainer>
+    );
 };
 export default Facilities;
