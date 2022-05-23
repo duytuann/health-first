@@ -1,56 +1,47 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-// import { loginApi, logoutApi } from 'core/http/apis/auth';
-// import LoginInterface from 'core/models/Login';
-// import { ResultResponse } from 'core/models/ResultResponse';
-// import { ACCESS_TOKEN_KEY } from 'helper/consts';
-// import Storage from 'helper/storage';
-// import { toast } from 'react-toastify';
-import { loginFailed, loginStart, loginSuccess, logoutStart, logoutSuccess, logoutFailed } from './redux';
+import { loginApi } from 'core/http/apis/auth';
+import LoginInterface from 'core/models/Login';
+import { ACCESS_TOKEN_KEY } from 'helper/consts';
+import Storage from 'helper/storage';
+import { loginFailed, loginStart, loginSuccess, logoutStart, logoutSuccess } from './redux';
 function* loginSaga(action: ReturnType<typeof loginStart>) {
-  // try {
-  // const resLogin: ResultResponse<LoginInterface> = yield call(loginApi, action.payload);
-  // if (resLogin.isOk) {
-  //   const {
-  //     Object: { User, UserToken },
-  //   } = resLogin;
-  //   yield Storage.set(ACCESS_TOKEN_KEY, UserToken.Token || '');
-  yield put({
-    type: loginSuccess,
-    payload: action.payload,
-  });
-  //   } else {
-  //     toast.error(resLogin.Object);
-  //     yield put({ type: loginFailed, payload: resLogin.Object });
-  //   }
-  // } catch (error) {
-  //   yield put({ type: loginFailed, payload: error });
-  // }
+  try {
+    const resLogin: LoginInterface = yield call(loginApi, action.payload);
+    const { accessToken, refreshToken } = resLogin;
+    yield Storage.set(ACCESS_TOKEN_KEY, `Bearer ${accessToken}` || '');
+    yield put({
+      type: loginSuccess,
+      payload: action.payload,
+    });
+  } catch (error) {
+    yield put({ type: loginFailed, payload: error });
+  }
 }
 
-// function* logoutSaga(action: ReturnType<typeof logoutStart>) {
-//   try {
-//     const resLogout: ResultResponse<any> = yield call(logoutApi);
-//     if (resLogout.isOk) {
-//       yield put({
-//         type: logoutSuccess,
-//         payload: resLogout.Object,
-//       });
-//       yield Storage.remove(ACCESS_TOKEN_KEY);
-//     } else {
-//       toast.error(resLogout.Object);
-//       yield put({ type: logoutFailed, payload: resLogout.Object });
-//     }
-//   } catch (error) {
-//     yield put({ type: logoutFailed, payload: error });
-//   }
-// }
+function* logoutSaga(action: ReturnType<typeof logoutStart>) {
+  // try {
+  // const resLogout: {} = yield call(logoutApi);
+  // if (resLogout) {
+  yield put({
+    type: logoutSuccess,
+    payload: 'Đăng xuất thành công',
+  });
+  yield Storage.remove(ACCESS_TOKEN_KEY);
+  //   } else {
+  //     toast.error('Đăng xuất thành công!');
+  //     yield put({ type: logoutFailed, payload: 'Đăng xuất thành công!' });
+  //   }
+  // } catch (error) {
+  //   yield put({ type: logoutFailed, payload: error });
+  // }
+}
 function* watchLogin() {
   yield takeLatest(loginStart.type, loginSaga);
 }
-// function* watchLogout() {
-//   yield takeLatest(logoutStart.type, logoutSaga);
-// }
+function* watchLogout() {
+  yield takeLatest(logoutStart.type, logoutSaga);
+}
 
 export default function* authSaga() {
-  yield all([watchLogin()]);
+  yield all([watchLogin(), watchLogout()]);
 }

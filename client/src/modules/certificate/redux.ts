@@ -1,6 +1,4 @@
-import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { LoginParams } from 'core/http/apis/auth/types';
-import { User, UserToken } from 'core/models/User';
+import { createSlice } from '@reduxjs/toolkit';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface CertificateState {}

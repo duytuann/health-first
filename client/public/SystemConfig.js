@@ -1,4 +1,3 @@
 window.env = {
-  API: 'http://thanhtung.tech/api/',
-  Password: 'Ab@123456',
+  API: 'http://localhost:8082/',
 };

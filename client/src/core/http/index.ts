@@ -14,6 +14,7 @@ enum LogType {
   RESPONSE = 'res',
   ERROR = 'err',
 }
+// m de yen di @@
 
 const log = (...params: any) => {
   if (process.env.NODE_ENV === `development`) {
@@ -45,7 +46,8 @@ const requestLog = (method: string = '', url: string = '', data: any, type: LogT
 
 const headers = {
   Authorization: 'Basic',
-  'Content-Type': 'application/json',
+  'Content-Type': 'application/json;charset=ISO-8859-1',
+  'Access-Control-Allow-Origin': '*',
 };
 abstract class HttpClient {
   protected readonly instance: AxiosInstance;

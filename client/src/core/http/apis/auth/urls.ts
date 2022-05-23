@@ -1,3 +1,2 @@
-export const loginUrl = '/signin';
-export const logoutUrl = '/signout';
-export const getListTabUrl = '/GetListTab';
+export const loginUrl = '/login';
+export const logoutUrl = '/logout';

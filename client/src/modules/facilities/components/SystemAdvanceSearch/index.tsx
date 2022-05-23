@@ -1,13 +1,24 @@
 import { Col, Form, Input, Row, Select, Space } from 'antd';
 import Icon from 'components/Icon/Icon';
+import {
+  changeCurrentDistrictId,
+  changeCurrentProvinceId,
+  postGetListDistrictsByIdStart,
+  postGetListWardsByIdStart,
+} from 'modules/facilities/redux';
 import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
 import { SystemAdvanceSearchWrapper } from './styles';
 
 interface IProps {}
 
 const SystemAdvanceSearch: React.FC<IProps> = () => {
+  const dispatch = useDispatch();
   const [form] = Form.useForm();
-
+  const {
+    data: { provincesList, districtsListById, wardsById, currentProvinceId, currentDistrictId },
+  } = useSelector((state: RootState) => state.facilities);
   const handleChange = (allValues: any) => {
     // dispatch(changeSearchCondition(allValues));
   };
@@ -15,16 +26,31 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
   useEffect(() => {
     form.setFieldsValue({
       TypeOfBusiness: 'Tất cả',
-      Ward: 'Tất cả',
-      Province: 'Tất cả',
+      // Ward: 'Tất cả',
+      // District: ''
+      // Province: 'Tất cả',
       CertificateState: 'Tất cả',
       FacilityName: '',
     });
   }, []);
 
+  useEffect(() => {
+    dispatch(
+      postGetListDistrictsByIdStart({
+        id: currentProvinceId,
+      })
+    );
+  }, [currentProvinceId]);
+
+  useEffect(() => {
+    dispatch(
+      postGetListWardsByIdStart({
+        id: currentDistrictId,
+      })
+    );
+  }, [currentDistrictId]);
+
   const TypeOfBusinessPlaceHoder = ['Tất cả', 'Sản xuất thực phẩm', 'Dịch vụ ăn uống'];
-  const WardPlaceHoder = ['Tất cả', 'Quận 1', 'Quận 2', 'Quận 3', 'Quận 4', 'Quận 5', 'Quận 6', 'Quận 7'];
-  const ProvincePlaceHoder = ['Tất cả', 'TP Hồ Chí Minh', 'Hà Nội', 'Nghệ An', 'Vĩnh Phúc'];
   const CertificateStatePlaceHoder = ['Tất cả', 'Trong thời hạn', 'Quá thời hạn', 'Chưa được cấp'];
 
   return (
@@ -47,23 +73,45 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
               </Select>
             </Form.Item>
           </Col>
+
           <Col span={4}>
-            <Form.Item label="Quận/huyện" name="Ward">
-              <Select style={{ width: '100%' }}>
-                {WardPlaceHoder.map((item: any, index: number) => (
-                  <Select.Option key={index} value={item}>
-                    {item}
+            <Form.Item label="Tỉnh/ Thành phố" name="Province">
+              <Select
+                style={{ width: '100%' }}
+                onChange={(value: number) => {
+                  dispatch(changeCurrentProvinceId(value));
+                }}
+              >
+                {provincesList.map((item: any, index: number) => (
+                  <Select.Option key={index} value={item.id}>
+                    {item.name}
                   </Select.Option>
                 ))}
               </Select>
             </Form.Item>
           </Col>
           <Col span={4}>
-            <Form.Item label="Tỉnh/ Thành phố" name="Province">
+            <Form.Item label="Quận/ huyện" name="District">
+              <Select
+                style={{ width: '100%' }}
+                onChange={(value: number) => {
+                  dispatch(changeCurrentDistrictId(value));
+                }}
+              >
+                {districtsListById.map((item: any, index: number) => (
+                  <Select.Option key={index} value={item.id}>
+                    {item.name}
+                  </Select.Option>
+                ))}
+              </Select>
+            </Form.Item>
+          </Col>
+          <Col span={4}>
+            <Form.Item label="Phường/ xã" name="Ward">
               <Select style={{ width: '100%' }}>
-                {ProvincePlaceHoder.map((item: any, index: number) => (
-                  <Select.Option key={index} value={item}>
-                    {item}
+                {wardsById.map((item: any, index: number) => (
+                  <Select.Option key={index} value={item.id}>
+                    {item.name}
                   </Select.Option>
                 ))}
               </Select>
@@ -73,8 +121,8 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
             <Form.Item label="Trạng thái cơ sở" name="CertificateState">
               <Select style={{ width: '100%' }}>
                 {CertificateStatePlaceHoder.map((item: any, index: number) => (
-                  <Select.Option key={index} value={item}>
-                    {item}
+                  <Select.Option key={index} value={item.id}>
+                    {item.name}
                   </Select.Option>
                 ))}
               </Select>

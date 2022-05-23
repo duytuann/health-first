@@ -51,8 +51,8 @@ const UserInfo: React.FC = () => {
     <UserInfoWrapper>
       {/* <Notifications /> */}
       <div className="user-information">
-        <p className="user-name">{user?.FullName}</p>
-        <p className="user-role">{user?.UserName}</p>
+        {/* <p className="user-name">{user?.FullName}</p>
+        <p className="user-role">{user?.UserName}</p> */}
       </div>
       <Dropdown overlay={menu} trigger={['click']}>
         <Avatar

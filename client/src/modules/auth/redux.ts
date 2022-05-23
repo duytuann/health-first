@@ -1,18 +1,17 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { LoginParams } from 'core/http/apis/auth/types';
-import { User, UserToken } from 'core/models/User';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface AuthState {
   isAuthenticated: boolean;
-  user: User;
-  userToken: UserToken;
+  user: string;
+  userToken: string;
 }
 const initialState: ReduxData<AuthState> = {
   data: {
     isAuthenticated: false,
-    user: {},
-    userToken: {},
+    user: '',
+    userToken: '',
   },
   status: ReduxStateType.INIT,
 };
@@ -28,7 +27,7 @@ const authSlice = createSlice({
       state.status = ReduxStateType.SUCCESS;
       state.data.isAuthenticated = true;
       // state.data.user = action.payload.user;
-      // state.data.userToken = action.payload.userToken;
+      // state.data.userToken = action.payload.accessToken;
     },
     loginFailed: (state, action: PayloadAction<Error>) => {
       state.status = ReduxStateType.ERROR;
@@ -42,8 +41,8 @@ const authSlice = createSlice({
     logoutSuccess: state => {
       state.status = ReduxStateType.SUCCESS;
       state.data.isAuthenticated = false;
-      state.data.user = {};
-      state.data.userToken = {};
+      state.data.user = '';
+      state.data.userToken = '';
     },
     logoutFailed: (state, action: PayloadAction<Error>) => {
       state.status = ReduxStateType.ERROR;
