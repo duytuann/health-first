@@ -91,7 +91,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
                 <FormDetailWrapper form={form} name="basic" layout="vertical" initialValues={{}}>
                     <Form.Item
                         label="Tên cơ sở"
-                        name="FacilityName"
+                        name="name"
                         rules={[
                             {
                                 type: 'string',
@@ -163,7 +163,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
                     </Form.Item>
                     <Form.Item
                         label="Tỉnh/ Thành phố"
-                        name="Province"
+                        name="province"
                         rules={[
                             {
                                 type: 'number',
@@ -194,7 +194,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
                     </Form.Item>
                     <Form.Item
                         label="Quận/ huyện"
-                        name="District"
+                        name="district"
                         rules={[
                             {
                                 type: 'number',

@@ -75,7 +75,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                         </Col>
 
                         <Col span={4}>
-                            <Form.Item label="Tỉnh/ Thành phố" name="Province">
+                            <Form.Item label="Tỉnh/ Thành phố" name="province">
                                 <Select
                                     placeholder="Chọn Tỉnh/ Thành phố"
                                     style={{ width: '100%' }}
@@ -97,7 +97,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                             </Form.Item>
                         </Col>
                         <Col span={4}>
-                            <Form.Item label="Quận/ huyện" name="District">
+                            <Form.Item label="Quận/ huyện" name="district">
                                 <Select
                                     disabled={districtsListById.length === 0}
                                     placeholder="Chọn Quận/ huyện"
@@ -118,7 +118,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                             </Form.Item>
                         </Col>
                         <Col span={4}>
-                            <Form.Item label="Phường/ xã" name="Ward">
+                            <Form.Item label="Phường/ xã" name="ward">
                                 <Select
                                     disabled={wardsByListId.length === 0}
                                     placeholder="Chọn Phường/ xã"
