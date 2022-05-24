@@ -15,6 +15,13 @@ export interface AddressResp {
     id: number;
     name: string;
 }
+export interface Facility {
+    id: number;
+    facilityCode: string;
+    name: string;
+    businessType: string;
+    facilityState: string;
+}
 
 export interface FacilitiesState {
     conditionSearch: ConditionSearch;
@@ -23,6 +30,7 @@ export interface FacilitiesState {
     provincesList: AddressResp[];
     districtsListById: AddressResp[];
     wardsByListId: AddressResp[];
+    facilitiesList: Facility[];
 }
 const initialState: ReduxData<FacilitiesState> = {
     data: {
@@ -33,6 +41,11 @@ const initialState: ReduxData<FacilitiesState> = {
             TypeOfBusiness: '',
             CertificateState: '',
         },
+
+        // Facility List
+        facilitiesList: [],
+
+        // Place
         currentProvinceId: 0,
         currentDistrictId: 0,
         provincesList: [],
@@ -96,6 +109,16 @@ const facilitiesSlice = createSlice({
         postCreateFacilityError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
+        getGetListFacilityStart: (state, action: PayloadAction) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        getGetListFacilitySuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+            state.data.facilitiesList = action.payload;
+        },
+        getGetListFacilityError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
     },
 });
 export const {
@@ -103,6 +126,9 @@ export const {
     changeCurrentProvinceId,
     resetWardsByList,
     changeCurrentDistrictId,
+    getGetListFacilityStart,
+    getGetListFacilitySuccess,
+    getGetListFacilityError,
     postGetListProvincesStart,
     postGetListProvincesSuccess,
     postGetListProvincesError,

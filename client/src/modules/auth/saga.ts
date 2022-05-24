@@ -7,11 +7,11 @@ import { loginFailed, loginStart, loginSuccess, logoutStart, logoutSuccess } fro
 function* loginSaga(action: ReturnType<typeof loginStart>) {
     try {
         const resLogin: LoginInterface = yield call(loginApi, action.payload);
-        const { accessToken, refreshToken } = resLogin;
+        const { accessToken, refreshToken, displayName, username, roles } = resLogin;
         yield Storage.set(ACCESS_TOKEN_KEY, `Bearer ${accessToken}` || '');
         yield put({
             type: loginSuccess,
-            payload: action.payload,
+            payload: { displayName, username, accessToken, refreshToken, roles },
         });
     } catch (error) {
         yield put({ type: loginFailed, payload: error });

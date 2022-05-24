@@ -1,7 +1,10 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { postCreateFacitityApi } from 'core/http/apis/facilities';
+import { getGetListFacitityApi, postCreateFacitityApi } from 'core/http/apis/facilities';
 import { getListDistrictsByIdApi, getListProvincesApi, getListWardsUrlByIdApi } from 'core/http/apis/static';
 import {
+    getGetListFacilityError,
+    getGetListFacilityStart,
+    getGetListFacilitySuccess,
     postCreateFacilityError,
     postCreateFacilityStart,
     postCreateFacilitySuccess,
@@ -13,7 +16,7 @@ import {
     postGetListProvincesSuccess,
     postGetListWardsByIdError,
     postGetListWardsByIdStart,
-    postGetListWardsByIdSuccess,
+    postGetListWardsByIdSuccess
 } from './redux';
 
 function* postGetListProvinces(action: ReturnType<typeof postGetListProvincesStart>) {
@@ -70,6 +73,19 @@ function* postCreateFacility(action: ReturnType<typeof postCreateFacilityStart>)
         yield put({ type: postCreateFacilityError });
     }
 }
+function* getListFacility(action: ReturnType<typeof getGetListFacilityStart>) {
+    try {
+        const res: [] = yield call(getGetListFacitityApi);
+        if (res) {
+            yield put({
+                type: getGetListFacilitySuccess.type,
+                payload: res,
+            });
+        }
+    } catch (error) {
+        yield put({ type: getGetListFacilityError });
+    }
+}
 
 function* watchPostGetListProvinces() {
     yield takeLatest(postGetListProvincesStart.type, postGetListProvinces);
@@ -83,6 +99,9 @@ function* watchPostGetListWardsById() {
 function* watchPostCreateFacility() {
     yield takeLatest(postCreateFacilityStart.type, postCreateFacility);
 }
+function* watchGetListFacility() {
+    yield takeLatest(getGetListFacilityStart.type, getListFacility);
+}
 
 export default function* facilitiesSaga() {
     yield all([
@@ -90,5 +109,6 @@ export default function* facilitiesSaga() {
         watchPostGetListDistrictsById(),
         watchPostGetListWardsById(),
         watchPostCreateFacility(),
+        watchGetListFacility(),
     ]);
 }

@@ -6,7 +6,7 @@ import {
     changeCurrentProvinceId,
     postGetListDistrictsByIdStart,
     postGetListWardsByIdStart,
-    resetWardsByList,
+    resetWardsByList
 } from 'modules/facilities/redux';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';

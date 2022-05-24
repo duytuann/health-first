@@ -2,8 +2,10 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Space, Tooltip } from 'antd';
 import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
+import { useSelector } from 'react-redux';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
+import { RootState } from 'redux/store';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
 import React, { useState } from 'react';
 import { FacilitiesContainer } from '../../../plan/components/PlanTable/styles';
@@ -12,40 +14,9 @@ interface IWeeklyNewsProps {}
 
 const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
-    const APIPlaceHoder = [
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc5',
-            FacilityName: 'Highlands Coffee',
-            MaCS: 'FC001',
-            Address: '545 P. Kim Mã, Ba Đình, Hà Nội',
-            TypeOfBusiness: 'Dịch vụ ăn uống',
-            FacilityStatus: 'Đang hoạt động',
-        },
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc6',
-            FacilityName: 'The Coffee House',
-            MaCS: 'FC002',
-            Address: 'B3-01 Gardenia, Hàm Nghi, Nam Từ Liêm, Hà Nội',
-            TypeOfBusiness: 'Dịch vụ ăn uống',
-            FacilityStatus: 'Đã đóng cửa',
-        },
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc7',
-            FacilityName: 'Haidilao',
-            MaCS: 'FC003',
-            Address: 'Vincom Center, Tầng 3, 119 Đ. Trần Duy Hưng, Trung Hoà, Cầu Giấy',
-            TypeOfBusiness: 'Dịch vụ ăn uống',
-            FacilityStatus: 'Đang hoạt động',
-        },
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc8',
-            FacilityName: 'Công ty sản xuất thực phẩm Vissan',
-            MaCS: 'FC004',
-            Address: '420 Nơ Trang Long, P. 13, Quận Bình Thạnh, TP.HCM, Việt Nam',
-            TypeOfBusiness: 'Sản xuất thực phẩm',
-            FacilityStatus: 'Đang hoạt động',
-        },
-    ];
+    const {
+        data: { facilitiesList },
+    } = useSelector((state: RootState) => state.facilities);
 
     const columns = [
         {
@@ -56,21 +27,21 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
         },
         {
             title: 'Tên cơ sở',
-            key: 'FacilityName',
+            key: 'name',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.FacilityName}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
         },
         {
             title: 'Mã cơ sở',
-            key: 'MaCS',
+            key: 'facilityCode',
             width: 120,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.MaCS}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.facilityCode}</div>,
         },
         {
             title: 'Loại hình kinh doanh',
-            key: 'TypeOfBusiness',
+            key: 'businessType',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.TypeOfBusiness}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.businessType}</div>,
         },
         {
             title: 'Địa chỉ',
@@ -80,8 +51,8 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
         {
             width: 150,
             title: 'Trạng thái cơ sở',
-            key: 'CertificateStatus',
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.FacilityStatus}</div>,
+            key: 'facilityState',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.facilityState}</div>,
         },
         {
             width: 150,
@@ -139,7 +110,7 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
     return (
         <>
             <FacilitiesContainer>
-                <Table columns={columns} dataSource={APIPlaceHoder} pagination={false} />
+                <Table columns={columns} dataSource={facilitiesList} pagination={false} />
             </FacilitiesContainer>
             {isUpdateFacilityForm && (
                 <FacilitiesForm
