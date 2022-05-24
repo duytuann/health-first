@@ -46,7 +46,7 @@ export const businessType = [
     },
     {
         id: 2,
-        name: 'Ngưng hoạt động',
+        name: 'Kinh doanh dịch vụ ăn uống',
     },
 ];
 

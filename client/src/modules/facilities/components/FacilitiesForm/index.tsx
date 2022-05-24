@@ -7,6 +7,7 @@ import {
     changeCurrentDistrictId,
     changeCurrentProvinceId,
     postCreateFacilityStart,
+    postUpdateFacilityStart,
     postGetListDistrictsByIdStart,
     postGetListWardsByIdStart,
     resetWardsByList,
@@ -28,17 +29,38 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const {
-        data: { provincesList, districtsListById, wardsByListId, currentProvinceId, currentDistrictId },
+        data: {
+            provincesList,
+            districtsListById,
+            wardsByListId,
+            currentProvinceId,
+            currentDistrictId,
+            currentFacilityId,
+        },
         status,
     } = useSelector((state: RootState) => state.facilities);
 
     const handleSubmit = () => {
-        form.validateFields().then(() => {
-            const value = form.getFieldsValue(true);
+        if (!isUpdate) {
+            form.validateFields().then(() => {
+                const value = form.getFieldsValue(true);
 
-            dispatch(postCreateFacilityStart(value));
-            onOk();
-        });
+                dispatch(postCreateFacilityStart(value));
+                onOk();
+            });
+        } else {
+            form.validateFields().then(() => {
+                const value = form.getFieldsValue(true);
+
+                dispatch(
+                    postUpdateFacilityStart({
+                        ...value,
+                        id: currentFacilityId,
+                    })
+                );
+                onOk();
+            });
+        }
     };
 
     useEffect(() => {
@@ -180,7 +202,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
                                 dispatch(changeCurrentProvinceId(value));
                                 dispatch(resetWardsByList());
                                 form.setFieldsValue({
-                                    District: null,
+                                    district: null,
                                     wardId: null,
                                 });
                             }}

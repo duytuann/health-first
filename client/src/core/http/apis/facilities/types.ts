@@ -5,3 +5,11 @@ export interface CreateParams {
     businessTypeId: number;
     wardId: number;
 }
+
+export interface UpdateParams extends CreateParams {
+    id: number;
+}
+
+export interface DeleteParams {
+    id: number;
+}

@@ -1,5 +1,10 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { getGetListFacitityApi, postCreateFacitityApi } from 'core/http/apis/facilities';
+import {
+    getGetListFacitityApi,
+    postCreateFacitityApi,
+    postDeleteFacitityApi,
+    postUpdateFacitityApi,
+} from 'core/http/apis/facilities';
 import { getListDistrictsByIdApi, getListProvincesApi, getListWardsUrlByIdApi } from 'core/http/apis/static';
 import {
     getGetListFacilityError,
@@ -8,6 +13,9 @@ import {
     postCreateFacilityError,
     postCreateFacilityStart,
     postCreateFacilitySuccess,
+    postDeleteFacilityError,
+    postDeleteFacilityStart,
+    postDeleteFacilitySuccess,
     postGetListDistrictsByIdError,
     postGetListDistrictsByIdStart,
     postGetListDistrictsByIdSuccess,
@@ -16,9 +24,25 @@ import {
     postGetListProvincesSuccess,
     postGetListWardsByIdError,
     postGetListWardsByIdStart,
-    postGetListWardsByIdSuccess
+    postGetListWardsByIdSuccess,
+    postUpdateFacilityError,
+    postUpdateFacilityStart,
+    postUpdateFacilitySuccess,
 } from './redux';
 
+function* getListFacility(action: ReturnType<typeof getGetListFacilityStart>) {
+    try {
+        const res: [] = yield call(getGetListFacitityApi);
+        if (res) {
+            yield put({
+                type: getGetListFacilitySuccess.type,
+                payload: res,
+            });
+        }
+    } catch (error) {
+        yield put({ type: getGetListFacilityError });
+    }
+}
 function* postGetListProvinces(action: ReturnType<typeof postGetListProvincesStart>) {
     try {
         const res: [] = yield call(getListProvincesApi, {});
@@ -73,17 +97,26 @@ function* postCreateFacility(action: ReturnType<typeof postCreateFacilityStart>)
         yield put({ type: postCreateFacilityError });
     }
 }
-function* getListFacility(action: ReturnType<typeof getGetListFacilityStart>) {
+function* postUpdateFacility(action: ReturnType<typeof postUpdateFacilityStart>) {
     try {
-        const res: [] = yield call(getGetListFacitityApi);
+        const res: [] = yield call(postUpdateFacitityApi, action.payload);
         if (res) {
             yield put({
-                type: getGetListFacilitySuccess.type,
-                payload: res,
+                type: postUpdateFacilitySuccess.type,
             });
         }
     } catch (error) {
-        yield put({ type: getGetListFacilityError });
+        yield put({ type: postUpdateFacilityError });
+    }
+}
+function* postDeleteFacility(action: ReturnType<typeof postDeleteFacilityStart>) {
+    try {
+        yield call(postDeleteFacitityApi, action.payload);
+        yield put({
+            type: postDeleteFacilitySuccess.type,
+        });
+    } catch (error) {
+        yield put({ type: postDeleteFacilityError });
     }
 }
 
@@ -99,6 +132,12 @@ function* watchPostGetListWardsById() {
 function* watchPostCreateFacility() {
     yield takeLatest(postCreateFacilityStart.type, postCreateFacility);
 }
+function* watchPostUpdateFacility() {
+    yield takeLatest(postUpdateFacilityStart.type, postUpdateFacility);
+}
+function* watchPostDeleteFacility() {
+    yield takeLatest(postDeleteFacilityStart.type, postDeleteFacility);
+}
 function* watchGetListFacility() {
     yield takeLatest(getGetListFacilityStart.type, getListFacility);
 }
@@ -110,5 +149,7 @@ export default function* facilitiesSaga() {
         watchPostGetListWardsById(),
         watchPostCreateFacility(),
         watchGetListFacility(),
+        watchPostUpdateFacility(),
+        watchPostDeleteFacility(),
     ]);
 }

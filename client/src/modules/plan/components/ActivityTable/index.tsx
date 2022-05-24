@@ -4,21 +4,22 @@ import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
+import { planState } from 'helper/consts';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
-import { changeCurrentFacilityId, postDeleteFacilityStart } from 'modules/facilities/redux';
-import { FacilitiesContainer } from 'modules/plan/components/PlanTable/styles';
 import React, { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
+import { ActivitiesContainer, ViewDetail } from './styles';
 
-interface IWeeklyNewsProps {}
+interface IActivityTableProps {}
 
-const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
-    const dispatch = useDispatch();
+const ActivityTable: React.FC<IActivityTableProps> = () => {
+    const history = useHistory();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
-        data: { facilitiesList },
-    } = useSelector((state: RootState) => state.facilities);
+        data: { planList },
+    } = useSelector((state: RootState) => state.plan);
 
     const columns = [
         {
@@ -28,36 +29,29 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
             render: (text: string, row: any, index: number) => <div className="text-center">{index + 1}</div>,
         },
         {
-            title: 'Tên cơ sở',
+            title: 'Người tạo',
+            key: 'NguoiTao',
+            width: 200,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.NguoiTao}</div>,
+        },
+        {
+            title: 'Ngày tạo',
+            key: 'publishedDate',
+            width: 150,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.publishedDate}</div>,
+        },
+        {
+            title: 'Tên kế hoạch',
             key: 'name',
-            width: 180,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
         },
+
         {
-            title: 'Mã cơ sở',
-            key: 'facilityCode',
-            width: 120,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.facilityCode}</div>,
-        },
-        {
-            title: 'Loại hình kinh doanh',
-            key: 'businessType',
+            title: 'Trạng thái',
+            key: 'Status',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.businessType}</div>,
-        },
-        {
-            title: 'Địa chỉ',
-            key: 'Address',
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.Address}</div>,
-        },
-        {
-            width: 150,
-            title: 'Trạng thái cơ sở',
-            key: 'facilityState',
             render: (text: string, row: any, index: number) => (
-                <div className="text-center">
-                    {row.facilityState.trim() === 'inative' ? 'Dừng hoạt động' : 'Đang hoạt động'}
-                </div>
+                <div className="text-center">{planState.find(ele => ele.id === row.planStateId)?.name}</div>
             ),
         },
         {
@@ -73,7 +67,6 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    dispatch(changeCurrentFacilityId(record.id));
                                     setIsUpdateFacilityForm(true);
                                 }}
                             />
@@ -108,11 +101,7 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                dispatch(
-                    postDeleteFacilityStart({
-                        id: record.id,
-                    })
-                );
+                // dispatch(fetchDeleteTopicStart(record.TopicID));
             },
             onCancel() {},
         });
@@ -120,9 +109,9 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
 
     return (
         <>
-            <FacilitiesContainer>
-                <Table columns={columns} dataSource={facilitiesList} pagination={false} />
-            </FacilitiesContainer>
+            <ActivitiesContainer>
+                <Table columns={columns} dataSource={planList} pagination={false} />
+            </ActivitiesContainer>
             {isUpdateFacilityForm && (
                 <FacilitiesForm
                     visible={isUpdateFacilityForm}
@@ -139,4 +128,4 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
     );
 };
 
-export default FacilitiesTable;
+export default ActivityTable;

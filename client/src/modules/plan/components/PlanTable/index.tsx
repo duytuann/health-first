@@ -8,12 +8,14 @@ import { planState } from 'helper/consts';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
 import { FacilitiesContainer, ViewDetail } from './styles';
 
 interface IPlanTableProps {}
 
 const PlanTable: React.FC<IPlanTableProps> = () => {
+    const history = useHistory();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
         data: { planList },
@@ -87,7 +89,15 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             title: 'Chi tiết',
             key: 'PlanDetail',
             width: 150,
-            render: (text: string, row: any, index: number) => <ViewDetail>Xem chi tiết</ViewDetail>,
+            render: (text: string, row: any, index: number) => (
+                <ViewDetail
+                    onClick={() => {
+                        history.push(`/plan/${row.id}`);
+                    }}
+                >
+                    Xem chi tiết
+                </ViewDetail>
+            ),
         },
     ];
 
