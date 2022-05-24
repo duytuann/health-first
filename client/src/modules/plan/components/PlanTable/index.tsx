@@ -4,44 +4,20 @@ import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
+import { planState } from 'helper/consts';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
 import { FacilitiesContainer, ViewDetail } from './styles';
 
 interface IPlanTableProps {}
 
 const PlanTable: React.FC<IPlanTableProps> = () => {
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
-    const APIPlaceHoder = [
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc5',
-            NguoiTao: 'Trần Thanh Tùng',
-            NgayTao: '01/02/2022',
-            Status: 'Đang diễn ra',
-            TenKeHoach: 'Dịch vụ ăn uống',
-        },
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc6',
-            NguoiTao: 'Đỗ Duy Tuấn',
-            NgayTao: '13/04/2022',
-            Status: 'Đang diễn ra',
-            TenKeHoach: 'Dịch vụ ăn uống',
-        },
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc7',
-            NguoiTao: 'Đỗ Duy Tuấn',
-            NgayTao: '11/05/2022',
-            Status: 'Đã đóng',
-            TenKeHoach: 'Dịch vụ ăn uống',
-        },
-        {
-            FacilityID: 'a94bbbc9-f3e4-4cfa-9853-c7487cad0bc8',
-            NguoiTao: 'Đỗ Ngọc Long',
-            NgayTao: '21/02/2022',
-            Status: 'Đang diễn ra',
-            TenKeHoach: 'Sản xuất thực phẩm',
-        },
-    ];
+    const {
+        data: { planList },
+    } = useSelector((state: RootState) => state.plan);
 
     const columns = [
         {
@@ -58,21 +34,23 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
         },
         {
             title: 'Ngày tạo',
-            key: 'NgayTao',
+            key: 'publishedDate',
             width: 150,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.NgayTao}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.publishedDate}</div>,
         },
         {
             title: 'Tên kế hoạch',
-            key: 'TenKeHoach',
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.TenKeHoach}</div>,
+            key: 'name',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
         },
 
         {
             title: 'Trạng thái',
             key: 'Status',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.Status}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{planState.find(ele => ele.id === row.planStateId)?.name}</div>
+            ),
         },
         {
             width: 150,
@@ -136,7 +114,7 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
     return (
         <>
             <FacilitiesContainer>
-                <Table columns={columns} dataSource={APIPlaceHoder} pagination={false} />
+                <Table columns={columns} dataSource={planList} pagination={false} />
             </FacilitiesContainer>
             {isUpdateFacilityForm && (
                 <FacilitiesForm

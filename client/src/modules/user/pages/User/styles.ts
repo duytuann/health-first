@@ -6,12 +6,9 @@ export const UserWrapper = styled.div`
     display: flex;
     height: 100%;
 `;
-export const UserLeftWrapper = styled.div`
-    width: 20%;
-`;
 export const UserRightWrapper = styled.div`
-    width: 80%;
-    padding-right: 15px;
+    width: 100%;
+    padding: 0 30px 0 20px;
 `;
 
 export const SystemAdvanceSearchWrapper = styled.div`

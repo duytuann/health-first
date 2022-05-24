@@ -52,7 +52,11 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
             width: 150,
             title: 'Trạng thái cơ sở',
             key: 'facilityState',
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.facilityState}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">
+                    {row.facilityState.trim() === 'inative' ? 'Dừng hoạt động' : 'Đang hoạt động'}
+                </div>
+            ),
         },
         {
             width: 150,

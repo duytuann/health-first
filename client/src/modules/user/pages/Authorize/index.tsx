@@ -5,7 +5,6 @@ import Button, { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import { TableHeadingWrapper } from 'components/Table/styles';
-import CustomFormLeft from 'modules/user/components/CustomFormLeft';
 import ModalRoleGroupForm from 'modules/user/components/ModalRoleGroupForm';
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
@@ -104,7 +103,6 @@ const Authorize: React.FC<IAuthorizeProps> = () => {
 
     return (
         <RoleGroupWrapper>
-            <CustomFormLeft />
             <RoleGroupRightWrapper>
                 <TableHeadingWrapper>
                     <div>

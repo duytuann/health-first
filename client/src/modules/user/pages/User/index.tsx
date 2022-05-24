@@ -5,16 +5,20 @@ import Button, { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import { TableHeadingWrapper } from 'components/Table/styles';
-import CustomFormLeft from 'modules/user/components/CustomFormLeft';
+import { roleList } from 'helper/consts';
 import ModalDetailForm from 'modules/user/components/ModalDetailForm';
 import ModalUserForm from 'modules/user/components/ModalUserForm';
 import SystemAdvanceSearch from 'modules/user/components/SystemAdvanceSearch';
-import React, { useState } from 'react';
+import { postGetListUserStart } from 'modules/user/redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
 import { UserRightWrapper, UserWrapper } from './styles';
 
 interface IFacilitiesProps {}
 
 const User: React.FC<IFacilitiesProps> = () => {
+    const dispatch = useDispatch();
     const [form] = Form.useForm();
     const [isShowUserForm, setIsShowUserForm] = useState<boolean>(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -28,37 +32,42 @@ const User: React.FC<IFacilitiesProps> = () => {
         },
         {
             title: 'Tên tài khoản',
-            key: 'UserName',
+            key: 'username',
             width: 150,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.UserName}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.username}</div>,
         },
         {
-            title: 'Họ và tên',
-            key: 'DisplayName',
+            title: 'Họ tên',
+            key: 'displayName',
             width: 150,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.DisplayName}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.displayName}</div>,
         },
         {
             title: 'Nhóm quyền',
-            key: 'UserRole',
-            width: 150,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.UserRole}</div>,
+            key: 'roles',
+            width: 200,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">
+                    {row.roles.map((item: number) => roleList.find(ele => ele.id === item)?.name).join(', ')}
+                </div>
+            ),
         },
         {
             title: 'Trạng thái',
-            key: 'UserStatus',
+            key: 'userStatus',
             width: 100,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.UserStatus}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.userStatus}</div>,
         },
         {
             title: 'Số điện thoại',
-            key: 'PhoneNumber',
+            key: 'phoneNumber',
             width: 150,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.PhoneNumber}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.phoneNumber}</div>,
         },
+
         {
             title: 'Khu vực quản lý',
-            key: 'PhoneNumber',
+            key: 'KVQL',
             render: (text: string, row: any, index: number) => (
                 <div
                     onClick={() => {
@@ -70,6 +79,12 @@ const User: React.FC<IFacilitiesProps> = () => {
                     {row.KVQL}
                 </div>
             ),
+        },
+        {
+            title: 'Ngày tạo',
+            key: 'createdDate',
+            width: 100,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.createdDate}</div>,
         },
         {
             width: 100,
@@ -105,32 +120,9 @@ const User: React.FC<IFacilitiesProps> = () => {
         },
     ];
 
-    const userList = [
-        {
-            UserName: 'tungtt2601',
-            DisplayName: 'Trần Thanh Tùng',
-            UserRole: 'Quản lý, chuyên viên',
-            UserStatus: 'Đang hoạt động',
-            PhoneNumber: '0978654213',
-            KVQL: 'Chi tiết',
-        },
-        {
-            UserName: 'longdn1009',
-            DisplayName: 'Đỗ Ngọc Long',
-            UserRole: 'Quản lý, chuyên viên',
-            UserStatus: 'Đang hoạt động',
-            PhoneNumber: '0987678563',
-            KVQL: 'Chi tiết',
-        },
-        {
-            UserName: 'tuandd2008',
-            DisplayName: 'Đỗ Duy Tuấn',
-            UserRole: 'Quản lý, chuyên viên',
-            UserStatus: 'Đang hoạt động',
-            PhoneNumber: '0967665661',
-            KVQL: 'Chi tiết',
-        },
-    ];
+    const {
+        data: { userList },
+    } = useSelector((state: RootState) => state.user);
 
     const showPromiseConfirm = (record: any) => {
         confirm({
@@ -149,6 +141,10 @@ const User: React.FC<IFacilitiesProps> = () => {
             onCancel() {},
         });
     };
+
+    useEffect(() => {
+        dispatch(postGetListUserStart());
+    }, []);
 
     return (
         <UserWrapper>
@@ -174,7 +170,6 @@ const User: React.FC<IFacilitiesProps> = () => {
                     }}
                 />
             )}
-            <CustomFormLeft />
             <UserRightWrapper>
                 <SystemAdvanceSearch />
                 <TableHeadingWrapper>

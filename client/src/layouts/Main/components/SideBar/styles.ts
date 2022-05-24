@@ -2,28 +2,34 @@ import { Layout } from 'antd';
 import styled from 'styled-components/macro';
 
 export const SideBarWrapper = styled(Layout.Sider)`
-  padding-top: 15px;
-  overflow: hidden;
-  background-color: ${({ theme }) => theme.primaryColor};
-  .sibar-icon {
-    margin-right: 10px;
-  }
-  .title-header {
-    width: 100%;
-    height: 60px;
-    background: ${({ theme }) => theme.bgWhite};
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    li.ant-menu-item {
-      padding-left: 24px !important;
-      .ant-menu-title-content {
-        h3.text-title {
-          margin-bottom: 0;
-          font-size: 18px;
-          font-weight: 600;
-        }
-      }
+    padding-top: 15px;
+    overflow: hidden;
+    background-color: ${({ theme }) => theme.primaryColor};
+    .sibar-icon {
+        margin-right: 10px;
     }
-  }
+
+    .submenu {
+        background: #ffffff;
+        border-radius: 5px;
+        width: 90%;
+        margin: 0 auto;
+    }
+
+    .mainmenu {
+        border-radius: 5px;
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .ant-menu-item-selected a {
+        color: #ffffff;
+    }
+    .ant-menu-item-selected i {
+        color: #ffffff;
+    }
+
+    .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+        background-color: #42526e;
+    }
 `;

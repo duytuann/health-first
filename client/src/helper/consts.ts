@@ -9,6 +9,17 @@ export const RESPONSE_CODE = {
 export const PAGE_SIZE_OPTIONS = ['10', '20', '50', '100'];
 export const DEFAULT_PAGE_SIZE = 50;
 
+export const planState = [
+    {
+        id: 1,
+        name: 'Đang hoạt động',
+    },
+    {
+        id: 2,
+        name: 'Ngưng hoạt động',
+    },
+];
+
 export const facilityState = [
     {
         id: 0,
@@ -36,5 +47,24 @@ export const businessType = [
     {
         id: 2,
         name: 'Ngưng hoạt động',
+    },
+];
+
+export const roleList = [
+    {
+        id: 1,
+        name: 'Quản trị viên',
+    },
+    {
+        id: 2,
+        name: 'Quản lý',
+    },
+    {
+        id: 3,
+        name: 'Quản lý cấp cao',
+    },
+    {
+        id: 4,
+        name: 'Người dùng',
     },
 ];
