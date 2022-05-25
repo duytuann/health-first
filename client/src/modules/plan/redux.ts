@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createPlanParams, updatePlanParams } from 'core/http/apis/plan/types';
-import { CreateActivityParams, UpdateActivityParams } from 'core/http/apis/activities/types';
+import { createPlanParams, updatePlanParams, deletePlanParams } from 'core/http/apis/plan/types';
+import { CreateActivityParams, UpdateActivityParams, DeleteActivityParams } from 'core/http/apis/activities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface FacilitiesState {
@@ -92,6 +92,24 @@ const planSlice = createSlice({
         postUpdateActivityError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
+        postDeletePlanStart: (state, action: PayloadAction<deletePlanParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postDeletePlanSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postDeletePlanError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postDeleteActivityStart: (state, action: PayloadAction<DeleteActivityParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postDeleteActivitySuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postDeleteActivityError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
     },
 });
 export const {
@@ -116,5 +134,11 @@ export const {
     postUpdateActivityStart,
     postUpdateActivitySuccess,
     postUpdateActivityError,
+    postDeleteActivityError,
+    postDeleteActivityStart,
+    postDeleteActivitySuccess,
+    postDeletePlanError,
+    postDeletePlanStart,
+    postDeletePlanSuccess,
 } = planSlice.actions;
 export default planSlice.reducer;

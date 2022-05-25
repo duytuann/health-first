@@ -5,7 +5,7 @@ import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import ActivityForm from 'modules/plan/components/ActivityForm';
-import { changeCurrentActivityId } from 'modules/plan/redux';
+import { changeCurrentActivityId, postDeleteActivityStart } from 'modules/plan/redux';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -113,7 +113,7 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                // dispatch(fetchDeleteTopicStart(record.TopicID));
+                dispatch(postDeleteActivityStart(record.id));
             },
             onCancel() {},
         });

@@ -1,6 +1,11 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { getGetListActivityApi, postCreateActivityApi, postUpdateActivityApi } from 'core/http/apis/activities';
-import { getGetListPlanApi, postCreatePlanApi, postUpdatePlanApi } from 'core/http/apis/plan';
+import {
+    getGetListActivityApi,
+    postCreateActivityApi,
+    postUpdateActivityApi,
+    postDeleteActivityApi,
+} from 'core/http/apis/activities';
+import { getGetListPlanApi, postCreatePlanApi, postUpdatePlanApi, postDeletePlanApi } from 'core/http/apis/plan';
 import { toast } from 'react-toastify';
 import {
     postGetListActivityError,
@@ -21,6 +26,12 @@ import {
     postUpdateActivityStart,
     postUpdateActivitySuccess,
     postUpdateActivityError,
+    postDeleteActivityError,
+    postDeleteActivityStart,
+    postDeleteActivitySuccess,
+    postDeletePlanError,
+    postDeletePlanStart,
+    postDeletePlanSuccess,
 } from './redux';
 
 function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
@@ -98,6 +109,31 @@ function* postUpdateActivity(action: ReturnType<typeof postUpdateActivityStart>)
     }
 }
 
+function* postDeletePlan(action: ReturnType<typeof postDeletePlanStart>) {
+    try {
+        yield call(postDeletePlanApi, action.payload);
+        yield put({
+            type: postDeletePlanSuccess.type,
+        });
+        toast.success('Xoá kế hoạch thành công');
+    } catch (error) {
+        toast.error('Xoá kế hoạch thất bại');
+        yield put({ type: postDeletePlanError });
+    }
+}
+function* postDeleteActivity(action: ReturnType<typeof postDeleteActivityStart>) {
+    try {
+        yield call(postDeleteActivityApi, action.payload);
+        yield put({
+            type: postDeleteActivitySuccess.type,
+        });
+        toast.success('Xoá hoạt động thành công');
+    } catch (error) {
+        toast.error('Xoá hoạt động thất bại');
+        yield put({ type: postDeleteActivityError });
+    }
+}
+
 function* watchUpdatePlan() {
     yield takeLatest(postUpdatePlanStart.type, postUpdatePlan);
 }
@@ -116,6 +152,12 @@ function* watchCreatePlan() {
 function* watchCreateActivity() {
     yield takeLatest(postCreateActivityStart.type, postCreateActivity);
 }
+function* watchDeletePlan() {
+    yield takeLatest(postDeletePlanStart.type, postDeletePlan);
+}
+function* watchDeleteActivity() {
+    yield takeLatest(postDeleteActivityStart.type, postDeleteActivity);
+}
 
 export default function* PlansSaga() {
     yield all([
@@ -125,5 +167,7 @@ export default function* PlansSaga() {
         watchCreateActivity(),
         watchUpdatePlan(),
         watchUpdateActivity(),
+        watchDeletePlan(),
+        watchDeleteActivity(),
     ]);
 }

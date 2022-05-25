@@ -7,7 +7,8 @@ import Table from 'components/Table';
 import { planState } from 'helper/consts';
 import PlanForm from 'modules/plan/components/PlanForm';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { postDeletePlanStart } from 'modules/plan/redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
 import { FacilitiesContainer, ViewDetail } from './styles';
@@ -15,6 +16,7 @@ import { FacilitiesContainer, ViewDetail } from './styles';
 interface IPlanTableProps {}
 
 const PlanTable: React.FC<IPlanTableProps> = () => {
+    const dispatch = useDispatch();
     const history = useHistory();
     const [isUpdatePlanForm, setIsUpdatePlanForm] = useState(false);
     const {
@@ -115,7 +117,7 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                // dispatch(fetchDeleteTopicStart(record.TopicID));
+                dispatch(postDeletePlanStart(record.id));
             },
             onCancel() {},
         });
