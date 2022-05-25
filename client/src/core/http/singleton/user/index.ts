@@ -1,5 +1,5 @@
-import HttpUsersData from './userHttp';
+import HttpUsers from './userHttp';
 
-const service = HttpUsersData.getInstance();
+const service = HttpUsers.getInstance();
 
 export default service;

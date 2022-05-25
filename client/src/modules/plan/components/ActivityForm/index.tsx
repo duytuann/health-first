@@ -4,7 +4,7 @@ import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
 import { activityState, activityResult } from 'helper/consts';
 import { postCreateActivityStart, postUpdateActivityStart } from 'modules/plan/redux';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { FormDetailWrapper } from './styles';
@@ -20,7 +20,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const {
-        data: { currentPlanId, currentActivityId, currentFacilityId },
+        data: { currentPlanId, currentActivityId, currentFacilityId},
     } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
@@ -57,6 +57,17 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
             });
         }
     };
+
+    // useEffect(() => {
+    //     if (isUpdate) {
+    //         form.setFieldsValue({
+    //             name: currentDetailPlanById.name,
+    //             description: currentDetailPlanById.description,
+    //             conclusion: currentDetailPlanById.conclusion,
+    //             startDate: currentDetailPlanById.startDate,
+    //         });
+    //     }
+    // }, []);
 
     return (
         <Modal

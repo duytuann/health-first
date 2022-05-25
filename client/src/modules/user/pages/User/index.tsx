@@ -1,5 +1,5 @@
 import { DeleteOutlined } from '@ant-design/icons';
-import { Form, Space, Tooltip } from 'antd';
+import { Space, Tooltip } from 'antd';
 import confirm from 'antd/lib/modal/confirm';
 import Button, { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
@@ -9,7 +9,7 @@ import { roleList } from 'helper/consts';
 import ModalDetailForm from 'modules/user/components/ModalDetailForm';
 import ModalUserForm from 'modules/user/components/ModalUserForm';
 import SystemAdvanceSearch from 'modules/user/components/SystemAdvanceSearch';
-import { postGetListUserStart } from 'modules/user/redux';
+import { postGetListUserStart, changeCurrentDetailById, postDeleteUserStart } from 'modules/user/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -19,8 +19,8 @@ interface IFacilitiesProps {}
 
 const User: React.FC<IFacilitiesProps> = () => {
     const dispatch = useDispatch();
-    const [form] = Form.useForm();
     const [isShowUserForm, setIsShowUserForm] = useState<boolean>(false);
+    const [isShowUserUpdateForm, setIsShowUserUpdateForm] = useState<boolean>(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
 
     const columns = [
@@ -99,8 +99,8 @@ const User: React.FC<IFacilitiesProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    //   dispatch(setRoleGroupID(record.RoleGroupID));
-                                    setIsShowUserForm(true);
+                                    dispatch(changeCurrentDetailById(record));
+                                    setIsShowUserUpdateForm(true);
                                 }}
                             />
                         </Tooltip>
@@ -110,6 +110,7 @@ const User: React.FC<IFacilitiesProps> = () => {
                                 size="small"
                                 icon={<Icon name="delete" color="red600" size={20} className="mx-auto" />}
                                 onClick={() => {
+                                    dispatch(changeCurrentDetailById(record));
                                     showPromiseConfirm(record);
                                 }}
                             />
@@ -136,7 +137,11 @@ const User: React.FC<IFacilitiesProps> = () => {
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                // dispatch(deleteRoleGroupStart(roleData.RoleGroupID));
+                dispatch(
+                    postDeleteUserStart({
+                        id: record.id,
+                    })
+                );
             },
             onCancel() {},
         });
@@ -165,9 +170,21 @@ const User: React.FC<IFacilitiesProps> = () => {
                         setIsShowUserForm(false);
                     }}
                     onOk={() => {
-                        //   dispatch(getRoleGroupStart(conditionSearch));
                         setIsShowUserForm(false);
                     }}
+                    isUpdate={false}
+                />
+            )}
+            {isShowUserUpdateForm && (
+                <ModalUserForm
+                    visible={isShowUserUpdateForm}
+                    onCancel={() => {
+                        setIsShowUserUpdateForm(false);
+                    }}
+                    onOk={() => {
+                        setIsShowUserUpdateForm(false);
+                    }}
+                    isUpdate={true}
                 />
             )}
             <UserRightWrapper>

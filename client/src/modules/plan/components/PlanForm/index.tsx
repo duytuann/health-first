@@ -2,9 +2,10 @@ import { DatePicker, Form, Input, Select, Space } from 'antd';
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
+import moment from 'moment';
 import { planState } from 'helper/consts';
 import { postCreatePlanStart, postUpdatePlanStart } from 'modules/plan/redux';
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { FormDetailWrapper } from './styles';
@@ -21,7 +22,7 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
     const [form] = Form.useForm();
 
     const {
-        data: { currentPlanId },
+        data: { currentPlanId, currentDetailPlanById },
     } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
@@ -52,6 +53,17 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
             });
         }
     };
+
+    useEffect(() => {
+        if (isUpdate) {
+            form.setFieldsValue({
+                name: currentDetailPlanById.name,
+                planStateId: currentDetailPlanById.planStateId,
+                publishedDate: moment(currentDetailPlanById.publishedDate),
+                // description: currentDetailPlanById.description,
+            });
+        }
+    }, []);
 
     return (
         <Modal

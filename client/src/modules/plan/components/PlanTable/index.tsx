@@ -7,7 +7,7 @@ import Table from 'components/Table';
 import { planState } from 'helper/consts';
 import PlanForm from 'modules/plan/components/PlanForm';
 import React, { useState } from 'react';
-import { postDeletePlanStart } from 'modules/plan/redux';
+import { postDeletePlanStart, changeCurrentDetailPlanById } from 'modules/plan/redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
@@ -37,7 +37,7 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             render: (text: string, row: any, index: number) => <div className="text-center">{row.createdUser}</div>,
         },
         {
-            title: 'Ngày tạo',
+            title: 'Ngày bắt đầu',
             key: 'publishedDate',
             width: 150,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.publishedDate}</div>,
@@ -69,6 +69,7 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
+                                    dispatch(changeCurrentDetailPlanById(record));
                                     setIsUpdatePlanForm(true);
                                 }}
                             />
@@ -109,15 +110,19 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             icon: <DeleteOutlined color="red" />,
             content: (
                 <div>
-                    Bạn có chắc chắn muốn xoá cở sở
-                    <strong> {record?.FacilityName} </strong>
+                    Bạn có chắc chắn muốn xoá kế hoạch
+                    <strong> {record?.name} </strong>
                     không?
                 </div>
             ),
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                dispatch(postDeletePlanStart(record.id));
+                dispatch(
+                    postDeletePlanStart({
+                        id: record.id,
+                    })
+                );
             },
             onCancel() {},
         });

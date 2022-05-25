@@ -4,3 +4,4 @@ export const RESTFUL_FACILITIES_URL = 'api/facilities/';
 export const RESTFUL_USER_URL = 'api/users/';
 export const RESTFUL_PLAN_URL = 'api/plans/';
 export const RESTFUL_ACTIVITIES_URL = 'api/activities/';
+export const RESTFUL_CERTIFICATES_URL = 'api/certificates/';

@@ -7,6 +7,7 @@ export interface PlanState {
     planList: any;
     activityOfPlan: any;
     currentPlanId: number;
+    currentDetailPlanById: any;
     currentFacilityId: number;
     currentActivityId: number;
 }
@@ -16,6 +17,7 @@ const initialState: ReduxData<PlanState> = {
         currentPlanId: 0,
         currentActivityId: 0,
         currentFacilityId: 0,
+        currentDetailPlanById: {},
 
         // plan and activity list
         planList: [],
@@ -27,6 +29,9 @@ const planSlice = createSlice({
     name: 'planSlice',
     initialState,
     reducers: {
+        changeCurrentDetailPlanById: (state, action: PayloadAction<any>) => {
+            state.data.currentDetailPlanById = action.payload;
+        },
         changeCurrentPlanId: (state, action: PayloadAction<number>) => {
             state.data.currentPlanId = action.payload;
         },
@@ -113,6 +118,7 @@ const planSlice = createSlice({
     },
 });
 export const {
+    changeCurrentDetailPlanById,
     changeCurrentPlanId,
     changeCurrentFacilityId,
     changeCurrentActivityId,
