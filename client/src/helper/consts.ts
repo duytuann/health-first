@@ -90,3 +90,18 @@ export const activityResult = [
         name: 'Không thông qua',
     },
 ];
+
+export const certificateState = [
+    {
+        id: 1,
+        name: 'Đang hoạt động',
+    },
+    {
+        id: 2,
+        name: 'Hết hạn',
+    },
+    {
+        id: 3,
+        name: 'Bị thu hồi',
+    },
+];

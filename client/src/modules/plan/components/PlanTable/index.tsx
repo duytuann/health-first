@@ -7,7 +7,7 @@ import Table from 'components/Table';
 import { planState } from 'helper/consts';
 import PlanForm from 'modules/plan/components/PlanForm';
 import React, { useState } from 'react';
-import { postDeletePlanStart, changeCurrentDetailPlanById } from 'modules/plan/redux';
+import { postDeletePlanStart, changeCurrentDetailPlanById, changeCurrentPlanId } from 'modules/plan/redux';
 import { useSelector, useDispatch } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
@@ -95,6 +95,7 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             render: (text: string, row: any, index: number) => (
                 <ViewDetail
                     onClick={() => {
+                        dispatch(changeCurrentPlanId(row.id));
                         history.push(`/plan/${row.id}`);
                     }}
                 >

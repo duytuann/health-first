@@ -1,18 +1,18 @@
-import { Col, Form, Input, Row, Select, Space, Spin } from 'antd';
-import Icon from 'components/Icon/Icon';
+import { Col, Form, Input, Row, Select, Spin } from 'antd';
+import Button from 'components/Button';
 import { businessType, facilityState } from 'helper/consts';
 import {
     changeCurrentDistrictId,
     changeCurrentProvinceId,
     postGetListDistrictsByIdStart,
     postGetListWardsByIdStart,
-    resetWardsByList
+    resetWardsByList,
 } from 'modules/facilities/redux';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { ReduxStateType } from 'redux/types';
-import { SystemAdvanceSearchWrapper } from './styles';
+import { SystemAdvanceSearchWrapper, Container } from './styles';
 
 interface IProps {}
 
@@ -53,7 +53,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
     }, [currentDistrictId]);
 
     return (
-        <Spin spinning={status === ReduxStateType.LOADING}>
+        <Container>
             <SystemAdvanceSearchWrapper>
                 <Form
                     form={form}
@@ -148,16 +148,22 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                                 <Input placeholder="Tìm kiếm tên cơ sở" />
                             </Form.Item>
                         </Col>
-
-                        <Col span={1}>
-                            <Space className="action action-search">
-                                <Icon className="search" name="search" size={34} color="primary" />
-                            </Space>
-                        </Col>
                     </Row>
                 </Form>
             </SystemAdvanceSearchWrapper>
-        </Spin>
+            <div style={{ width: '100px' }}>
+                <Button
+                    style={{ margin: '10px' }}
+                    color="primary"
+                    $fill
+                    onClick={() => {
+                        // setIsShowAddFacilityForm(true);
+                    }}
+                >
+                    Tìm kiếm
+                </Button>
+            </div>
+        </Container>
     );
 };
 export default SystemAdvanceSearch;

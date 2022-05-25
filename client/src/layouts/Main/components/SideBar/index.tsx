@@ -65,7 +65,7 @@ const SideBar: React.FC = React.memo(() => {
     const mainPathSplit = mainPath.split('/');
 
     return (
-        <SideBarWrapper theme="light" width={220}>
+        <SideBarWrapper theme="light" width={230}>
             <Menu
                 mode="inline"
                 defaultSelectedKeys={mainPathSplit ? mainPathSplit : ['']}

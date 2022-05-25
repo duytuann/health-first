@@ -1,9 +1,15 @@
-export interface createUserParams {}
+export interface createCertificateParams {
+    certificateNumber: string;
+    certificateStateId: number;
+    publishedDate: string;
+    expiredDate: string;
+    facilityId: number;
+}
 
-export interface updateUserParams extends createUserParams {
+export interface updateCertificateParams extends createCertificateParams {
     id: number;
 }
 
-export interface deleteUserParams {
+export interface deleteCertificateParams {
     id: number;
 }
