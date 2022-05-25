@@ -32,9 +32,9 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
         },
         {
             title: 'Người tạo',
-            key: 'NguoiTao',
+            key: 'createdUser',
             width: 200,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.NguoiTao}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.createdUser}</div>,
         },
         {
             title: 'Ngày tạo',

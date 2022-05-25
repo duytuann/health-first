@@ -20,7 +20,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const {
-        data: { currentPlanId, currentActivityId },
+        data: { currentPlanId, currentActivityId, currentFacilityId },
     } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
@@ -33,7 +33,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
                     startDate: value.startDate.format('YYYY-MM-DD'),
                     endDate: value.endDate.format('YYYY-MM-DD'),
                     planId: currentPlanId,
-                    // facilityID : ???
+                    facilityId: currentFacilityId,
                 };
 
                 dispatch(postCreateActivityStart(body));
@@ -48,7 +48,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
                     startDate: value.startDate.format('YYYY-MM-DD'),
                     endDate: value.endDate.format('YYYY-MM-DD'),
                     planId: currentPlanId,
-                    // facilityID : ???
+                    facilityId: currentFacilityId,
                     id: currentActivityId,
                 };
 

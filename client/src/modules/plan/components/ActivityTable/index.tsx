@@ -5,7 +5,7 @@ import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import ActivityForm from 'modules/plan/components/ActivityForm';
-import { changeCurrentActivityId, postDeleteActivityStart } from 'modules/plan/redux';
+import { changeCurrentActivityId, postDeleteActivityStart, changeCurrentFacilityId } from 'modules/plan/redux';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -78,6 +78,7 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
+                                    dispatch(changeCurrentFacilityId(record.facilityId));
                                     dispatch(changeCurrentActivityId(record.id));
                                     setIsUpdateFacilityForm(true);
                                 }}
@@ -89,7 +90,7 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
                                 size="small"
                                 icon={<Icon name="delete" color="red600" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    showDeleteTopicConfirm(record);
+                                    showDeleteActivityConfirm(record);
                                 }}
                             />
                         </Tooltip>
@@ -99,21 +100,21 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
         },
     ];
 
-    const showDeleteTopicConfirm = (record: any) => {
+    const showDeleteActivityConfirm = (record: any) => {
         confirm({
             title: 'Xoá cơ sở',
             icon: <DeleteOutlined color="red" />,
             content: (
                 <div>
                     Bạn có chắc chắn muốn xoá cở sở
-                    <strong> {record?.FacilityName} </strong>
+                    <strong> {record?.name} </strong>
                     không?
                 </div>
             ),
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                dispatch(postDeleteActivityStart(record.id));
+                dispatch(postDeleteActivityStart(record?.id));
             },
             onCancel() {},
         });

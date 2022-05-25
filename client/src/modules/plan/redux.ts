@@ -3,14 +3,14 @@ import { createPlanParams, updatePlanParams, deletePlanParams } from 'core/http/
 import { CreateActivityParams, UpdateActivityParams, DeleteActivityParams } from 'core/http/apis/activities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
-export interface FacilitiesState {
+export interface PlanState {
     planList: any;
     activityOfPlan: any;
     currentPlanId: number;
     currentFacilityId: number;
     currentActivityId: number;
 }
-const initialState: ReduxData<FacilitiesState> = {
+const initialState: ReduxData<PlanState> = {
     data: {
         // currentPlanId for Update
         currentPlanId: 0,

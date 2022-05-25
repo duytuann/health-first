@@ -1,4 +1,5 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
+import { ResultResponse } from 'core/models/ResultResponse';
 import {
     getGetListActivityApi,
     postCreateActivityApi,
@@ -36,11 +37,11 @@ import {
 
 function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
     try {
-        const res: [] = yield call(getGetListPlanApi);
+        const res: ResultResponse<any> = yield call(getGetListPlanApi);
         if (res) {
             yield put({
                 type: postGetListPlanSuccess.type,
-                payload: res,
+                payload: res.responseData,
             });
         }
     } catch (error) {
