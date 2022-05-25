@@ -1,6 +1,6 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { getGetListActivityApi, postCreateActivityApi } from 'core/http/apis/activities';
-import { getGetListPlanApi, postCreatePlanApi } from 'core/http/apis/plan';
+import { getGetListActivityApi, postCreateActivityApi, postUpdateActivityApi } from 'core/http/apis/activities';
+import { getGetListPlanApi, postCreatePlanApi, postUpdatePlanApi } from 'core/http/apis/plan';
 import { toast } from 'react-toastify';
 import {
     postGetListActivityError,
@@ -15,6 +15,12 @@ import {
     postCreateActivityStart,
     postCreateActivitySuccess,
     postCreateActivityError,
+    postUpdatePlanStart,
+    postUpdatePlanSuccess,
+    postUpdatePlanError,
+    postUpdateActivityStart,
+    postUpdateActivitySuccess,
+    postUpdateActivityError,
 } from './redux';
 
 function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
@@ -51,7 +57,7 @@ function* postCreatePlan(action: ReturnType<typeof postCreatePlanStart>) {
         });
         toast.success('Thêm mới kế hoạch thành công');
     } catch (error) {
-        toast.error('Thêm mới hoạt động thất bại');
+        toast.error('Thêm mới kế hoạch thất bại');
         yield put({ type: postCreatePlanError });
     }
 }
@@ -67,7 +73,37 @@ function* postCreateActivity(action: ReturnType<typeof postCreateActivityStart>)
         yield put({ type: postCreateActivityError });
     }
 }
+function* postUpdatePlan(action: ReturnType<typeof postUpdatePlanStart>) {
+    try {
+        yield call(postUpdatePlanApi, action.payload);
+        yield put({
+            type: postUpdatePlanSuccess.type,
+        });
+        toast.success('Cập nhật kế hoạch thành công');
+    } catch (error) {
+        toast.error('Cập nhật kế hoạch thất bại');
+        yield put({ type: postUpdatePlanError });
+    }
+}
+function* postUpdateActivity(action: ReturnType<typeof postUpdateActivityStart>) {
+    try {
+        yield call(postUpdateActivityApi, action.payload);
+        yield put({
+            type: postUpdateActivitySuccess.type,
+        });
+        toast.success('Cập nhật hoạt động thành công');
+    } catch (error) {
+        toast.error('Cập nhật hoạt động thất bại');
+        yield put({ type: postUpdateActivityError });
+    }
+}
 
+function* watchUpdatePlan() {
+    yield takeLatest(postUpdatePlanStart.type, postUpdatePlan);
+}
+function* watchUpdateActivity() {
+    yield takeLatest(postUpdateActivityStart.type, postUpdateActivity);
+}
 function* watchGetListPlan() {
     yield takeLatest(postGetListPlanStart.type, postGetListPlan);
 }
@@ -82,5 +118,12 @@ function* watchCreateActivity() {
 }
 
 export default function* PlansSaga() {
-    yield all([watchGetListPlan(), watchGetListActivity(), watchCreatePlan(), watchCreateActivity()]);
+    yield all([
+        watchGetListPlan(),
+        watchGetListActivity(),
+        watchCreatePlan(),
+        watchCreateActivity(),
+        watchUpdatePlan(),
+        watchUpdateActivity(),
+    ]);
 }

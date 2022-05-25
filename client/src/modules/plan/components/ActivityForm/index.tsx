@@ -3,7 +3,7 @@ import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
 import { activityState, activityResult } from 'helper/consts';
-import { postCreateActivityStart } from 'modules/plan/redux';
+import { postCreateActivityStart, postUpdateActivityStart } from 'modules/plan/redux';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -20,7 +20,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const {
-        data: { currentPlanId },
+        data: { currentPlanId, currentActivityId },
     } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
@@ -33,6 +33,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
                     startDate: value.startDate.format('YYYY-MM-DD'),
                     endDate: value.endDate.format('YYYY-MM-DD'),
                     planId: currentPlanId,
+                    // facilityID : ???
                 };
 
                 dispatch(postCreateActivityStart(body));
@@ -42,11 +43,16 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
             form.validateFields().then(() => {
                 const value = form.getFieldsValue(true);
 
-                // dispatch(
-                //     postUpdateFacilityStart({
-                //         ...value,
-                //     })
-                // );
+                const body = {
+                    ...value,
+                    startDate: value.startDate.format('YYYY-MM-DD'),
+                    endDate: value.endDate.format('YYYY-MM-DD'),
+                    planId: currentPlanId,
+                    // facilityID : ???
+                    id: currentActivityId,
+                };
+
+                dispatch(postUpdateActivityStart(body));
                 onOk();
             });
         }

@@ -3,9 +3,10 @@ import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
 import { planState } from 'helper/consts';
-import { postCreatePlanStart } from 'modules/plan/redux';
+import { postCreatePlanStart, postUpdatePlanStart } from 'modules/plan/redux';
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
 import { FormDetailWrapper } from './styles';
 
 interface IPlanFormProps {
@@ -18,6 +19,10 @@ interface IPlanFormProps {
 const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate }) => {
     const dispatch = useDispatch();
     const [form] = Form.useForm();
+
+    const {
+        data: { currentPlanId },
+    } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
         if (!isUpdate) {
@@ -36,11 +41,13 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
             form.validateFields().then(() => {
                 const value = form.getFieldsValue(true);
 
-                // dispatch(
-                //     postUpdateFacilityStart({
-                //         ...value,
-                //     })
-                // );
+                dispatch(
+                    postUpdatePlanStart({
+                        ...value,
+                        publishedDate: value.publishedDate.format('YYYY-MM-DD'),
+                        id: currentPlanId,
+                    })
+                );
                 onOk();
             });
         }

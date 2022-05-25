@@ -5,14 +5,16 @@ import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import ActivityForm from 'modules/plan/components/ActivityForm';
+import { changeCurrentActivityId } from 'modules/plan/redux';
 import React, { useState } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { ActivitiesContainer } from './styles';
 
 interface IActivityTableProps {}
 
 const ActivityTable: React.FC<IActivityTableProps> = () => {
+    const dispatch = useDispatch();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
         data: { activityOfPlan },
@@ -76,6 +78,7 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
+                                    dispatch(changeCurrentActivityId(record.id));
                                     setIsUpdateFacilityForm(true);
                                 }}
                             />

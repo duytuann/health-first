@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createPlanParams } from 'core/http/apis/plan/types';
-import { CreateActivityParams } from 'core/http/apis/activities/types';
+import { createPlanParams, updatePlanParams } from 'core/http/apis/plan/types';
+import { CreateActivityParams, UpdateActivityParams } from 'core/http/apis/activities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface FacilitiesState {
@@ -8,11 +8,13 @@ export interface FacilitiesState {
     activityOfPlan: any;
     currentPlanId: number;
     currentFacilityId: number;
+    currentActivityId: number;
 }
 const initialState: ReduxData<FacilitiesState> = {
     data: {
         // currentPlanId for Update
         currentPlanId: 0,
+        currentActivityId: 0,
         currentFacilityId: 0,
 
         // plan and activity list
@@ -30,6 +32,9 @@ const planSlice = createSlice({
         },
         changeCurrentFacilityId: (state, action: PayloadAction<number>) => {
             state.data.currentFacilityId = action.payload;
+        },
+        changeCurrentActivityId: (state, action: PayloadAction<number>) => {
+            state.data.currentActivityId = action.payload;
         },
         postGetListPlanStart: (state, action: PayloadAction) => {
             state.status = ReduxStateType.LOADING;
@@ -69,11 +74,30 @@ const planSlice = createSlice({
         postCreateActivityError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
+        postUpdatePlanStart: (state, action: PayloadAction<updatePlanParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postUpdatePlanSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postUpdatePlanError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postUpdateActivityStart: (state, action: PayloadAction<UpdateActivityParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postUpdateActivitySuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postUpdateActivityError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
     },
 });
 export const {
     changeCurrentPlanId,
     changeCurrentFacilityId,
+    changeCurrentActivityId,
     postGetListPlanStart,
     postGetListPlanSuccess,
     postGetListPlanError,
@@ -86,5 +110,11 @@ export const {
     postCreateActivityStart,
     postCreateActivitySuccess,
     postCreateActivityError,
+    postUpdatePlanStart,
+    postUpdatePlanSuccess,
+    postUpdatePlanError,
+    postUpdateActivityStart,
+    postUpdateActivitySuccess,
+    postUpdateActivityError,
 } = planSlice.actions;
 export default planSlice.reducer;
