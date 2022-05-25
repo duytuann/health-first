@@ -68,3 +68,25 @@ export const roleList = [
         name: 'Người dùng',
     },
 ];
+
+export const activityState = [
+    {
+        id: 1,
+        name: 'Đang hoạt động',
+    },
+    {
+        id: 2,
+        name: 'Không hoạt động',
+    },
+];
+
+export const activityResult = [
+    {
+        id: 1,
+        name: 'Được thông qua',
+    },
+    {
+        id: 2,
+        name: 'Không thông qua',
+    },
+];

@@ -5,7 +5,7 @@ import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import { planState } from 'helper/consts';
-import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
+import PlanForm from 'modules/plan/components/PlanForm';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -16,7 +16,7 @@ interface IPlanTableProps {}
 
 const PlanTable: React.FC<IPlanTableProps> = () => {
     const history = useHistory();
-    const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
+    const [isUpdatePlanForm, setIsUpdatePlanForm] = useState(false);
     const {
         data: { planList },
     } = useSelector((state: RootState) => state.plan);
@@ -67,7 +67,7 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    setIsUpdateFacilityForm(true);
+                                    setIsUpdatePlanForm(true);
                                 }}
                             />
                         </Tooltip>
@@ -126,14 +126,14 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             <FacilitiesContainer>
                 <Table columns={columns} dataSource={planList} pagination={false} />
             </FacilitiesContainer>
-            {isUpdateFacilityForm && (
-                <FacilitiesForm
-                    visible={isUpdateFacilityForm}
+            {isUpdatePlanForm && (
+                <PlanForm
+                    visible={isUpdatePlanForm}
                     onCancel={() => {
-                        setIsUpdateFacilityForm(false);
+                        setIsUpdatePlanForm(false);
                     }}
                     onOk={() => {
-                        setIsUpdateFacilityForm(false);
+                        setIsUpdatePlanForm(false);
                     }}
                     isUpdate={true}
                 />

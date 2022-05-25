@@ -4,21 +4,18 @@ import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
-import { planState } from 'helper/consts';
-import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
+import ActivityForm from 'modules/plan/components/ActivityForm';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
-import { ActivitiesContainer, ViewDetail } from './styles';
+import { ActivitiesContainer } from './styles';
 
 interface IActivityTableProps {}
 
 const ActivityTable: React.FC<IActivityTableProps> = () => {
-    const history = useHistory();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
-        data: { planList },
+        data: { activityOfPlan },
     } = useSelector((state: RootState) => state.plan);
 
     const columns = [
@@ -29,30 +26,42 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
             render: (text: string, row: any, index: number) => <div className="text-center">{index + 1}</div>,
         },
         {
-            title: 'Người tạo',
-            key: 'NguoiTao',
-            width: 200,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.NguoiTao}</div>,
-        },
-        {
-            title: 'Ngày tạo',
-            key: 'publishedDate',
-            width: 150,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.publishedDate}</div>,
-        },
-        {
-            title: 'Tên kế hoạch',
+            title: 'Tên hoạt động',
             key: 'name',
+            width: 200,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
         },
-
         {
-            title: 'Trạng thái',
-            key: 'Status',
+            title: 'Ngày bắt đầu',
+            key: 'startDate',
+            width: 150,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.startDate}</div>,
+        },
+        {
+            title: 'Ngày kết thúc',
+            key: 'endDate',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.endDate}</div>,
+        },
+        {
+            title: 'Kết luận',
+            key: 'conclusion',
             width: 180,
-            render: (text: string, row: any, index: number) => (
-                <div className="text-center">{planState.find(ele => ele.id === row.planStateId)?.name}</div>
-            ),
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.conclusion}</div>,
+        },
+        {
+            title: 'Trạng thái hoạt động',
+            key: 'activityStateId',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityStateId}</div>,
+        },
+        {
+            title: 'Kết quả hoạt động',
+            key: 'activityResult',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityResult}</div>,
+        },
+        {
+            title: 'Người tạo',
+            key: 'createdUser',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.createdUser}</div>,
         },
         {
             width: 150,
@@ -110,10 +119,10 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
     return (
         <>
             <ActivitiesContainer>
-                <Table columns={columns} dataSource={planList} pagination={false} />
+                <Table columns={columns} dataSource={activityOfPlan} pagination={false} />
             </ActivitiesContainer>
             {isUpdateFacilityForm && (
-                <FacilitiesForm
+                <ActivityForm
                     visible={isUpdateFacilityForm}
                     onCancel={() => {
                         setIsUpdateFacilityForm(false);
