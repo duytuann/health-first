@@ -1,4 +1,5 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
+import { ResultResponse } from 'core/models/ResultResponse';
 import {
     getGetListFacitityApi,
     postCreateFacitityApi,
@@ -32,11 +33,11 @@ import {
 
 function* getListFacility(action: ReturnType<typeof getGetListFacilityStart>) {
     try {
-        const res: [] = yield call(getGetListFacitityApi);
-        if (res) {
+        const res: ResultResponse<any> = yield call(getGetListFacitityApi);
+        if (res.responseCode === '1') {
             yield put({
                 type: getGetListFacilitySuccess.type,
-                payload: res,
+                payload: res.responseData,
             });
         }
     } catch (error) {
@@ -45,11 +46,11 @@ function* getListFacility(action: ReturnType<typeof getGetListFacilityStart>) {
 }
 function* postGetListProvinces(action: ReturnType<typeof postGetListProvincesStart>) {
     try {
-        const res: [] = yield call(getListProvincesApi, {});
-        if (res) {
+        const res: ResultResponse<any> = yield call(getListProvincesApi, {});
+        if (res.responseCode === '1') {
             yield put({
                 type: postGetListProvincesSuccess.type,
-                payload: res.sort((a: any, b: any) => (a.id > b.id ? 1 : -1)),
+                payload: res.responseData.sort((a: any, b: any) => (a.id > b.id ? 1 : -1)),
             });
         }
     } catch (error) {
@@ -59,11 +60,11 @@ function* postGetListProvinces(action: ReturnType<typeof postGetListProvincesSta
 
 function* postGetListDistrictsById(action: ReturnType<typeof postGetListDistrictsByIdStart>) {
     try {
-        const res: [] = yield call(getListDistrictsByIdApi, action.payload);
-        if (res) {
+        const res: ResultResponse<any> = yield call(getListDistrictsByIdApi, action.payload);
+        if (res.responseCode === '1') {
             yield put({
                 type: postGetListDistrictsByIdSuccess.type,
-                payload: res,
+                payload: res.responseData,
             });
         }
     } catch (error) {
@@ -73,11 +74,11 @@ function* postGetListDistrictsById(action: ReturnType<typeof postGetListDistrict
 
 function* postGetListWardsById(action: ReturnType<typeof postGetListWardsByIdStart>) {
     try {
-        const res: [] = yield call(getListWardsUrlByIdApi, action.payload);
-        if (res) {
+        const res: ResultResponse<any> = yield call(getListWardsUrlByIdApi, action.payload);
+        if (res.responseCode === '1') {
             yield put({
                 type: postGetListWardsByIdSuccess.type,
-                payload: res,
+                payload: res.responseData,
             });
         }
     } catch (error) {

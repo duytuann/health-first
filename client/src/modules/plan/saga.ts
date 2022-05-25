@@ -38,7 +38,7 @@ import {
 function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
     try {
         const res: ResultResponse<any> = yield call(getGetListPlanApi);
-        if (res) {
+        if (res.responseCode === '1') {
             yield put({
                 type: postGetListPlanSuccess.type,
                 payload: res.responseData,
@@ -50,11 +50,11 @@ function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
 }
 function* postGetListActivity(action: ReturnType<typeof postGetListActivityStart>) {
     try {
-        const res: [] = yield call(getGetListActivityApi);
-        if (res) {
+        const res: ResultResponse<any> = yield call(getGetListActivityApi);
+        if (res.responseCode === '1') {
             yield put({
                 type: postGetListActivitySuccess.type,
-                payload: res,
+                payload: res.responseData,
             });
         }
     } catch (error) {
