@@ -8,11 +8,6 @@ export interface CreateActivityParams {
     activityResultId: number;
     activityStateId: number;
 }
-/*
-    createdDate: string; //ngay hien tai
-    facilityId: number;  //hoat dong cua co so nao
-    planId: number;      //hoat dong cua ke hoach nao
-*/
 
 export interface UpdateActivityParams extends CreateActivityParams {}
 

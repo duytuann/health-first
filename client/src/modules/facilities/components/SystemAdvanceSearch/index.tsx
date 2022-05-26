@@ -1,4 +1,4 @@
-import { Col, Form, Input, Row, Select, Spin } from 'antd';
+import { Col, Form, Input, Row, Select } from 'antd';
 import Button from 'components/Button';
 import { businessType, facilityState } from 'helper/consts';
 import {
@@ -7,12 +7,12 @@ import {
     postGetListDistrictsByIdStart,
     postGetListWardsByIdStart,
     resetWardsByList,
+    changeSearchCondition,
 } from 'modules/facilities/redux';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
-import { ReduxStateType } from 'redux/types';
-import { SystemAdvanceSearchWrapper, Container } from './styles';
+import { Container, SystemAdvanceSearchWrapper } from './styles';
 
 interface IProps {}
 
@@ -21,7 +21,6 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
     const [form] = Form.useForm();
     const {
         data: { provincesList, districtsListById, wardsByListId, currentProvinceId, currentDistrictId },
-        status,
     } = useSelector((state: RootState) => state.facilities);
     const handleChange = (allValues: any) => {
         // CreateParams
@@ -63,7 +62,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                 >
                     <Row justify="start" gutter={16}>
                         <Col span={4}>
-                            <Form.Item label="Loại hình kinh doanh" name="facilityStateId">
+                            <Form.Item label="Loại hình kinh doanh" name="businessTypeId">
                                 <Select style={{ width: '100%' }}>
                                     {businessType.map((item: any, index: number) => (
                                         <Select.Option key={index} value={item.id}>
@@ -157,7 +156,17 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                     color="primary"
                     $fill
                     onClick={() => {
-                        // setIsShowAddFacilityForm(true);
+                        const value = form.getFieldsValue();
+                        dispatch(
+                            changeSearchCondition({
+                                searchText: value.name,
+                                businessTypeId: value.businessTypeId === 0 ? null : value.businessTypeId,
+                                wardId: value.ward,
+                                provinceId: value.province,
+                                districtId: value.district,
+                                facilityStateId: value.facilityStateId === 0 ? null : value.facilityStateId,
+                            })
+                        );
                     }}
                 >
                     Tìm kiếm

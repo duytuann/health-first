@@ -1,3 +1,8 @@
+export interface getListCertificateParams {
+    facilityName: string | null;
+    certificateStateId: number | null;
+}
+
 export interface createCertificateParams {
     certificateNumber: string;
     certificateStateId: number;

@@ -4,9 +4,11 @@ import {
     createCertificateParams,
     updateCertificateParams,
     deleteCertificateParams,
+    getListCertificateParams,
 } from 'core/http/apis/certificates/types';
 
 export interface CertificateState {
+    conditionSearch: getListCertificateParams;
     certificateList: any;
     currentFacilityId: any;
     facilityId: number;
@@ -14,6 +16,10 @@ export interface CertificateState {
 
 const initialState: ReduxData<CertificateState> = {
     data: {
+        conditionSearch: {
+            facilityName: null,
+            certificateStateId: null,
+        },
         certificateList: [],
         currentFacilityId: {},
         facilityId: 0,
@@ -30,7 +36,7 @@ const certificateStateSlice = createSlice({
         changeCurrentFacilityId: (state, action: PayloadAction<any>) => {
             state.data.currentFacilityId = action.payload;
         },
-        getGetListCertificateStart: (state, action: PayloadAction) => {
+        getGetListCertificateStart: (state, action: PayloadAction<getListCertificateParams>) => {
             state.status = ReduxStateType.LOADING;
         },
         getGetListCertificateSuccess: (state, action: PayloadAction<any>) => {

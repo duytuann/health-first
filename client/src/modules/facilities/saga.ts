@@ -1,5 +1,4 @@
-import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { ResultResponse } from 'core/models/ResultResponse';
+import { all, call, put, select, takeLatest } from '@redux-saga/core/effects';
 import {
     getGetListFacitityApi,
     postCreateFacitityApi,
@@ -7,6 +6,9 @@ import {
     postUpdateFacitityApi,
 } from 'core/http/apis/facilities';
 import { getListDistrictsByIdApi, getListProvincesApi, getListWardsUrlByIdApi } from 'core/http/apis/static';
+import { ResultResponse } from 'core/models/ResultResponse';
+import { toast } from 'react-toastify';
+import { RootState } from 'redux/store';
 import {
     getGetListFacilityError,
     getGetListFacilityStart,
@@ -33,7 +35,7 @@ import {
 
 function* getListFacility(action: ReturnType<typeof getGetListFacilityStart>) {
     try {
-        const res: ResultResponse<any> = yield call(getGetListFacitityApi);
+        const res: ResultResponse<any> = yield call(getGetListFacitityApi, action.payload);
         if (res.responseCode === '1') {
             yield put({
                 type: getGetListFacilitySuccess.type,
@@ -87,36 +89,59 @@ function* postGetListWardsById(action: ReturnType<typeof postGetListWardsByIdSta
 }
 
 function* postCreateFacility(action: ReturnType<typeof postCreateFacilityStart>) {
+    const { conditionSearch } = yield select((state: RootState) => state.facilities.data);
     try {
-        const res: [] = yield call(postCreateFacitityApi, action.payload);
-        if (res) {
+        const res: ResultResponse<any> = yield call(postCreateFacitityApi, action.payload);
+        if (res.responseCode === '1') {
             yield put({
                 type: postCreateFacilitySuccess.type,
             });
+            toast.success('Tạo mới cơ sở thành công');
+            yield put({
+                type: getGetListFacilityStart.type,
+                payload: conditionSearch,
+            });
         }
     } catch (error) {
+        toast.error('Tạo mới cơ sở thất bại');
         yield put({ type: postCreateFacilityError });
     }
 }
 function* postUpdateFacility(action: ReturnType<typeof postUpdateFacilityStart>) {
+    const { conditionSearch } = yield select((state: RootState) => state.facilities.data);
     try {
-        const res: [] = yield call(postUpdateFacitityApi, action.payload);
-        if (res) {
+        const res: ResultResponse<any> = yield call(postUpdateFacitityApi, action.payload);
+        if (res.responseCode === '1') {
             yield put({
                 type: postUpdateFacilitySuccess.type,
             });
+            toast.success('Cập nhật cơ sở thành công');
+            yield put({
+                type: getGetListFacilityStart.type,
+                payload: conditionSearch,
+            });
         }
     } catch (error) {
+        toast.error('Cập nhật cơ sở thất bại');
         yield put({ type: postUpdateFacilityError });
     }
 }
 function* postDeleteFacility(action: ReturnType<typeof postDeleteFacilityStart>) {
+    const { conditionSearch } = yield select((state: RootState) => state.facilities.data);
     try {
-        yield call(postDeleteFacitityApi, action.payload);
-        yield put({
-            type: postDeleteFacilitySuccess.type,
-        });
+        const res: ResultResponse<any> = yield call(postDeleteFacitityApi, action.payload);
+        if (res.responseCode === '1') {
+            yield put({
+                type: postDeleteFacilitySuccess.type,
+            });
+            toast.success('Xoá cơ sở thành công');
+            yield put({
+                type: getGetListFacilityStart.type,
+                payload: conditionSearch,
+            });
+        }
     } catch (error) {
+        toast.error('Xoá cơ sở thất bại');
         yield put({ type: postDeleteFacilityError });
     }
 }

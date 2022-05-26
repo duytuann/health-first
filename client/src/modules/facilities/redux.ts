@@ -1,14 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { getDetailById } from 'core/http/apis/static/types';
-import { CreateParams, UpdateParams, DeleteParams } from 'core/http/apis/facilities/types';
+import { CreateParams, UpdateParams, DeleteParams, GetListParams } from 'core/http/apis/facilities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface ConditionSearch {
-    FacilityName: string;
-    Ward: string;
-    Province: string;
-    TypeOfBusiness: string;
-    CertificateState: string;
+    searchText: string | null;
+    businessTypeId: number | null;
+    wardId: number | null;
+    provinceId: number | null;
+    districtId: number | null;
+    facilityStateId: number | null;
 }
 
 export interface AddressResp {
@@ -36,11 +37,12 @@ export interface FacilitiesState {
 const initialState: ReduxData<FacilitiesState> = {
     data: {
         conditionSearch: {
-            FacilityName: '',
-            Ward: '',
-            Province: '',
-            TypeOfBusiness: '',
-            CertificateState: '',
+            searchText: null,
+            businessTypeId: null,
+            wardId: null,
+            provinceId: null,
+            districtId: null,
+            facilityStateId: null,
         },
 
         // Facility List
@@ -60,7 +62,7 @@ const facilitiesSlice = createSlice({
     name: 'facilitiesSlice',
     initialState,
     reducers: {
-        changeSearchCondition: (state, action: PayloadAction<ConditionSearch>) => {
+        changeSearchCondition: (state, action: PayloadAction<any>) => {
             state.data.conditionSearch = action.payload;
         },
         changeCurrentFacilityId: (state, action: PayloadAction<number>) => {
@@ -105,7 +107,7 @@ const facilitiesSlice = createSlice({
         postGetListWardsByIdError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
-        getGetListFacilityStart: (state, action: PayloadAction) => {
+        getGetListFacilityStart: (state, action: PayloadAction<GetListParams>) => {
             state.status = ReduxStateType.LOADING;
         },
         getGetListFacilitySuccess: (state, action: PayloadAction<any>) => {

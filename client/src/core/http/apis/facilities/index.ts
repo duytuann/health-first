@@ -1,10 +1,10 @@
 import httpFacilitiesData from 'core/http/singleton/facilities';
 // import { ResultResponse } from 'core/models/ResultResponse';
-import { CreateParams, DeleteParams, UpdateParams } from './types';
+import { CreateParams, DeleteParams, UpdateParams, GetListParams } from './types';
 import { createUrl, deleteUrl, getListUrl, updateUrl } from './urls';
 
-export const getGetListFacitityApi = async (): Promise<any> => {
-    const res = await httpFacilitiesData.get(getListUrl);
+export const getGetListFacitityApi = async (body: GetListParams): Promise<any> => {
+    const res = await httpFacilitiesData.post(getListUrl, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };

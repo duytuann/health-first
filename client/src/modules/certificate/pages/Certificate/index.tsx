@@ -37,7 +37,7 @@ interface ITemp {
 const Certificate: React.FC = () => {
     const dispatch = useDispatch();
     const {
-        data: { certificateList },
+        data: { certificateList, conditionSearch },
     } = useSelector((state: RootState) => state.certificate);
     const [isShowCertificateForm, setIsShowCertificateForm] = useState<boolean>(false);
     const [isShowCertificateUpdateForm, setIsShowCertificateUpdateForm] = useState<boolean>(false);
@@ -145,7 +145,7 @@ const Certificate: React.FC = () => {
     };
 
     useEffect(() => {
-        dispatch(getGetListCertificateStart());
+        dispatch(getGetListCertificateStart(conditionSearch));
     }, []);
 
     const handleApiArrayToTree = (data: ICertificate[]) => {

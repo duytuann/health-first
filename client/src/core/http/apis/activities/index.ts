@@ -26,3 +26,21 @@ export const postDeleteActivityApi = async (body: DeleteActivityParams): Promise
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };
+
+export const postCreateSampleApi = async (body: CreateActivityParams): Promise<any> => {
+    const res = await httpActivitiesData.post(createUrl, body);
+    if (!res || !res.data) throw new Error('Opps');
+    return res.data;
+};
+
+export const postUpdateSampleApi = async (body: UpdateActivityParams): Promise<any> => {
+    const res = await httpActivitiesData.post(updateUrl, body);
+    if (!res || !res.data) throw new Error('Opps');
+    return res.data;
+};
+
+export const postDeleteSampleApi = async (body: DeleteActivityParams): Promise<any> => {
+    const res = await httpActivitiesData.post(deleteUrl, body);
+    if (!res || !res.data) throw new Error('Opps');
+    return res.data;
+};

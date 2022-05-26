@@ -1,3 +1,12 @@
+export interface GetListParams {
+    searchText: string | null;
+    businessTypeId: number | null;
+    wardId: number | null;
+    provinceId: number | null;
+    districtId: number | null;
+    facilityStateId: number | null;
+}
+
 export interface CreateParams {
     name: string;
     address: string;
