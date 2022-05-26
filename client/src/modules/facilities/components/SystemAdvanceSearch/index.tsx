@@ -159,7 +159,7 @@ const SystemAdvanceSearch: React.FC<IProps> = () => {
                         const value = form.getFieldsValue();
                         dispatch(
                             changeSearchCondition({
-                                searchText: value.name,
+                                facilityName: value.name,
                                 businessTypeId: value.businessTypeId === 0 ? null : value.businessTypeId,
                                 wardId: value.ward,
                                 provinceId: value.province,

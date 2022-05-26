@@ -12,6 +12,7 @@ import {
     getGetListCertificateStart,
     changeFacilityId,
     postDeleteCertificateStart,
+    changeSearchCondition,
 } from 'modules/certificate/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -144,10 +145,6 @@ const Certificate: React.FC = () => {
         });
     };
 
-    useEffect(() => {
-        dispatch(getGetListCertificateStart(conditionSearch));
-    }, []);
-
     const handleApiArrayToTree = (data: ICertificate[]) => {
         const faciIdArr = data.map(item => item.facilityId);
         const setFaciId = Array.from(new Set(faciIdArr));
@@ -171,6 +168,19 @@ const Certificate: React.FC = () => {
     };
 
     const data = handleApiArrayToTree(certificateList);
+
+    useEffect(() => {
+        dispatch(
+            changeSearchCondition({
+                facilityName: null,
+                certificateStateId: null,
+            })
+        );
+    }, []);
+
+    useEffect(() => {
+        dispatch(getGetListCertificateStart(conditionSearch));
+    }, [conditionSearch]);
 
     return (
         <>

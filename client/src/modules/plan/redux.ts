@@ -1,5 +1,5 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createPlanParams, updatePlanParams, deletePlanParams } from 'core/http/apis/plan/types';
+import { createPlanParams, updatePlanParams, deletePlanParams, getListParams } from 'core/http/apis/plan/types';
 import { CreateActivityParams, UpdateActivityParams, DeleteActivityParams } from 'core/http/apis/activities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
@@ -10,9 +10,16 @@ export interface PlanState {
     currentDetailPlanById: any;
     currentFacilityId: number;
     currentActivityId: number;
+    searchPlan: getListParams;
 }
 const initialState: ReduxData<PlanState> = {
     data: {
+        // search
+        searchPlan: {
+            planName: null,
+            planStateId: null,
+        },
+
         // currentPlanId for Update
         currentPlanId: 0,
         currentActivityId: 0,
@@ -41,7 +48,7 @@ const planSlice = createSlice({
         changeCurrentActivityId: (state, action: PayloadAction<number>) => {
             state.data.currentActivityId = action.payload;
         },
-        postGetListPlanStart: (state, action: PayloadAction) => {
+        postGetListPlanStart: (state, action: PayloadAction<getListParams>) => {
             state.status = ReduxStateType.LOADING;
         },
         postGetListPlanSuccess: (state, action: PayloadAction<any>) => {

@@ -1,43 +1,43 @@
 import { all, call, put, takeLatest } from '@redux-saga/core/effects';
-import { ResultResponse } from 'core/models/ResultResponse';
 import {
     getGetListActivityApi,
     postCreateActivityApi,
-    postUpdateActivityApi,
     postDeleteActivityApi,
+    postUpdateActivityApi,
 } from 'core/http/apis/activities';
-import { getGetListPlanApi, postCreatePlanApi, postUpdatePlanApi, postDeletePlanApi } from 'core/http/apis/plan';
+import { getGetListPlanApi, postCreatePlanApi, postDeletePlanApi, postUpdatePlanApi } from 'core/http/apis/plan';
+import { ResultResponse } from 'core/models/ResultResponse';
 import { toast } from 'react-toastify';
 import {
-    postGetListActivityError,
-    postGetListActivityStart,
-    postGetListActivitySuccess,
-    postGetListPlanError,
-    postGetListPlanStart,
-    postGetListPlanSuccess,
-    postCreatePlanStart,
-    postCreatePlanSuccess,
-    postCreatePlanError,
+    postCreateActivityError,
     postCreateActivityStart,
     postCreateActivitySuccess,
-    postCreateActivityError,
-    postUpdatePlanStart,
-    postUpdatePlanSuccess,
-    postUpdatePlanError,
-    postUpdateActivityStart,
-    postUpdateActivitySuccess,
-    postUpdateActivityError,
+    postCreatePlanError,
+    postCreatePlanStart,
+    postCreatePlanSuccess,
     postDeleteActivityError,
     postDeleteActivityStart,
     postDeleteActivitySuccess,
     postDeletePlanError,
     postDeletePlanStart,
     postDeletePlanSuccess,
+    postGetListActivityError,
+    postGetListActivityStart,
+    postGetListActivitySuccess,
+    postGetListPlanError,
+    postGetListPlanStart,
+    postGetListPlanSuccess,
+    postUpdateActivityError,
+    postUpdateActivityStart,
+    postUpdateActivitySuccess,
+    postUpdatePlanError,
+    postUpdatePlanStart,
+    postUpdatePlanSuccess,
 } from './redux';
 
 function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
     try {
-        const res: ResultResponse<any> = yield call(getGetListPlanApi);
+        const res: ResultResponse<any> = yield call(getGetListPlanApi, action.payload);
         if (res.responseCode === '1') {
             yield put({
                 type: postGetListPlanSuccess.type,

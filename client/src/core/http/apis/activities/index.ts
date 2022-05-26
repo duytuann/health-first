@@ -1,10 +1,10 @@
 import httpActivitiesData from 'core/http/singleton/activities';
 // import { ResultResponse } from 'core/models/ResultResponse';
-import { CreateActivityParams, DeleteActivityParams, UpdateActivityParams } from './types';
+import { CreateActivityParams, DeleteActivityParams, UpdateActivityParams, GetListParams } from './types';
 import { createUrl, deleteUrl, getListUrl, updateUrl } from './urls';
 
-export const getGetListActivityApi = async (): Promise<any> => {
-    const res = await httpActivitiesData.get(getListUrl);
+export const getGetListActivityApi = async (body: GetListParams): Promise<any> => {
+    const res = await httpActivitiesData.get(getListUrl, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };

@@ -22,7 +22,7 @@ const Facilities: React.FC<IFacilitiesProps> = () => {
         dispatch(postGetListProvincesStart());
         dispatch(
             changeSearchCondition({
-                searchText: null,
+                facilityName: null,
                 businessTypeId: null,
                 wardId: null,
                 provinceId: null,

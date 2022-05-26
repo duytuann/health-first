@@ -1,10 +1,10 @@
 import httpPlansData from 'core/http/singleton/plan';
 // import { ResultResponse } from 'core/models/ResultResponse';
-import { createPlanParams, updatePlanParams, deletePlanParams } from './types';
+import { createPlanParams, updatePlanParams, deletePlanParams, getListParams } from './types';
 import { getListUrl, createUrl, updateUrl, deleteUrl } from './urls';
 
-export const getGetListPlanApi = async (): Promise<any> => {
-    const res = await httpPlansData.get(getListUrl);
+export const getGetListPlanApi = async (body: getListParams): Promise<any> => {
+    const res = await httpPlansData.post(getListUrl, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };

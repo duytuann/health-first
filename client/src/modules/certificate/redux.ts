@@ -8,7 +8,7 @@ import {
 } from 'core/http/apis/certificates/types';
 
 export interface CertificateState {
-    conditionSearch: getListCertificateParams;
+    conditionSearch: any;
     certificateList: any;
     currentFacilityId: any;
     facilityId: number;
@@ -30,6 +30,9 @@ const certificateStateSlice = createSlice({
     name: 'certificateStateSlice',
     initialState,
     reducers: {
+        changeSearchCondition: (state, action: PayloadAction<any>) => {
+            state.data.conditionSearch = action.payload;
+        },
         changeFacilityId: (state, action: PayloadAction<number>) => {
             state.data.facilityId = action.payload;
         },
@@ -76,6 +79,7 @@ const certificateStateSlice = createSlice({
     },
 });
 export const {
+    changeSearchCondition,
     changeFacilityId,
     changeCurrentFacilityId,
     getGetListCertificateStart,

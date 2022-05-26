@@ -1,13 +1,8 @@
 import httpCertificates from 'core/http/singleton/certificates';
-import {
-    createCertificateParams,
-    updateCertificateParams,
-    deleteCertificateParams,
-    getListCertificateParams,
-} from './types';
-import { getListUrl, createUrl, updateUrl, deleteUrl } from './urls';
+import { createCertificateParams, deleteCertificateParams, updateCertificateParams } from './types';
+import { createUrl, deleteUrl, getListUrl, updateUrl } from './urls';
 
-export const getGetListCertificateApi = async (body: getListCertificateParams): Promise<any> => {
+export const getGetListCertificateApi = async (body: any): Promise<any> => {
     const res = await httpCertificates.post(getListUrl, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;

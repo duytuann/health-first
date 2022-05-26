@@ -1,3 +1,8 @@
+export interface GetListParams {
+    activityName: string | null;
+    activityStateId: number | null;
+}
+
 export interface CreateActivityParams {
     name: string;
     conclusion: string;

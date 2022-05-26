@@ -1,3 +1,8 @@
+export interface getListParams {
+    planName: string | null;
+    planStateId: number | null;
+}
+
 export interface createPlanParams {
     name: string;
     publishedDate: string;

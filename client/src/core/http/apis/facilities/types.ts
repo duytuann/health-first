@@ -1,5 +1,5 @@
 export interface GetListParams {
-    searchText: string | null;
+    facilityName: string | null;
     businessTypeId: number | null;
     wardId: number | null;
     provinceId: number | null;

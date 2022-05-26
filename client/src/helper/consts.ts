@@ -93,6 +93,10 @@ export const activityResult = [
 
 export const certificateState = [
     {
+        id: 0,
+        name: 'Tất cả',
+    },
+    {
         id: 1,
         name: 'Đang hoạt động',
     },

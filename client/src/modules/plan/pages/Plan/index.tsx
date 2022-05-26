@@ -5,16 +5,20 @@ import Button from 'components/Button';
 import PlanForm from 'modules/plan/components/PlanForm';
 import { postGetListPlanStart, postGetListActivityStart } from 'modules/plan/redux';
 import React, { useEffect, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { RootState } from 'redux/store';
+import { useDispatch, useSelector } from 'react-redux';
 
 interface IPlanProps {}
 
 const Plan: React.FC<IPlanProps> = () => {
     const dispatch = useDispatch();
     const [isShowPlanForm, setIsShowPlanForm] = useState<boolean>(false);
+    const {
+        data: { searchPlan },
+    } = useSelector((state: RootState) => state.plan);
 
     useEffect(() => {
-        dispatch(postGetListPlanStart());
+        dispatch(postGetListPlanStart(searchPlan));
         dispatch(postGetListActivityStart());
     }, []);
 

@@ -11,7 +11,7 @@ const routes: RouterConfig[] = [
         layout: MainLayout,
     },
     {
-        path: '/plan/:id',
+        path: `/plan/:id`,
         page: Activity,
         exact: true,
         layout: MainLayout,

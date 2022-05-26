@@ -4,7 +4,7 @@ import { CreateParams, UpdateParams, DeleteParams, GetListParams } from 'core/ht
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface ConditionSearch {
-    searchText: string | null;
+    facilityName: string | null;
     businessTypeId: number | null;
     wardId: number | null;
     provinceId: number | null;
@@ -37,7 +37,7 @@ export interface FacilitiesState {
 const initialState: ReduxData<FacilitiesState> = {
     data: {
         conditionSearch: {
-            searchText: null,
+            facilityName: null,
             businessTypeId: null,
             wardId: null,
             provinceId: null,

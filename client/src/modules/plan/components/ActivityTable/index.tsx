@@ -2,6 +2,7 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Space, Tooltip } from 'antd';
 import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
+import { useHistory } from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import ActivityForm from 'modules/plan/components/ActivityForm';
@@ -9,11 +10,12 @@ import { changeCurrentActivityId, postDeleteActivityStart, changeCurrentFacility
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
-import { ActivitiesContainer } from './styles';
+import { ActivitiesContainer, ViewDetail } from './styles';
 
 interface IActivityTableProps {}
 
 const ActivityTable: React.FC<IActivityTableProps> = () => {
+    const history = useHistory();
     const dispatch = useDispatch();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
@@ -30,18 +32,19 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
         {
             title: 'Tên hoạt động',
             key: 'name',
-            width: 200,
+            width: 180,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
         },
         {
             title: 'Ngày bắt đầu',
             key: 'startDate',
-            width: 150,
+            width: 130,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.startDate}</div>,
         },
         {
             title: 'Ngày kết thúc',
             key: 'endDate',
+            width: 130,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.endDate}</div>,
         },
         {
@@ -53,20 +56,23 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
         {
             title: 'Trạng thái hoạt động',
             key: 'activityStateId',
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityStateId}</div>,
+            width: 170,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityState}</div>,
         },
         {
             title: 'Kết quả hoạt động',
             key: 'activityResult',
+            width: 170,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.activityResult}</div>,
         },
         {
             title: 'Người tạo',
             key: 'createdUser',
+            width: 100,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.createdUser}</div>,
         },
         {
-            width: 150,
+            width: 70,
             title: 'Thao tác',
             key: 'action',
             render: (value: string, record: any) => (
@@ -96,6 +102,21 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
                         </Tooltip>
                     </Space>
                 </div>
+            ),
+        },
+        {
+            title: 'Chi tiết',
+            key: 'PlanDetail',
+            width: 150,
+            render: (text: string, row: any, index: number) => (
+                <ViewDetail
+                    onClick={() => {
+                        // dispatch(changeCurrentPlanId(row.id));
+                        // history.push(`/plan/${row.id}`);
+                    }}
+                >
+                    Xem chi tiết
+                </ViewDetail>
             ),
         },
     ];
