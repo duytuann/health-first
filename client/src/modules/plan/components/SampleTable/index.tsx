@@ -12,14 +12,14 @@ import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { ActivitiesContainer, ViewDetail } from './styles';
 
-interface IActivityTableProps {}
+interface ISampleTableProps {}
 
-const ActivityTable: React.FC<IActivityTableProps> = () => {
+const SampleTable: React.FC<ISampleTableProps> = () => {
     const history = useHistory();
     const dispatch = useDispatch();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
-        data: { activityOfPlan, currentPlanId },
+        data: { activityOfPlan, currentPlanId, sampleList },
     } = useSelector((state: RootState) => state.plan);
 
     const columns = [
@@ -30,46 +30,36 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
             render: (text: string, row: any, index: number) => <div className="text-center">{index + 1}</div>,
         },
         {
-            title: 'Tên hoạt động',
-            key: 'name',
+            title: 'Mã mẫu giám định',
+            key: 'sampleCode',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.sampleCode}</div>,
         },
         {
-            title: 'Ngày bắt đầu',
-            key: 'startDate',
-            width: 130,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.startDate}</div>,
-        },
-        {
-            title: 'Ngày kết thúc',
-            key: 'endDate',
-            width: 130,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.endDate}</div>,
-        },
-        {
-            title: 'Kết luận',
-            key: 'conclusion',
+            title: 'Trạng thái',
+            key: 'sampleStateId',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.conclusion}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.sampleStateId}</div>,
         },
         {
-            title: 'Trạng thái hoạt động',
-            key: 'activityStateId',
+            title: 'Kết quả',
+            key: 'sampleResult',
             width: 170,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityState}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.sampleResult}</div>,
         },
         {
-            title: 'Kết quả hoạt động',
-            key: 'activityResult',
+            title: 'Thực phẩm cần giám định',
+            key: 'foodId',
             width: 170,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityResult}</div>,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.foodId}</div>,
         },
         {
-            title: 'Người tạo',
-            key: 'createdUser',
+            title: 'Đơn vị kiểm định',
+            key: 'inspectionUnitId',
             width: 100,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.createdUser}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{row.inspectionUnitId}</div>
+            ),
         },
         {
             width: 70,
@@ -104,21 +94,6 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
                 </div>
             ),
         },
-        {
-            title: 'Chi tiết',
-            key: 'PlanDetail',
-            width: 150,
-            render: (text: string, row: any, index: number) => (
-                <ViewDetail
-                    onClick={() => {
-                        dispatch(changeCurrentActivityId(row.id));
-                        history.push(`/plan/${currentPlanId}/activity/${row.id}`);
-                    }}
-                >
-                    Xem chi tiết
-                </ViewDetail>
-            ),
-        },
     ];
 
     const showDeleteActivityConfirm = (record: any) => {
@@ -144,7 +119,7 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
     return (
         <>
             <ActivitiesContainer>
-                <Table columns={columns} dataSource={activityOfPlan} pagination={false} />
+                <Table columns={columns} dataSource={sampleList} pagination={false} />
             </ActivitiesContainer>
             {isUpdateFacilityForm && (
                 <ActivityForm
@@ -162,4 +137,4 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
     );
 };
 
-export default ActivityTable;
+export default SampleTable;

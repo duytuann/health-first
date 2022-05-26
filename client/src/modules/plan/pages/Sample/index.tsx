@@ -1,28 +1,29 @@
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import ActivityForm from 'modules/plan/components/ActivityForm';
-import ActivityTable from 'modules/plan/components/ActivityTable';
+import SampleTable from 'modules/plan/components/SampleTable';
 import FilterActivity from 'modules/plan/components/FilterActivity';
-import { postGetListActivityStart } from 'modules/plan/redux';
+import { postGetListSampleStart } from 'modules/plan/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
 import { RootState } from 'redux/store';
 import { ActivityContainer } from './styles';
 
-interface IActivityProps {}
+interface ISampleProps {}
 
-const Activity: React.FC<IActivityProps> = () => {
+const Sample: React.FC<ISampleProps> = () => {
     const dispatch = useDispatch();
     const history = useHistory();
     const [isShowActivityForm, setIsShowActivityForm] = useState<boolean>(false);
     const {
-        data: { searchActivity },
+        data: { searchSample, currentPlanId },
     } = useSelector((state: RootState) => state.plan);
 
+    //serchSample :D
     useEffect(() => {
-        dispatch(postGetListActivityStart(searchActivity));
-    }, [searchActivity]);
+        dispatch(postGetListSampleStart());
+    }, []);
 
     return (
         <ActivityContainer>
@@ -45,16 +46,16 @@ const Activity: React.FC<IActivityProps> = () => {
                     $fill
                     icon={<Icon name="double-arrow" size={16} className="mr-1" />}
                     onClick={() => {
-                        history.push('/plan');
+                        history.push(`/plan/${currentPlanId}`);
                     }}
                 >
-                    Quay lại danh sách các kế hoạch
+                    Quay lại danh sách các hoạt động
                 </Button>
             </div>
             <FilterActivity />
             <div style={{ padding: '10px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className="table-heading">
-                    <i>Chi tiết các hoạt động</i>
+                    <i>Chi tiết các mẫu giám định</i>
                 </div>
                 <div>
                     <Button
@@ -70,9 +71,9 @@ const Activity: React.FC<IActivityProps> = () => {
                     </Button>
                 </div>
             </div>
-            <ActivityTable />
+            <SampleTable />
         </ActivityContainer>
     );
 };
 
-export default Activity;
+export default Sample;

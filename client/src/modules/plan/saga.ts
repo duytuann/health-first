@@ -4,6 +4,10 @@ import {
     postCreateActivityApi,
     postDeleteActivityApi,
     postUpdateActivityApi,
+    getGetListSampleApi,
+    postCreateSampleApi,
+    postDeleteSampleApi,
+    postUpdateSampleApi,
 } from 'core/http/apis/activities';
 import { getGetListPlanApi, postCreatePlanApi, postDeletePlanApi, postUpdatePlanApi } from 'core/http/apis/plan';
 import { ResultResponse } from 'core/models/ResultResponse';
@@ -33,6 +37,18 @@ import {
     postUpdatePlanError,
     postUpdatePlanStart,
     postUpdatePlanSuccess,
+    postCreateSampleError,
+    postCreateSampleStart,
+    postCreateSampleSuccess,
+    postDeleteSampleError,
+    postDeleteSampleStart,
+    postDeleteSampleSuccess,
+    postGetListSampleError,
+    postGetListSampleStart,
+    postGetListSampleSuccess,
+    postUpdateSampleError,
+    postUpdateSampleStart,
+    postUpdateSampleSuccess,
 } from './redux';
 
 function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
@@ -50,7 +66,7 @@ function* postGetListPlan(action: ReturnType<typeof postGetListPlanStart>) {
 }
 function* postGetListActivity(action: ReturnType<typeof postGetListActivityStart>) {
     try {
-        const res: ResultResponse<any> = yield call(getGetListActivityApi);
+        const res: ResultResponse<any> = yield call(getGetListActivityApi, action.payload);
         if (res.responseCode === '1') {
             yield put({
                 type: postGetListActivitySuccess.type,
@@ -134,7 +150,19 @@ function* postDeleteActivity(action: ReturnType<typeof postDeleteActivityStart>)
         yield put({ type: postDeleteActivityError });
     }
 }
-
+function* postGetListSample(action: ReturnType<typeof postGetListSampleStart>) {
+    try {
+        const res: ResultResponse<any> = yield call(getGetListSampleApi);
+        if (res.responseCode === '1') {
+            yield put({
+                type: postGetListSampleSuccess.type,
+                payload: res.responseData,
+            });
+        }
+    } catch (error) {
+        yield put({ type: postGetListSampleError });
+    }
+}
 function* watchUpdatePlan() {
     yield takeLatest(postUpdatePlanStart.type, postUpdatePlan);
 }
@@ -159,6 +187,9 @@ function* watchDeletePlan() {
 function* watchDeleteActivity() {
     yield takeLatest(postDeleteActivityStart.type, postDeleteActivity);
 }
+function* watchGetListSample() {
+    yield takeLatest(postGetListSampleStart.type, postGetListSample);
+}
 
 export default function* PlansSaga() {
     yield all([
@@ -170,5 +201,6 @@ export default function* PlansSaga() {
         watchUpdateActivity(),
         watchDeletePlan(),
         watchDeleteActivity(),
+        watchGetListSample(),
     ]);
 }

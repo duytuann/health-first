@@ -1,16 +1,28 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { createPlanParams, updatePlanParams, deletePlanParams, getListParams } from 'core/http/apis/plan/types';
-import { CreateActivityParams, UpdateActivityParams, DeleteActivityParams } from 'core/http/apis/activities/types';
+import {
+    CreateActivityParams,
+    UpdateActivityParams,
+    DeleteActivityParams,
+    GetListParams,
+    CreateSampleParams,
+    UpdateSampleParams,
+    DeleteSampleParams,
+    GetListSampleParams,
+} from 'core/http/apis/activities/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface PlanState {
     planList: any;
     activityOfPlan: any;
+    sampleList: any;
     currentPlanId: number;
     currentDetailPlanById: any;
     currentFacilityId: number;
     currentActivityId: number;
     searchPlan: getListParams;
+    searchActivity: GetListParams;
+    searchSample: GetListSampleParams;
 }
 const initialState: ReduxData<PlanState> = {
     data: {
@@ -19,6 +31,11 @@ const initialState: ReduxData<PlanState> = {
             planName: null,
             planStateId: null,
         },
+        searchActivity: {
+            activityName: null,
+            activityStateId: null,
+        },
+        searchSample: {},
 
         // currentPlanId for Update
         currentPlanId: 0,
@@ -26,9 +43,10 @@ const initialState: ReduxData<PlanState> = {
         currentFacilityId: 0,
         currentDetailPlanById: {},
 
-        // plan and activity list
+        // List
         planList: [],
         activityOfPlan: [],
+        sampleList: [],
     },
     status: ReduxStateType.INIT,
 };
@@ -58,7 +76,7 @@ const planSlice = createSlice({
         postGetListPlanError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
-        postGetListActivityStart: (state, action: PayloadAction) => {
+        postGetListActivityStart: (state, action: PayloadAction<GetListParams>) => {
             state.status = ReduxStateType.LOADING;
         },
         postGetListActivitySuccess: (state, action: PayloadAction<any>) => {
@@ -122,6 +140,44 @@ const planSlice = createSlice({
         postDeleteActivityError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
+        postGetListSampleStart: (state, action: PayloadAction) => {
+            // ??!!
+            state.status = ReduxStateType.LOADING;
+        },
+        postGetListSampleSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+            state.data.sampleList = action.payload;
+        },
+        postGetListSampleError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postCreateSampleStart: (state, action: PayloadAction<CreateSampleParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postCreateSampleSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postCreateSampleError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postUpdateSampleStart: (state, action: PayloadAction<UpdateSampleParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postUpdateSampleSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postUpdateSampleError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postDeleteSampleStart: (state, action: PayloadAction<DeleteSampleParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postDeleteSampleSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postDeleteSampleError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
     },
 });
 export const {
@@ -153,5 +209,17 @@ export const {
     postDeletePlanError,
     postDeletePlanStart,
     postDeletePlanSuccess,
+    postCreateSampleError,
+    postCreateSampleStart,
+    postCreateSampleSuccess,
+    postDeleteSampleError,
+    postDeleteSampleStart,
+    postDeleteSampleSuccess,
+    postGetListSampleError,
+    postGetListSampleStart,
+    postGetListSampleSuccess,
+    postUpdateSampleError,
+    postUpdateSampleStart,
+    postUpdateSampleSuccess,
 } = planSlice.actions;
 export default planSlice.reducer;

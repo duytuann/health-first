@@ -1,12 +1,12 @@
-import PlanTable from 'modules/plan/components/PlanTable';
-import Icon from 'components/Icon/Icon';
-import SystemAdvanceSearch from 'modules/plan/components/SystemAdvanceSearch';
 import Button from 'components/Button';
+import Icon from 'components/Icon/Icon';
 import PlanForm from 'modules/plan/components/PlanForm';
-import { postGetListPlanStart, postGetListActivityStart } from 'modules/plan/redux';
+import PlanTable from 'modules/plan/components/PlanTable';
+import SystemAdvanceSearch from 'modules/plan/components/SystemAdvanceSearch';
+import { postGetListPlanStart } from 'modules/plan/redux';
 import React, { useEffect, useState } from 'react';
-import { RootState } from 'redux/store';
 import { useDispatch, useSelector } from 'react-redux';
+import { RootState } from 'redux/store';
 
 interface IPlanProps {}
 
@@ -19,8 +19,7 @@ const Plan: React.FC<IPlanProps> = () => {
 
     useEffect(() => {
         dispatch(postGetListPlanStart(searchPlan));
-        dispatch(postGetListActivityStart());
-    }, []);
+    }, [searchPlan]);
 
     return (
         <>
