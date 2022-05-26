@@ -8,11 +8,15 @@ import {
 
 export interface CertificateState {
     certificateList: any;
+    currentFacilityId: any;
+    facilityId: number;
 }
 
 const initialState: ReduxData<CertificateState> = {
     data: {
         certificateList: [],
+        currentFacilityId: {},
+        facilityId: 0,
     },
     status: ReduxStateType.INIT,
 };
@@ -20,6 +24,12 @@ const certificateStateSlice = createSlice({
     name: 'certificateStateSlice',
     initialState,
     reducers: {
+        changeFacilityId: (state, action: PayloadAction<number>) => {
+            state.data.facilityId = action.payload;
+        },
+        changeCurrentFacilityId: (state, action: PayloadAction<any>) => {
+            state.data.currentFacilityId = action.payload;
+        },
         getGetListCertificateStart: (state, action: PayloadAction) => {
             state.status = ReduxStateType.LOADING;
         },
@@ -60,6 +70,8 @@ const certificateStateSlice = createSlice({
     },
 });
 export const {
+    changeFacilityId,
+    changeCurrentFacilityId,
     getGetListCertificateStart,
     getGetListCertificateSuccess,
     getGetListCertificateError,

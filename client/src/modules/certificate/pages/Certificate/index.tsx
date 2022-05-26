@@ -1,13 +1,20 @@
 import { Collapse, Space, Tooltip } from 'antd';
-import { LinkButton } from 'components/Button';
-import Button from 'components/Button';
+import Button, { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
-import { certificateState } from 'helper/consts';
 import Table from 'components/Table';
-import { useDispatch, useSelector } from 'react-redux';
-import { getGetListCertificateStart } from 'modules/certificate/redux';
+import confirm from 'antd/lib/modal/confirm';
+import { DeleteOutlined } from '@ant-design/icons';
+import { certificateState } from 'helper/consts';
+import CertificateForm from 'modules/certificate/components/CertificateForm';
 import SystemAdvanceSearchWrapper from 'modules/certificate/components/SystemAdvanceSearch';
-import React, { useEffect } from 'react';
+import {
+    changeCurrentFacilityId,
+    getGetListCertificateStart,
+    changeFacilityId,
+    postDeleteCertificateStart,
+} from 'modules/certificate/redux';
+import React, { useEffect, useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
 import { CertificateContainer } from './styles';
 
@@ -32,6 +39,8 @@ const Certificate: React.FC = () => {
     const {
         data: { certificateList },
     } = useSelector((state: RootState) => state.certificate);
+    const [isShowCertificateForm, setIsShowCertificateForm] = useState<boolean>(false);
+    const [isShowCertificateUpdateForm, setIsShowCertificateUpdateForm] = useState<boolean>(false);
 
     const columns = [
         {
@@ -88,8 +97,8 @@ const Certificate: React.FC = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="blue" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    // setRecord(record);
-                                    // setIsUpdateFacilityForm(true);
+                                    dispatch(changeCurrentFacilityId(record));
+                                    setIsShowCertificateUpdateForm(true);
                                 }}
                             />
                         </Tooltip>
@@ -99,7 +108,7 @@ const Certificate: React.FC = () => {
                                 size="small"
                                 icon={<Icon name="delete" color="red600" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    // showDeleteTopicConfirm(record);
+                                    showDeleteCertificateConfirm(record);
                                 }}
                             />
                         </Tooltip>
@@ -108,6 +117,32 @@ const Certificate: React.FC = () => {
             ),
         },
     ];
+
+    const showDeleteCertificateConfirm = (record: any) => {
+        confirm({
+            title: 'Xoá giấy chứng nhận',
+            icon: <DeleteOutlined color="red" />,
+            content: (
+                <div>
+                    Bạn có chắc chắn muốn xoá kế hoạch
+                    <strong> {record?.certificateNumber} </strong>
+                    của cơ sở
+                    <strong> {record?.facilityName} </strong>
+                    không?
+                </div>
+            ),
+            okText: 'Đồng ý',
+            cancelText: 'Hủy',
+            onOk() {
+                dispatch(
+                    postDeleteCertificateStart({
+                        id: record.id,
+                    })
+                );
+            },
+            onCancel() {},
+        });
+    };
 
     useEffect(() => {
         dispatch(getGetListCertificateStart());
@@ -138,34 +173,65 @@ const Certificate: React.FC = () => {
     const data = handleApiArrayToTree(certificateList);
 
     return (
-        <CertificateContainer>
-            <div style={{ color: '#2260bd', padding: '10px 0', fontSize: '22px', fontWeight: '600' }}>
-                Danh sách chứng chỉ các cơ sở mà bạn quản lý
-            </div>
-            <SystemAdvanceSearchWrapper />
-            <div style={{ padding: '16px' }}>
-                {data.map((item: ITemp, index: number) => (
-                    <Collapse>
-                        <Collapse.Panel header={item.facilityName} key={index}>
-                            <div style={{ display: 'flex', justifyContent: 'right' }}>
-                                <Button
-                                    style={{ marginBottom: '10px' }}
-                                    color="primary"
-                                    $fill
-                                    icon={<Icon name="add" size={16} className="mr-1" />}
-                                    onClick={() => {
-                                        // setIsShowPlanForm(true);
-                                    }}
-                                >
-                                    Thêm kế hoạch thông thanh
-                                </Button>
-                            </div>
-                            <Table columns={columns} dataSource={item.ListProductSameFacilityID} pagination={false} />
-                        </Collapse.Panel>
-                    </Collapse>
-                ))}
-            </div>
-        </CertificateContainer>
+        <>
+            {isShowCertificateForm && (
+                <CertificateForm
+                    visible={isShowCertificateForm}
+                    onCancel={() => {
+                        setIsShowCertificateForm(false);
+                    }}
+                    onOk={() => {
+                        setIsShowCertificateForm(false);
+                    }}
+                    isUpdate={false}
+                />
+            )}
+            {isShowCertificateUpdateForm && (
+                <CertificateForm
+                    visible={isShowCertificateUpdateForm}
+                    onCancel={() => {
+                        setIsShowCertificateUpdateForm(false);
+                    }}
+                    onOk={() => {
+                        setIsShowCertificateUpdateForm(false);
+                    }}
+                    isUpdate={true}
+                />
+            )}
+            <CertificateContainer>
+                <div style={{ color: '#2260bd', padding: '10px 0', fontSize: '22px', fontWeight: '600' }}>
+                    Danh sách chứng chỉ các cơ sở mà bạn quản lý
+                </div>
+                <SystemAdvanceSearchWrapper />
+                <div style={{ padding: '16px' }}>
+                    {data.map((item: ITemp, index: number) => (
+                        <Collapse key={index}>
+                            <Collapse.Panel header={item.facilityName} key={index}>
+                                <div style={{ display: 'flex', justifyContent: 'right' }}>
+                                    <Button
+                                        style={{ marginBottom: '10px' }}
+                                        color="primary"
+                                        $fill
+                                        icon={<Icon name="add" size={16} className="mr-1" />}
+                                        onClick={() => {
+                                            dispatch(changeFacilityId(item.facilityId));
+                                            setIsShowCertificateForm(true);
+                                        }}
+                                    >
+                                        Thêm kế hoạch thông thanh
+                                    </Button>
+                                </div>
+                                <Table
+                                    columns={columns}
+                                    dataSource={item.ListProductSameFacilityID}
+                                    pagination={false}
+                                />
+                            </Collapse.Panel>
+                        </Collapse>
+                    ))}
+                </div>
+            </CertificateContainer>
+        </>
     );
 };
 
