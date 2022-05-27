@@ -58,18 +58,17 @@ const User: React.FC<IFacilitiesProps> = () => {
             ),
         },
         {
-            title: 'Trạng thái',
-            key: 'userStatus',
-            width: 100,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.userStatus}</div>,
-        },
-        {
             title: 'Số điện thoại',
             key: 'phoneNumber',
             width: 150,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.phoneNumber}</div>,
         },
-
+        {
+            title: 'Email',
+            key: 'email',
+            width: 150,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.email}</div>,
+        },
         {
             title: 'Khu vực quản lý',
             key: 'KVQL',

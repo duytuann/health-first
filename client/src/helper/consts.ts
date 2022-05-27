@@ -76,11 +76,11 @@ export const activityState = [
     },
     {
         id: 1,
-        name: 'Đang hoạt động',
+        name: 'Đang diễn ra',
     },
     {
         id: 2,
-        name: 'Không hoạt động',
+        name: 'Chưa diễn ra',
     },
 ];
 
@@ -95,7 +95,11 @@ export const activityResult = [
     },
     {
         id: 2,
-        name: 'Không thông qua',
+        name: 'Chưa được thông qua',
+    },
+    {
+        id: 3,
+        name: 'Chưa có kết quả',
     },
 ];
 

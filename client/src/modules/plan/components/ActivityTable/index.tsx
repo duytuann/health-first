@@ -4,6 +4,7 @@ import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
 import { useHistory } from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
+import { activityState, activityResult } from 'helper/consts';
 import Table from 'components/Table';
 import ActivityForm from 'modules/plan/components/ActivityForm';
 import { changeCurrentActivityId, postDeleteActivityStart, changeCurrentFacilityId } from 'modules/plan/redux';
@@ -57,13 +58,17 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
             title: 'Trạng thái hoạt động',
             key: 'activityStateId',
             width: 170,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityState}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{activityState.find(ele => ele.id === row.activityStateId)?.name}</div>
+            ),
         },
         {
             title: 'Kết quả hoạt động',
-            key: 'activityResult',
+            key: 'activityResultId',
             width: 170,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.activityResult}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{activityResult.find(ele => ele.id === row.activityResultId)?.name}</div>
+            ),
         },
         {
             title: 'Người tạo',

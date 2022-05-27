@@ -6,7 +6,7 @@ import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import { sampleResult, sampleState } from 'helper/consts';
 import ActivityForm from 'modules/plan/components/ActivityForm';
-import { changeCurrentActivityId, changeCurrentFacilityId, postDeleteActivityStart } from 'modules/plan/redux';
+import { changeCurrentActivityId, changeCurrentFacilityId, postDeleteSampleStart } from 'modules/plan/redux';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -81,8 +81,8 @@ const SampleTable: React.FC<ISampleTableProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    dispatch(changeCurrentFacilityId(record.facilityId));
-                                    dispatch(changeCurrentActivityId(record.id));
+                                    // dispatch(changeCurrentFacilityId(record.facilityId));
+                                    // dispatch(changeCurrentActivityId(record.id));
                                     setIsUpdateFacilityForm(true);
                                 }}
                             />
@@ -109,15 +109,19 @@ const SampleTable: React.FC<ISampleTableProps> = () => {
             icon: <DeleteOutlined color="red" />,
             content: (
                 <div>
-                    Bạn có chắc chắn muốn xoá cở sở
-                    <strong> {record?.name} </strong>
+                    Bạn có chắc chắn muốn xoá mẫu giám định
+                    <strong> {record?.id} </strong>
                     không?
                 </div>
             ),
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                dispatch(postDeleteActivityStart(record?.id));
+                dispatch(
+                    postDeleteSampleStart({
+                        id: record?.id,
+                    })
+                );
             },
             onCancel() {},
         });
