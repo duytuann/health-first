@@ -47,7 +47,6 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             key: 'name',
             render: (text: string, row: any, index: number) => <div className="text-center">{row.name}</div>,
         },
-
         {
             title: 'Trạng thái',
             key: 'Status',
@@ -55,6 +54,11 @@ const PlanTable: React.FC<IPlanTableProps> = () => {
             render: (text: string, row: any, index: number) => (
                 <div className="text-center">{planState.find(ele => ele.id === row.planStateId)?.name}</div>
             ),
+        },
+        {
+            title: 'Mô tả',
+            key: 'description',
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.description}</div>,
         },
         {
             width: 150,

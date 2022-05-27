@@ -5,7 +5,7 @@ export interface getListParams {
 
 export interface createPlanParams {
     name: string;
-    publishedDate: string;
+    facilityIds: any;
     description: string;
     planStateId: number;
 }

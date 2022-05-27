@@ -1,8 +1,7 @@
-import { DatePicker, Form, Input, Select, Space } from 'antd';
+import { Form, Input, Select, Space } from 'antd';
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
-import moment from 'moment';
 import { planState } from 'helper/consts';
 import { postCreatePlanStart, postUpdatePlanStart } from 'modules/plan/redux';
 import React, { useEffect } from 'react';
@@ -24,6 +23,9 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
     const {
         data: { currentPlanId, currentDetailPlanById },
     } = useSelector((state: RootState) => state.plan);
+    const {
+        data: { facilitiesList },
+    } = useSelector((state: RootState) => state.facilities);
 
     const handleSubmit = () => {
         if (!isUpdate) {
@@ -32,7 +34,6 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
 
                 const body = {
                     ...value,
-                    publishedDate: value.publishedDate.format('YYYY-MM-DD'),
                 };
 
                 dispatch(postCreatePlanStart(body));
@@ -45,7 +46,6 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
                 dispatch(
                     postUpdatePlanStart({
                         ...value,
-                        publishedDate: value.publishedDate.format('YYYY-MM-DD'),
                         id: currentPlanId,
                     })
                 );
@@ -59,8 +59,7 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
             form.setFieldsValue({
                 name: currentDetailPlanById.name,
                 planStateId: currentDetailPlanById.planStateId,
-                publishedDate: moment(currentDetailPlanById.publishedDate),
-                // description: currentDetailPlanById.description,
+                description: currentDetailPlanById.description,
             });
         }
     }, []);
@@ -131,18 +130,24 @@ const PlanForm: React.FC<IPlanFormProps> = ({ visible, onOk, onCancel, isUpdate 
                     </Select>
                 </Form.Item>
                 <Form.Item
-                    label="Ngày bắt đầu"
-                    name="publishedDate"
+                    label="Các cơ sở nhận kế hoạch"
+                    name="facilityIds"
                     rules={[
                         {
-                            type: 'object',
+                            type: 'array',
                             required: true,
-                            message: 'Ngày bắt đầu không được để trống',
+                            message: 'Các cơ sở nhận kế hoạch không được để trống',
                             whitespace: true,
                         },
                     ]}
                 >
-                    <DatePicker onChange={() => {}} />
+                    <Select mode="multiple" placeholder="Chọn các cơ sở nhận kế hoạch">
+                        {facilitiesList.map((item: any, index: number) => (
+                            <Select.Option key={index} value={item.id}>
+                                {item.name}
+                            </Select.Option>
+                        ))}
+                    </Select>
                 </Form.Item>
                 <Form.Item
                     label="Mô tả"

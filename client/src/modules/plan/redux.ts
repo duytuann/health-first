@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createPlanParams, updatePlanParams, deletePlanParams, getListParams } from 'core/http/apis/plan/types';
 import {
     CreateActivityParams,
-    UpdateActivityParams,
-    DeleteActivityParams,
-    GetListParams,
     CreateSampleParams,
-    UpdateSampleParams,
+    DeleteActivityParams,
     DeleteSampleParams,
+    GetListParams,
+    UpdateActivityParams,
+    UpdateSampleParams,
     GetListSampleParams,
 } from 'core/http/apis/activities/types';
+import { createPlanParams, deletePlanParams, getListParams, updatePlanParams } from 'core/http/apis/plan/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface PlanState {
@@ -23,6 +23,8 @@ export interface PlanState {
     searchPlan: getListParams;
     searchActivity: GetListParams;
     searchSample: GetListSampleParams;
+    foodList: any;
+    inspectionUnit: any;
 }
 const initialState: ReduxData<PlanState> = {
     data: {
@@ -34,8 +36,14 @@ const initialState: ReduxData<PlanState> = {
         searchActivity: {
             activityName: null,
             activityStateId: null,
+            activityResultId: null,
         },
-        searchSample: {},
+        searchSample: {
+            sampleStateId: null,
+            inspectionUnitId: null,
+            sampleResultId: null,
+            foodId: null,
+        },
 
         // currentPlanId for Update
         currentPlanId: 0,
@@ -47,6 +55,8 @@ const initialState: ReduxData<PlanState> = {
         planList: [],
         activityOfPlan: [],
         sampleList: [],
+        foodList: [],
+        inspectionUnit: [],
     },
     status: ReduxStateType.INIT,
 };
@@ -54,6 +64,15 @@ const planSlice = createSlice({
     name: 'planSlice',
     initialState,
     reducers: {
+        changeSearchPlan: (state, action: PayloadAction<getListParams>) => {
+            state.data.searchPlan = action.payload;
+        },
+        changeSearchActivity: (state, action: PayloadAction<GetListParams>) => {
+            state.data.searchActivity = action.payload;
+        },
+        changeSearchSample: (state, action: PayloadAction<GetListSampleParams>) => {
+            state.data.searchSample = action.payload;
+        },
         changeCurrentDetailPlanById: (state, action: PayloadAction<any>) => {
             state.data.currentDetailPlanById = action.payload;
         },
@@ -140,7 +159,7 @@ const planSlice = createSlice({
         postDeleteActivityError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
-        postGetListSampleStart: (state, action: PayloadAction) => {
+        postGetListSampleStart: (state, action: PayloadAction<GetListSampleParams>) => {
             // ??!!
             state.status = ReduxStateType.LOADING;
         },
@@ -178,9 +197,38 @@ const planSlice = createSlice({
         postDeleteSampleError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
+        postGetListFoodStart: (state, action: PayloadAction) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postGetListFoodSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+            state.data.foodList = action.payload;
+        },
+        postGetListFoodError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postGetListInspectionUnitStart: (state, action: PayloadAction) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postGetListInspectionUnitSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+            state.data.inspectionUnit = action.payload;
+        },
+        postGetListInspectionUnitError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
     },
 });
 export const {
+    postGetListFoodError,
+    postGetListFoodStart,
+    postGetListFoodSuccess,
+    postGetListInspectionUnitError,
+    postGetListInspectionUnitStart,
+    postGetListInspectionUnitSuccess,
+    changeSearchActivity,
+    changeSearchPlan,
+    changeSearchSample,
     changeCurrentDetailPlanById,
     changeCurrentPlanId,
     changeCurrentFacilityId,

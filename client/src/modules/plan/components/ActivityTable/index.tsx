@@ -135,7 +135,11 @@ const ActivityTable: React.FC<IActivityTableProps> = () => {
             okText: 'Đồng ý',
             cancelText: 'Hủy',
             onOk() {
-                dispatch(postDeleteActivityStart(record?.id));
+                dispatch(
+                    postDeleteActivityStart({
+                        id: record?.id,
+                    })
+                );
             },
             onCancel() {},
         });

@@ -16,11 +16,11 @@ interface IActivityFormProps {
     isUpdate: boolean;
 }
 
-const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpdate }) => {
+const ActivityForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpdate }) => {
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const {
-        data: { currentPlanId, currentActivityId, currentFacilityId},
+        data: { currentPlanId, currentActivityId, currentFacilityId },
     } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
@@ -201,4 +201,4 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
     );
 };
 
-export default PlanForm;
+export default ActivityForm;

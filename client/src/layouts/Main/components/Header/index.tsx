@@ -1,11 +1,11 @@
 import { Button, Input, Menu, Space } from 'antd';
 import SubMenu from 'antd/lib/menu/SubMenu';
+import companyLogo from 'assets/images/leaf.png';
 import Icon from 'components/Icon/Icon';
 import Modal from 'components/Modal';
 import { memo, useState } from 'react';
-import companyLogo from 'assets/images/leaf.png';
+import UserInfo from 'layouts/Main/components/UserInfo/UserInfo';
 import { HeaderWrapper } from './styles';
-import UserInfo from '../UserInfo/UserInfo';
 
 export const dataTopMenu = [
     {

@@ -2,8 +2,8 @@ import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import ActivityForm from 'modules/plan/components/ActivityForm';
 import ActivityTable from 'modules/plan/components/ActivityTable';
-import FilterActivity from 'modules/plan/components/FilterActivity';
-import { postGetListActivityStart } from 'modules/plan/redux';
+import ActivitySearch from 'modules/plan/components/ActivitySearch';
+import { postGetListActivityStart, changeSearchActivity } from 'modules/plan/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -19,6 +19,14 @@ const Activity: React.FC<IActivityProps> = () => {
     const {
         data: { searchActivity },
     } = useSelector((state: RootState) => state.plan);
+
+    useEffect(() => {
+        changeSearchActivity({
+            activityName: null,
+            activityStateId: null,
+            activityResultId: null,
+        });
+    }, []);
 
     useEffect(() => {
         dispatch(postGetListActivityStart(searchActivity));
@@ -51,7 +59,7 @@ const Activity: React.FC<IActivityProps> = () => {
                     Quay lại danh sách các kế hoạch
                 </Button>
             </div>
-            <FilterActivity />
+            <ActivitySearch />
             <div style={{ padding: '10px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className="table-heading">
                     <i>Chi tiết các hoạt động</i>
@@ -66,7 +74,7 @@ const Activity: React.FC<IActivityProps> = () => {
                             setIsShowActivityForm(true);
                         }}
                     >
-                        Thêm kế hoạch thông thanh
+                        Thêm hoạt động thông thanh
                     </Button>
                 </div>
             </div>

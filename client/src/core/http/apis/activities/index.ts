@@ -1,6 +1,15 @@
 import httpActivitiesData from 'core/http/singleton/activities';
 // import { ResultResponse } from 'core/models/ResultResponse';
-import { CreateActivityParams, DeleteActivityParams, UpdateActivityParams, GetListParams } from './types';
+import {
+    CreateActivityParams,
+    DeleteActivityParams,
+    UpdateActivityParams,
+    GetListParams,
+    GetListSampleParams,
+    CreateSampleParams,
+    UpdateSampleParams,
+    DeleteSampleParams,
+} from './types';
 import {
     createUrl,
     deleteUrl,
@@ -36,25 +45,25 @@ export const postDeleteActivityApi = async (body: DeleteActivityParams): Promise
     return res.data;
 };
 
-export const getGetListSampleApi = async (): Promise<any> => {
-    const res = await httpActivitiesData.get(getListSample);
+export const getGetListSampleApi = async (body: GetListSampleParams): Promise<any> => {
+    const res = await httpActivitiesData.post(getListSample, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };
 
-export const postCreateSampleApi = async (body: CreateActivityParams): Promise<any> => {
+export const postCreateSampleApi = async (body: CreateSampleParams): Promise<any> => {
     const res = await httpActivitiesData.post(createSample, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };
 
-export const postUpdateSampleApi = async (body: UpdateActivityParams): Promise<any> => {
+export const postUpdateSampleApi = async (body: UpdateSampleParams): Promise<any> => {
     const res = await httpActivitiesData.post(updateSample, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };
 
-export const postDeleteSampleApi = async (body: DeleteActivityParams): Promise<any> => {
+export const postDeleteSampleApi = async (body: DeleteSampleParams): Promise<any> => {
     const res = await httpActivitiesData.post(deleteSample, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;

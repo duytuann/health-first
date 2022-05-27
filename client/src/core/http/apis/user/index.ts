@@ -1,9 +1,9 @@
 import httpUsers from 'core/http/singleton/user';
-import { createUserParams, updateUserParams, deleteUserParams } from './types';
+import { createUserParams, updateUserParams, deleteUserParams, getListUserParams } from './types';
 import { getListUrl, createUrl, updateUrl, deleteUrl } from './urls';
 
-export const getGetListUserApi = async (): Promise<any> => {
-    const res = await httpUsers.get(getListUrl);
+export const getGetListUserApi = async (body: getListUserParams): Promise<any> => {
+    const res = await httpUsers.post(getListUrl, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };

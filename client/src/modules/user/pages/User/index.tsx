@@ -9,7 +9,12 @@ import { roleList } from 'helper/consts';
 import ModalDetailForm from 'modules/user/components/ModalDetailForm';
 import ModalUserForm from 'modules/user/components/ModalUserForm';
 import SystemAdvanceSearch from 'modules/user/components/SystemAdvanceSearch';
-import { postGetListUserStart, changeCurrentDetailById, postDeleteUserStart } from 'modules/user/redux';
+import {
+    changeCurrentDetailById,
+    changeSearchUser,
+    postDeleteUserStart,
+    postGetListUserStart,
+} from 'modules/user/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
@@ -122,7 +127,7 @@ const User: React.FC<IFacilitiesProps> = () => {
     ];
 
     const {
-        data: { userList },
+        data: { userList, searchUser },
     } = useSelector((state: RootState) => state.user);
 
     const showPromiseConfirm = (record: any) => {
@@ -148,8 +153,19 @@ const User: React.FC<IFacilitiesProps> = () => {
     };
 
     useEffect(() => {
-        dispatch(postGetListUserStart());
+        dispatch(
+            changeSearchUser({
+                username: null,
+                phoneNumber: null,
+                email: null,
+                userRoleId: null,
+            })
+        );
     }, []);
+
+    useEffect(() => {
+        dispatch(postGetListUserStart(searchUser));
+    }, [searchUser]);
 
     return (
         <UserWrapper>

@@ -6,7 +6,6 @@ export const SystemAdvanceSearchWrapper = styled.div`
     border-radius: 6px;
     position: relative;
     background: #fff;
-    border-bottom: 2px solid #ebecf0;
 
     .ant-form-item {
         margin-bottom: 8px;
@@ -21,4 +20,12 @@ export const SystemAdvanceSearchWrapper = styled.div`
             align-items: center;
         }
     }
+`;
+
+export const Container = styled.div`
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #ebecf0;
 `;

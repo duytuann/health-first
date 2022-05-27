@@ -2,24 +2,23 @@ import { DeleteOutlined } from '@ant-design/icons';
 import { Space, Tooltip } from 'antd';
 import confirm from 'antd/lib/modal/confirm';
 import { LinkButton } from 'components/Button';
-import { useHistory } from 'react-router-dom';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
+import { sampleResult, sampleState } from 'helper/consts';
 import ActivityForm from 'modules/plan/components/ActivityForm';
-import { changeCurrentActivityId, postDeleteActivityStart, changeCurrentFacilityId } from 'modules/plan/redux';
+import { changeCurrentActivityId, changeCurrentFacilityId, postDeleteActivityStart } from 'modules/plan/redux';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
-import { ActivitiesContainer, ViewDetail } from './styles';
+import { ActivitiesContainer } from './styles';
 
 interface ISampleTableProps {}
 
 const SampleTable: React.FC<ISampleTableProps> = () => {
-    const history = useHistory();
     const dispatch = useDispatch();
     const [isUpdateFacilityForm, setIsUpdateFacilityForm] = useState(false);
     const {
-        data: { activityOfPlan, currentPlanId, sampleList },
+        data: { sampleList, foodList, inspectionUnit },
     } = useSelector((state: RootState) => state.plan);
 
     const columns = [
@@ -39,26 +38,34 @@ const SampleTable: React.FC<ISampleTableProps> = () => {
             title: 'Trạng thái',
             key: 'sampleStateId',
             width: 180,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.sampleStateId}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{sampleState.find(ele => ele.id === row.sampleStateId)?.name}</div>
+            ),
         },
         {
             title: 'Kết quả',
-            key: 'sampleResult',
+            key: 'sampleResultId',
             width: 170,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.sampleResult}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{sampleResult.find(ele => ele.id === row.sampleResultId)?.name}</div>
+            ),
         },
         {
             title: 'Thực phẩm cần giám định',
             key: 'foodId',
             width: 170,
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.foodId}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{foodList.find((ele: any) => ele.id === row.foodId)?.name}</div>
+            ),
         },
         {
             title: 'Đơn vị kiểm định',
             key: 'inspectionUnitId',
             width: 100,
             render: (text: string, row: any, index: number) => (
-                <div className="text-center">{row.inspectionUnitId}</div>
+                <div className="text-center">
+                    {inspectionUnit.find((ele: any) => ele.id === row.inspectionUnitId)?.name}
+                </div>
             ),
         },
         {

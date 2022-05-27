@@ -2,8 +2,8 @@ import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import ActivityForm from 'modules/plan/components/ActivityForm';
 import SampleTable from 'modules/plan/components/SampleTable';
-import FilterActivity from 'modules/plan/components/FilterActivity';
-import { postGetListSampleStart } from 'modules/plan/redux';
+import SampleSearch from 'modules/plan/components/SampleSearch';
+import { postGetListSampleStart, postGetListFoodStart, postGetListInspectionUnitStart } from 'modules/plan/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useHistory } from 'react-router-dom';
@@ -22,7 +22,12 @@ const Sample: React.FC<ISampleProps> = () => {
 
     //serchSample :D
     useEffect(() => {
-        dispatch(postGetListSampleStart());
+        dispatch(postGetListSampleStart(searchSample));
+    }, [searchSample]);
+
+    useEffect(() => {
+        dispatch(postGetListFoodStart());
+        dispatch(postGetListInspectionUnitStart());
     }, []);
 
     return (
@@ -52,7 +57,7 @@ const Sample: React.FC<ISampleProps> = () => {
                     Quay lại danh sách các hoạt động
                 </Button>
             </div>
-            <FilterActivity />
+            <SampleSearch />
             <div style={{ padding: '10px 0', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div className="table-heading">
                     <i>Chi tiết các mẫu giám định</i>
@@ -67,7 +72,7 @@ const Sample: React.FC<ISampleProps> = () => {
                             setIsShowActivityForm(true);
                         }}
                     >
-                        Thêm kế hoạch thông thanh
+                        Thêm mẫu giám định
                     </Button>
                 </div>
             </div>

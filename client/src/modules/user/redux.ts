@@ -1,15 +1,22 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createUserParams, updateUserParams, deleteUserParams } from 'core/http/apis/user/types';
+import { createUserParams, updateUserParams, deleteUserParams, getListUserParams } from 'core/http/apis/user/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface UserState {
+    searchUser: getListUserParams;
     userList: any;
     currentDetailUserById: any;
 }
 const initialState: ReduxData<UserState> = {
     data: {
-        currentDetailUserById: {},
+        searchUser: {
+            username: null,
+            phoneNumber: null,
+            email: null,
+            userRoleId: null,
+        },
 
+        currentDetailUserById: {},
         userList: [],
     },
     status: ReduxStateType.INIT,
@@ -18,10 +25,13 @@ const userSlice = createSlice({
     name: 'userSlice',
     initialState,
     reducers: {
+        changeSearchUser: (state, action: PayloadAction<getListUserParams>) => {
+            state.data.searchUser = action.payload;
+        },
         changeCurrentDetailById: (state, action: PayloadAction<any>) => {
             state.data.currentDetailUserById = action.payload;
         },
-        postGetListUserStart: (state, action: PayloadAction) => {
+        postGetListUserStart: (state, action: PayloadAction<getListUserParams>) => {
             state.status = ReduxStateType.LOADING;
         },
         postGetListUserSuccess: (state, action: PayloadAction<any>) => {
@@ -61,6 +71,7 @@ const userSlice = createSlice({
     },
 });
 export const {
+    changeSearchUser,
     changeCurrentDetailById,
     postGetListUserStart,
     postGetListUserSuccess,

@@ -1,3 +1,10 @@
+export interface getListUserParams {
+    username: string | null;
+    phoneNumber: string | null;
+    email: string | null;
+    userRoleId: number | null;
+}
+
 export interface createUserParams {
     username: string;
     password: string;

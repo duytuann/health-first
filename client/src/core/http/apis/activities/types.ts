@@ -1,6 +1,7 @@
 export interface GetListParams {
     activityName: string | null;
     activityStateId: number | null;
+    activityResultId: number | null;
 }
 export interface CreateActivityParams {
     name: string;
@@ -17,7 +18,12 @@ export interface DeleteActivityParams {
     id: number;
 }
 
-export interface GetListSampleParams {}
+export interface GetListSampleParams {
+    sampleStateId: number | null;
+    inspectionUnitId: number | null;
+    sampleResultId: number | null;
+    foodId: number | null;
+}
 
 export interface CreateSampleParams {
     // resultedDate: string; ??!!

@@ -71,6 +71,10 @@ export const roleList = [
 
 export const activityState = [
     {
+        id: 0,
+        name: 'Tất cả',
+    },
+    {
         id: 1,
         name: 'Đang hoạt động',
     },
@@ -81,6 +85,10 @@ export const activityState = [
 ];
 
 export const activityResult = [
+    {
+        id: 0,
+        name: 'Tất cả',
+    },
     {
         id: 1,
         name: 'Được thông qua',
@@ -107,5 +115,35 @@ export const certificateState = [
     {
         id: 3,
         name: 'Bị thu hồi',
+    },
+];
+
+export const sampleResult = [
+    {
+        id: 0,
+        name: 'Tất cả',
+    },
+    {
+        id: 1,
+        name: 'Đạt tiêu chuẩn',
+    },
+    {
+        id: 2,
+        name: 'Không đạt tiêu chuẩn',
+    },
+];
+
+export const sampleState = [
+    {
+        id: 0,
+        name: 'Tất cả',
+    },
+    {
+        id: 1,
+        name: 'Hoàn thành',
+    },
+    {
+        id: 2,
+        name: 'Đang hoãn loại',
     },
 ];

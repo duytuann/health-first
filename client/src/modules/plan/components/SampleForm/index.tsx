@@ -20,7 +20,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
     const dispatch = useDispatch();
     const [form] = Form.useForm();
     const {
-        data: { currentPlanId, currentActivityId, currentFacilityId},
+        data: { currentPlanId, currentActivityId, currentFacilityId },
     } = useSelector((state: RootState) => state.plan);
 
     const handleSubmit = () => {
@@ -71,7 +71,7 @@ const PlanForm: React.FC<IActivityFormProps> = ({ visible, onOk, onCancel, isUpd
 
     return (
         <Modal
-            title={isUpdate ? 'Sửa hoạt động thông thanh' : 'Thêm hoạt động thông thanh'}
+            title={isUpdate ? 'Sửa mẫu giám định' : 'Thêm mẫu giám định'}
             visible={visible}
             onOk={onOk}
             onCancel={onCancel}
