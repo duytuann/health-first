@@ -9,6 +9,15 @@ Tech-stack:
 <h3>Front-end: React.js, TypeScript, Redux, Saga</h3>
 <h3>Back-end: Java, Spring Boot</h3>
 
+<div>---</div>
+
+cd client -> npm install -> npm start
+
+cd server/user-service -> mvn spring-boot:run
+
+<div>---</div>
+
+
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Hệ thống quản lý các cơ sở sản xuất thực phẩm, kinh doanh dịch vụ <span class="GramE">ăn</span> uống</span>
 
