@@ -7,6 +7,7 @@ import { postCreateCertificateStart, postUpdateCertificateStart } from 'modules/
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { RootState } from 'redux/store';
+import moment from 'moment';
 import { FormDetailWrapper } from './styles';
 
 interface ICertificateFormProps {
@@ -21,7 +22,7 @@ const CertificateForm: React.FC<ICertificateFormProps> = ({ visible, onOk, onCan
     const [form] = Form.useForm();
 
     const {
-        data: { facilityId, currentFacilityId },
+        data: { facilityId, currentFacilityId, currentCertificate },
     } = useSelector((state: RootState) => state.certificate);
 
     const handleSubmit = () => {
@@ -58,7 +59,11 @@ const CertificateForm: React.FC<ICertificateFormProps> = ({ visible, onOk, onCan
 
     useEffect(() => {
         if (isUpdate) {
-            form.setFieldsValue({});
+            form.setFieldsValue({
+                certificateStateId: currentCertificate.certificateStateId,
+                publishedDate: moment(currentCertificate.publishedDate, 'YYYY-MM-DD'),
+                expiredDate: moment(currentCertificate.expiredDate, 'YYYY-MM-DD'),
+            });
         }
     }, []);
 

@@ -12,6 +12,7 @@ export interface CertificateState {
     certificateList: any;
     currentFacilityId: any;
     facilityId: number;
+    currentCertificate: any;
 }
 
 const initialState: ReduxData<CertificateState> = {
@@ -21,6 +22,7 @@ const initialState: ReduxData<CertificateState> = {
             certificateStateId: null,
         },
         certificateList: [],
+        currentCertificate: {},
         currentFacilityId: {},
         facilityId: 0,
     },
@@ -30,6 +32,9 @@ const certificateStateSlice = createSlice({
     name: 'certificateStateSlice',
     initialState,
     reducers: {
+        changeCurrentCertificate: (state, action: PayloadAction<any>) => {
+            state.data.currentCertificate = action.payload;
+        },
         changeSearchCondition: (state, action: PayloadAction<any>) => {
             state.data.conditionSearch = action.payload;
         },
@@ -79,6 +84,7 @@ const certificateStateSlice = createSlice({
     },
 });
 export const {
+    changeCurrentCertificate,
     changeSearchCondition,
     changeFacilityId,
     changeCurrentFacilityId,

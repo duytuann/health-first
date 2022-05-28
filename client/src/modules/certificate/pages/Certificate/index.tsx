@@ -13,6 +13,7 @@ import {
     changeFacilityId,
     postDeleteCertificateStart,
     changeSearchCondition,
+    changeCurrentCertificate,
 } from 'modules/certificate/redux';
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -104,7 +105,7 @@ const Certificate: React.FC = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="blue" size={20} className="mx-auto" />}
                                 onClick={() => {
-                                    dispatch(changeCurrentFacilityId(record));
+                                    dispatch(changeCurrentCertificate(record));
                                     setIsShowCertificateUpdateForm(true);
                                 }}
                             />
