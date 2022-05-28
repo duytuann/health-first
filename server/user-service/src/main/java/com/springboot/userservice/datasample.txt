@@ -1,0 +1,3311 @@
+insert into province(id,name) values('1','Thành phố Hà Nội');
+
+insert into province(id,name) values('2','Tỉnh Hà Giang');
+
+insert into province(id,name) values('4','Tỉnh Cao Bằng');
+
+insert into province(id,name) values('6','Tỉnh Bắc Kạn');
+
+insert into province(id,name) values('8','Tỉnh Tuyên Quang');
+
+insert into province(id,name) values('10','Tỉnh Lào Cai');
+
+insert into province(id,name) values('11','Tỉnh Điện Biên');
+
+insert into province(id,name) values('12','Tỉnh Lai Châu');
+
+insert into province(id,name) values('14','Tỉnh Sơn La');
+
+insert into province(id,name) values('15','Tỉnh Yên Bái');
+
+insert into province(id,name) values('17','Tỉnh Hoà Bình');
+
+insert into province(id,name) values('19','Tỉnh Thái Nguyên');
+
+insert into province(id,name) values('20','Tỉnh Lạng Sơn');
+
+insert into province(id,name) values('22','Tỉnh Quảng Ninh');
+
+insert into province(id,name) values('24','Tỉnh Bắc Giang');
+
+insert into province(id,name) values('25','Tỉnh Phú Thọ');
+
+insert into province(id,name) values('26','Tỉnh Vĩnh Phúc');
+
+insert into province(id,name) values('27','Tỉnh Bắc Ninh');
+
+insert into province(id,name) values('30','Tỉnh Hải Dương');
+
+insert into province(id,name) values('31','Thành phố Hải Phòng');
+
+insert into province(id,name) values('33','Tỉnh Hưng Yên');
+
+insert into province(id,name) values('34','Tỉnh Thái Bình');
+
+insert into province(id,name) values('35','Tỉnh Hà Nam');
+
+insert into province(id,name) values('36','Tỉnh Nam Định');
+
+insert into province(id,name) values('37','Tỉnh Ninh Bình');
+
+insert into province(id,name) values('38','Tỉnh Thanh Hóa');
+
+insert into province(id,name) values('40','Tỉnh Nghệ An');
+
+insert into province(id,name) values('42','Tỉnh Hà Tĩnh');
+
+insert into province(id,name) values('44','Tỉnh Quảng Bình');
+
+insert into province(id,name) values('45','Tỉnh Quảng Trị');
+
+insert into province(id,name) values('46','Tỉnh Thừa Thiên Huế');
+
+insert into province(id,name) values('48','Thành phố Đà Nẵng');
+
+insert into province(id,name) values('49','Tỉnh Quảng Nam');
+
+insert into province(id,name) values('51','Tỉnh Quảng Ngãi');
+
+insert into province(id,name) values('52','Tỉnh Bình Định');
+
+insert into province(id,name) values('54','Tỉnh Phú Yên');
+
+insert into province(id,name) values('56','Tỉnh Khánh Hòa');
+
+insert into province(id,name) values('58','Tỉnh Ninh Thuận');
+
+insert into province(id,name) values('60','Tỉnh Bình Thuận');
+
+insert into province(id,name) values('62','Tỉnh Kon Tum');
+
+insert into province(id,name) values('64','Tỉnh Gia Lai');
+
+insert into province(id,name) values('66','Tỉnh Đắk Lắk');
+
+insert into province(id,name) values('67','Tỉnh Đắk Nông');
+
+insert into province(id,name) values('68','Tỉnh Lâm Đồng');
+
+insert into province(id,name) values('70','Tỉnh Bình Phước');
+
+insert into province(id,name) values('72','Tỉnh Tây Ninh');
+
+insert into province(id,name) values('74','Tỉnh Bình Dương');
+
+insert into province(id,name) values('75','Tỉnh Đồng Nai');
+
+insert into province(id,name) values('77','Tỉnh Bà Rịa - Vũng Tàu');
+
+insert into province(id,name) values('79','Thành phố Hồ Chí Minh');
+
+insert into province(id,name) values('80','Tỉnh Long An');
+
+insert into province(id,name) values('82','Tỉnh Tiền Giang');
+
+insert into province(id,name) values('83','Tỉnh Bến Tre');
+
+insert into province(id,name) values('84','Tỉnh Trà Vinh');
+
+insert into province(id,name) values('86','Tỉnh Vĩnh Long');
+
+insert into province(id,name) values('87','Tỉnh Đồng Tháp');
+
+insert into province(id,name) values('89','Tỉnh An Giang');
+
+insert into province(id,name) values('91','Tỉnh Kiên Giang');
+
+insert into province(id,name) values('92','Thành phố Cần Thơ');
+
+insert into province(id,name) values('93','Tỉnh Hậu Giang');
+
+insert into province(id,name) values('94','Tỉnh Sóc Trăng');
+
+insert into province(id,name) values('95','Tỉnh Bạc Liêu');
+
+insert into province(id,name) values('96','Tỉnh Cà Mau');
+
+insert into
+    district(province_id, id, name)
+values('1', '1', 'Quận Ba Đình');
+
+insert into
+    district(province_id, id, name)
+values('1', '2', 'Quận Hoàn Kiếm');
+
+insert into
+    district(province_id, id, name)
+values('1', '3', 'Quận Tây Hồ');
+
+insert into
+    district(province_id, id, name)
+values('1', '4', 'Quận Long Biên');
+
+insert into
+    district(province_id, id, name)
+values('1', '5', 'Quận Cầu Giấy');
+
+insert into
+    district(province_id, id, name)
+values('1', '6', 'Quận Đống Đa');
+
+insert into
+    district(province_id, id, name)
+values('1', '7', 'Quận Hai Bà Trưng');
+
+insert into
+    district(province_id, id, name)
+values('1', '8', 'Quận Hoàng Mai');
+
+insert into
+    district(province_id, id, name)
+values('1', '9', 'Quận Thanh Xuân');
+
+insert into
+    district(province_id, id, name)
+values('1', '10', 'Huyện Sóc Sơn');
+
+insert into
+    district(province_id, id, name)
+values('1', '11', 'Huyện Đông Anh');
+
+insert into
+    district(province_id, id, name)
+values('1', '12', 'Huyện Gia Lâm');
+
+insert into
+    district(province_id, id, name)
+values('1', '13', 'Quận Nam Từ Liêm');
+
+insert into
+    district(province_id, id, name)
+values('1', '14', 'Huyện Thanh Trì');
+
+insert into
+    district(province_id, id, name)
+values('1', '15', 'Quận Bắc Từ Liêm');
+
+insert into
+    district(province_id, id, name)
+values('1', '16', 'Huyện Mê Linh');
+
+insert into
+    district(province_id, id, name)
+values('1', '17', 'Quận Hà Đông');
+
+insert into
+    district(province_id, id, name)
+values('1', '18', 'Thị xã Sơn Tây');
+
+insert into
+    district(province_id, id, name)
+values('1', '19', 'Huyện Ba Vì');
+
+insert into
+    district(province_id, id, name)
+values('1', '20', 'Huyện Phúc Thọ');
+
+insert into
+    district(province_id, id, name)
+values('1', '21', 'Huyện Đan Phượng');
+
+insert into
+    district(province_id, id, name)
+values('1', '22', 'Huyện Hoài Đức');
+
+insert into
+    district(province_id, id, name)
+values('1', '23', 'Huyện Quốc Oai');
+
+insert into
+    district(province_id, id, name)
+values('1', '24', 'Huyện Thạch Thất');
+
+insert into
+    district(province_id, id, name)
+values('1', '25', 'Huyện Chương Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('1', '26', 'Huyện Thanh Oai');
+
+insert into
+    district(province_id, id, name)
+values('1', '27', 'Huyện Thường Tín');
+
+insert into
+    district(province_id, id, name)
+values('1', '28', 'Huyện Phú Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('1', '29', 'Huyện Ứng Hòa');
+
+insert into
+    district(province_id, id, name)
+values('1', '30', 'Huyện Mỹ Đức');
+
+insert into
+    district(province_id, id, name)
+values('2', '31', 'Thành phố Hà Giang');
+
+insert into
+    district(province_id, id, name)
+values('2', '32', 'Huyện Đồng Văn');
+
+insert into
+    district(province_id, id, name)
+values('2', '33', 'Huyện Mèo Vạc');
+
+insert into
+    district(province_id, id, name)
+values('2', '34', 'Huyện Yên Minh');
+
+insert into
+    district(province_id, id, name)
+values('2', '35', 'Huyện Quản Bạ');
+
+insert into
+    district(province_id, id, name)
+values('2', '36', 'Huyện Vị Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('2', '37', 'Huyện Bắc Mê');
+
+insert into
+    district(province_id, id, name)
+values('2', '38', 'Huyện Hoàng Su Phì');
+
+insert into
+    district(province_id, id, name)
+values('2', '39', 'Huyện Xín Mần');
+
+insert into
+    district(province_id, id, name)
+values('2', '40', 'Huyện Bắc Quang');
+
+insert into
+    district(province_id, id, name)
+values('2', '41', 'Huyện Quang Bình');
+
+insert into
+    district(province_id, id, name)
+values('4', '42', 'Thành phố Cao Bằng');
+
+insert into
+    district(province_id, id, name)
+values('4', '43', 'Huyện Bảo Lâm');
+
+insert into
+    district(province_id, id, name)
+values('4', '44', 'Huyện Bảo Lạc');
+
+insert into
+    district(province_id, id, name)
+values('4', '45', 'Huyện Hà Quảng');
+
+insert into
+    district(province_id, id, name)
+values('4', '46', 'Huyện Trùng Khánh');
+
+insert into
+    district(province_id, id, name)
+values('4', '47', 'Huyện Hạ Lang');
+
+insert into
+    district(province_id, id, name)
+values('4', '48', 'Huyện Quảng Hòa');
+
+insert into
+    district(province_id, id, name)
+values('4', '49', 'Huyện Hoà An');
+
+insert into
+    district(province_id, id, name)
+values('4', '50', 'Huyện Nguyên Bình');
+
+insert into
+    district(province_id, id, name)
+values('4', '51', 'Huyện Thạch An');
+
+insert into
+    district(province_id, id, name)
+values('6', '52', 'Thành Phố Bắc Kạn');
+
+insert into
+    district(province_id, id, name)
+values('6', '53', 'Huyện Pác Nặm');
+
+insert into
+    district(province_id, id, name)
+values('6', '54', 'Huyện Ba Bể');
+
+insert into
+    district(province_id, id, name)
+values('6', '55', 'Huyện Ngân Sơn');
+
+insert into
+    district(province_id, id, name)
+values('6', '56', 'Huyện Bạch Thông');
+
+insert into
+    district(province_id, id, name)
+values('6', '57', 'Huyện Chợ Đồn');
+
+insert into
+    district(province_id, id, name)
+values('6', '58', 'Huyện Chợ Mới');
+
+insert into
+    district(province_id, id, name)
+values('6', '59', 'Huyện Na Rì');
+
+insert into
+    district(province_id, id, name)
+values('8', '60', 'Thành phố Tuyên Quang');
+
+insert into
+    district(province_id, id, name)
+values('8', '61', 'Huyện Lâm Bình');
+
+insert into
+    district(province_id, id, name)
+values('8', '62', 'Huyện Na Hang');
+
+insert into
+    district(province_id, id, name)
+values('8', '63', 'Huyện Chiêm Hóa');
+
+insert into
+    district(province_id, id, name)
+values('8', '64', 'Huyện Hàm Yên');
+
+insert into
+    district(province_id, id, name)
+values('8', '65', 'Huyện Yên Sơn');
+
+insert into
+    district(province_id, id, name)
+values('8', '66', 'Huyện Sơn Dương');
+
+insert into
+    district(province_id, id, name)
+values('10', '67', 'Thành phố Lào Cai');
+
+insert into
+    district(province_id, id, name)
+values('10', '68', 'Huyện Bát Xát');
+
+insert into
+    district(province_id, id, name)
+values('10', '69', 'Huyện Mường Khương');
+
+insert into
+    district(province_id, id, name)
+values('10', '70', 'Huyện Si Ma Cai');
+
+insert into
+    district(province_id, id, name)
+values('10', '71', 'Huyện Bắc Hà');
+
+insert into
+    district(province_id, id, name)
+values('10', '72', 'Huyện Bảo Thắng');
+
+insert into
+    district(province_id, id, name)
+values('10', '73', 'Huyện Bảo Yên');
+
+insert into
+    district(province_id, id, name)
+values('10', '74', 'Thị xã Sa Pa');
+
+insert into
+    district(province_id, id, name)
+values('10', '75', 'Huyện Văn Bàn');
+
+insert into
+    district(province_id, id, name)
+values('11', '76', 'Thành phố Điện Biên Phủ');
+
+insert into
+    district(province_id, id, name)
+values('11', '77', 'Thị Xã Mường Lay');
+
+insert into
+    district(province_id, id, name)
+values('11', '78', 'Huyện Mường Nhé');
+
+insert into
+    district(province_id, id, name)
+values('11', '79', 'Huyện Mường Chà');
+
+insert into
+    district(province_id, id, name)
+values('11', '80', 'Huyện Tủa Chùa');
+
+insert into
+    district(province_id, id, name)
+values('11', '81', 'Huyện Tuần Giáo');
+
+insert into
+    district(province_id, id, name)
+values('11', '82', 'Huyện Điện Biên');
+
+insert into
+    district(province_id, id, name)
+values('11', '83', 'Huyện Điện Biên Đông');
+
+insert into
+    district(province_id, id, name)
+values('11', '84', 'Huyện Mường Ảng');
+
+insert into
+    district(province_id, id, name)
+values('11', '85', 'Huyện Nậm Pồ');
+
+insert into
+    district(province_id, id, name)
+values('12', '86', 'Thành phố Lai Châu');
+
+insert into
+    district(province_id, id, name)
+values('12', '87', 'Huyện Tam Đường');
+
+insert into
+    district(province_id, id, name)
+values('12', '88', 'Huyện Mường Tè');
+
+insert into
+    district(province_id, id, name)
+values('12', '89', 'Huyện Sìn Hồ');
+
+insert into
+    district(province_id, id, name)
+values('12', '90', 'Huyện Phong Thổ');
+
+insert into
+    district(province_id, id, name)
+values('12', '91', 'Huyện Than Uyên');
+
+insert into
+    district(province_id, id, name)
+values('12', '92', 'Huyện Tân Uyên');
+
+insert into
+    district(province_id, id, name)
+values('12', '93', 'Huyện Nậm Nhùn');
+
+insert into
+    district(province_id, id, name)
+values('14', '94', 'Thành phố Sơn La');
+
+insert into
+    district(province_id, id, name)
+values('14', '95', 'Huyện Quỳnh Nhai');
+
+insert into
+    district(province_id, id, name)
+values('14', '96', 'Huyện Thuận Châu');
+
+insert into
+    district(province_id, id, name)
+values('14', '97', 'Huyện Mường La');
+
+insert into
+    district(province_id, id, name)
+values('14', '98', 'Huyện Bắc Yên');
+
+insert into
+    district(province_id, id, name)
+values('14', '99', 'Huyện Phù Yên');
+
+insert into
+    district(province_id, id, name)
+values('14', '100', 'Huyện Mộc Châu');
+
+insert into
+    district(province_id, id, name)
+values('14', '101', 'Huyện Yên Châu');
+
+insert into
+    district(province_id, id, name)
+values('14', '102', 'Huyện Mai Sơn');
+
+insert into
+    district(province_id, id, name)
+values('14', '103', 'Huyện Sông Mã');
+
+insert into
+    district(province_id, id, name)
+values('14', '104', 'Huyện Sốp Cộp');
+
+insert into
+    district(province_id, id, name)
+values('14', '105', 'Huyện Vân Hồ');
+
+insert into
+    district(province_id, id, name)
+values('15', '106', 'Thành phố Yên Bái');
+
+insert into
+    district(province_id, id, name)
+values('15', '107', 'Thị xã Nghĩa Lộ');
+
+insert into
+    district(province_id, id, name)
+values('15', '108', 'Huyện Lục Yên');
+
+insert into
+    district(province_id, id, name)
+values('15', '109', 'Huyện Văn Yên');
+
+insert into
+    district(province_id, id, name)
+values('15', '110', 'Huyện Mù Căng Chải');
+
+insert into
+    district(province_id, id, name)
+values('15', '111', 'Huyện Trấn Yên');
+
+insert into
+    district(province_id, id, name)
+values('15', '112', 'Huyện Trạm Tấu');
+
+insert into
+    district(province_id, id, name)
+values('15', '113', 'Huyện Văn Chấn');
+
+insert into
+    district(province_id, id, name)
+values('15', '114', 'Huyện Yên Bình');
+
+insert into
+    district(province_id, id, name)
+values('17', '115', 'Thành phố Hòa Bình');
+
+insert into
+    district(province_id, id, name)
+values('17', '116', 'Huyện Đà Bắc');
+
+insert into
+    district(province_id, id, name)
+values('17', '117', 'Huyện Lương Sơn');
+
+insert into
+    district(province_id, id, name)
+values('17', '118', 'Huyện Kim Bôi');
+
+insert into
+    district(province_id, id, name)
+values('17', '119', 'Huyện Cao Phong');
+
+insert into
+    district(province_id, id, name)
+values('17', '120', 'Huyện Tân Lạc');
+
+insert into
+    district(province_id, id, name)
+values('17', '121', 'Huyện Mai Châu');
+
+insert into
+    district(province_id, id, name)
+values('17', '122', 'Huyện Lạc Sơn');
+
+insert into
+    district(province_id, id, name)
+values('17', '123', 'Huyện Yên Thủy');
+
+insert into
+    district(province_id, id, name)
+values('17', '124', 'Huyện Lạc Thủy');
+
+insert into
+    district(province_id, id, name)
+values('19', '125', 'Thành phố Thái Nguyên');
+
+insert into
+    district(province_id, id, name)
+values('19', '126', 'Thành phố Sông Công');
+
+insert into
+    district(province_id, id, name)
+values('19', '127', 'Huyện Định Hóa');
+
+insert into
+    district(province_id, id, name)
+values('19', '128', 'Huyện Phú Lương');
+
+insert into
+    district(province_id, id, name)
+values('19', '129', 'Huyện Đồng Hỷ');
+
+insert into
+    district(province_id, id, name)
+values('19', '130', 'Huyện Võ Nhai');
+
+insert into
+    district(province_id, id, name)
+values('19', '131', 'Huyện Đại Từ');
+
+insert into
+    district(province_id, id, name)
+values('19', '132', 'Thành phố Phổ Yên');
+
+insert into
+    district(province_id, id, name)
+values('19', '133', 'Huyện Phú Bình');
+
+insert into
+    district(province_id, id, name)
+values('20', '134', 'Thành phố Lạng Sơn');
+
+insert into
+    district(province_id, id, name)
+values('20', '135', 'Huyện Tràng Định');
+
+insert into
+    district(province_id, id, name)
+values('20', '136', 'Huyện Bình Gia');
+
+insert into
+    district(province_id, id, name)
+values('20', '137', 'Huyện Văn Lãng');
+
+insert into
+    district(province_id, id, name)
+values('20', '138', 'Huyện Cao Lộc');
+
+insert into
+    district(province_id, id, name)
+values('20', '139', 'Huyện Văn Quan');
+
+insert into
+    district(province_id, id, name)
+values('20', '140', 'Huyện Bắc Sơn');
+
+insert into
+    district(province_id, id, name)
+values('20', '141', 'Huyện Hữu Lũng');
+
+insert into
+    district(province_id, id, name)
+values('20', '142', 'Huyện Chi Lăng');
+
+insert into
+    district(province_id, id, name)
+values('20', '143', 'Huyện Lộc Bình');
+
+insert into
+    district(province_id, id, name)
+values('20', '144', 'Huyện Đình Lập');
+
+insert into
+    district(province_id, id, name)
+values('22', '145', 'Thành phố Hạ Long');
+
+insert into
+    district(province_id, id, name)
+values('22', '146', 'Thành phố Móng Cái');
+
+insert into
+    district(province_id, id, name)
+values('22', '147', 'Thành phố Cẩm Phả');
+
+insert into
+    district(province_id, id, name)
+values('22', '148', 'Thành phố Uông Bí');
+
+insert into
+    district(province_id, id, name)
+values('22', '149', 'Huyện Bình Liêu');
+
+insert into
+    district(province_id, id, name)
+values('22', '150', 'Huyện Tiên Yên');
+
+insert into
+    district(province_id, id, name)
+values('22', '151', 'Huyện Đầm Hà');
+
+insert into
+    district(province_id, id, name)
+values('22', '152', 'Huyện Hải Hà');
+
+insert into
+    district(province_id, id, name)
+values('22', '153', 'Huyện Ba Chẽ');
+
+insert into
+    district(province_id, id, name)
+values('22', '154', 'Huyện Vân Đồn');
+
+insert into
+    district(province_id, id, name)
+values('22', '155', 'Thị xã Đông Triều');
+
+insert into
+    district(province_id, id, name)
+values('22', '156', 'Thị xã Quảng Yên');
+
+insert into
+    district(province_id, id, name)
+values('22', '157', 'Huyện Cô Tô');
+
+insert into
+    district(province_id, id, name)
+values('24', '158', 'Thành phố Bắc Giang');
+
+insert into
+    district(province_id, id, name)
+values('24', '159', 'Huyện Yên Thế');
+
+insert into
+    district(province_id, id, name)
+values('24', '160', 'Huyện Tân Yên');
+
+insert into
+    district(province_id, id, name)
+values('24', '161', 'Huyện Lạng Giang');
+
+insert into
+    district(province_id, id, name)
+values('24', '162', 'Huyện Lục Nam');
+
+insert into
+    district(province_id, id, name)
+values('24', '163', 'Huyện Lục Ngạn');
+
+insert into
+    district(province_id, id, name)
+values('24', '164', 'Huyện Sơn Động');
+
+insert into
+    district(province_id, id, name)
+values('24', '165', 'Huyện Yên Dũng');
+
+insert into
+    district(province_id, id, name)
+values('24', '166', 'Huyện Việt Yên');
+
+insert into
+    district(province_id, id, name)
+values('24', '167', 'Huyện Hiệp Hòa');
+
+insert into
+    district(province_id, id, name)
+values('25', '168', 'Thành phố Việt Trì');
+
+insert into
+    district(province_id, id, name)
+values('25', '169', 'Thị xã Phú Thọ');
+
+insert into
+    district(province_id, id, name)
+values('25', '170', 'Huyện Đoan Hùng');
+
+insert into
+    district(province_id, id, name)
+values('25', '171', 'Huyện Hạ Hoà');
+
+insert into
+    district(province_id, id, name)
+values('25', '172', 'Huyện Thanh Ba');
+
+insert into
+    district(province_id, id, name)
+values('25', '173', 'Huyện Phù Ninh');
+
+insert into
+    district(province_id, id, name)
+values('25', '174', 'Huyện Yên Lập');
+
+insert into
+    district(province_id, id, name)
+values('25', '175', 'Huyện Cẩm Khê');
+
+insert into
+    district(province_id, id, name)
+values('25', '176', 'Huyện Tam Nông');
+
+insert into
+    district(province_id, id, name)
+values('25', '177', 'Huyện Lâm Thao');
+
+insert into
+    district(province_id, id, name)
+values('25', '178', 'Huyện Thanh Sơn');
+
+insert into
+    district(province_id, id, name)
+values('25', '179', 'Huyện Thanh Thuỷ');
+
+insert into
+    district(province_id, id, name)
+values('25', '180', 'Huyện Tân Sơn');
+
+insert into
+    district(province_id, id, name)
+values('26', '181', 'Thành phố Vĩnh Yên');
+
+insert into
+    district(province_id, id, name)
+values('26', '182', 'Thành phố Phúc Yên');
+
+insert into
+    district(province_id, id, name)
+values('26', '183', 'Huyện Lập Thạch');
+
+insert into
+    district(province_id, id, name)
+values('26', '184', 'Huyện Tam Dương');
+
+insert into
+    district(province_id, id, name)
+values('26', '185', 'Huyện Tam Đảo');
+
+insert into
+    district(province_id, id, name)
+values('26', '186', 'Huyện Bình Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('26', '187', 'Huyện Yên Lạc');
+
+insert into
+    district(province_id, id, name)
+values('26', '188', 'Huyện Vĩnh Tường');
+
+insert into
+    district(province_id, id, name)
+values('26', '189', 'Huyện Sông Lô');
+
+insert into
+    district(province_id, id, name)
+values('27', '190', 'Thành phố Bắc Ninh');
+
+insert into
+    district(province_id, id, name)
+values('27', '191', 'Huyện Yên Phong');
+
+insert into
+    district(province_id, id, name)
+values('27', '192', 'Huyện Quế Võ');
+
+insert into
+    district(province_id, id, name)
+values('27', '193', 'Huyện Tiên Du');
+
+insert into
+    district(province_id, id, name)
+values('27', '194', 'Thành phố Từ Sơn');
+
+insert into
+    district(province_id, id, name)
+values('27', '195', 'Huyện Thuận Thành');
+
+insert into
+    district(province_id, id, name)
+values('27', '196', 'Huyện Gia Bình');
+
+insert into
+    district(province_id, id, name)
+values('27', '197', 'Huyện Lương Tài');
+
+insert into
+    district(province_id, id, name)
+values('30', '198', 'Thành phố Hải Dương');
+
+insert into
+    district(province_id, id, name)
+values('30', '199', 'Thành phố Chí Linh');
+
+insert into
+    district(province_id, id, name)
+values('30', '200', 'Huyện Nam Sách');
+
+insert into
+    district(province_id, id, name)
+values('30', '201', 'Thị xã Kinh Môn');
+
+insert into
+    district(province_id, id, name)
+values('30', '202', 'Huyện Kim Thành');
+
+insert into
+    district(province_id, id, name)
+values('30', '203', 'Huyện Thanh Hà');
+
+insert into
+    district(province_id, id, name)
+values('30', '204', 'Huyện Cẩm Giàng');
+
+insert into
+    district(province_id, id, name)
+values('30', '205', 'Huyện Bình Giang');
+
+insert into
+    district(province_id, id, name)
+values('30', '206', 'Huyện Gia Lộc');
+
+insert into
+    district(province_id, id, name)
+values('30', '207', 'Huyện Tứ Kỳ');
+
+insert into
+    district(province_id, id, name)
+values('30', '208', 'Huyện Ninh Giang');
+
+insert into
+    district(province_id, id, name)
+values('30', '209', 'Huyện Thanh Miện');
+
+insert into
+    district(province_id, id, name)
+values('31', '210', 'Quận Hồng Bàng');
+
+insert into
+    district(province_id, id, name)
+values('31', '211', 'Quận Ngô Quyền');
+
+insert into
+    district(province_id, id, name)
+values('31', '212', 'Quận Lê Chân');
+
+insert into
+    district(province_id, id, name)
+values('31', '213', 'Quận Hải An');
+
+insert into
+    district(province_id, id, name)
+values('31', '214', 'Quận Kiến An');
+
+insert into
+    district(province_id, id, name)
+values('31', '215', 'Quận Đồ Sơn');
+
+insert into
+    district(province_id, id, name)
+values('31', '216', 'Quận Dương Kinh');
+
+insert into
+    district(province_id, id, name)
+values('31', '217', 'Huyện Thuỷ Nguyên');
+
+insert into
+    district(province_id, id, name)
+values('31', '218', 'Huyện An Dương');
+
+insert into
+    district(province_id, id, name)
+values('31', '219', 'Huyện An Lão');
+
+insert into
+    district(province_id, id, name)
+values('31', '220', 'Huyện Kiến Thuỵ');
+
+insert into
+    district(province_id, id, name)
+values('31', '221', 'Huyện Tiên Lãng');
+
+insert into
+    district(province_id, id, name)
+values('31', '222', 'Huyện Vĩnh Bảo');
+
+insert into
+    district(province_id, id, name)
+values('31', '223', 'Huyện Cát Hải');
+
+insert into
+    district(province_id, id, name)
+values('31', '224', 'Huyện Bạch Long Vĩ');
+
+insert into
+    district(province_id, id, name)
+values('33', '225', 'Thành phố Hưng Yên');
+
+insert into
+    district(province_id, id, name)
+values('33', '226', 'Huyện Văn Lâm');
+
+insert into
+    district(province_id, id, name)
+values('33', '227', 'Huyện Văn Giang');
+
+insert into
+    district(province_id, id, name)
+values('33', '228', 'Huyện Yên Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('33', '229', 'Thị xã Mỹ Hào');
+
+insert into
+    district(province_id, id, name)
+values('33', '230', 'Huyện Ân Thi');
+
+insert into
+    district(province_id, id, name)
+values('33', '231', 'Huyện Khoái Châu');
+
+insert into
+    district(province_id, id, name)
+values('33', '232', 'Huyện Kim Động');
+
+insert into
+    district(province_id, id, name)
+values('33', '233', 'Huyện Tiên Lữ');
+
+insert into
+    district(province_id, id, name)
+values('33', '234', 'Huyện Phù Cừ');
+
+insert into
+    district(province_id, id, name)
+values('34', '235', 'Thành phố Thái Bình');
+
+insert into
+    district(province_id, id, name)
+values('34', '236', 'Huyện Quỳnh Phụ');
+
+insert into
+    district(province_id, id, name)
+values('34', '237', 'Huyện Hưng Hà');
+
+insert into
+    district(province_id, id, name)
+values('34', '238', 'Huyện Đông Hưng');
+
+insert into
+    district(province_id, id, name)
+values('34', '239', 'Huyện Thái Thụy');
+
+insert into
+    district(province_id, id, name)
+values('34', '240', 'Huyện Tiền Hải');
+
+insert into
+    district(province_id, id, name)
+values('34', '241', 'Huyện Kiến Xương');
+
+insert into
+    district(province_id, id, name)
+values('34', '242', 'Huyện Vũ Thư');
+
+insert into
+    district(province_id, id, name)
+values('35', '243', 'Thành phố Phủ Lý');
+
+insert into
+    district(province_id, id, name)
+values('35', '244', 'Thị xã Duy Tiên');
+
+insert into
+    district(province_id, id, name)
+values('35', '245', 'Huyện Kim Bảng');
+
+insert into
+    district(province_id, id, name)
+values('35', '246', 'Huyện Thanh Liêm');
+
+insert into
+    district(province_id, id, name)
+values('35', '247', 'Huyện Bình Lục');
+
+insert into
+    district(province_id, id, name)
+values('35', '248', 'Huyện Lý Nhân');
+
+insert into
+    district(province_id, id, name)
+values('36', '249', 'Thành phố Nam Định');
+
+insert into
+    district(province_id, id, name)
+values('36', '250', 'Huyện Mỹ Lộc');
+
+insert into
+    district(province_id, id, name)
+values('36', '251', 'Huyện Vụ Bản');
+
+insert into
+    district(province_id, id, name)
+values('36', '252', 'Huyện Ý Yên');
+
+insert into
+    district(province_id, id, name)
+values('36', '253', 'Huyện Nghĩa Hưng');
+
+insert into
+    district(province_id, id, name)
+values('36', '254', 'Huyện Nam Trực');
+
+insert into
+    district(province_id, id, name)
+values('36', '255', 'Huyện Trực Ninh');
+
+insert into
+    district(province_id, id, name)
+values('36', '256', 'Huyện Xuân Trường');
+
+insert into
+    district(province_id, id, name)
+values('36', '257', 'Huyện Giao Thủy');
+
+insert into
+    district(province_id, id, name)
+values('36', '258', 'Huyện Hải Hậu');
+
+insert into
+    district(province_id, id, name)
+values('37', '259', 'Thành phố Ninh Bình');
+
+insert into
+    district(province_id, id, name)
+values('37', '260', 'Thành phố Tam Điệp');
+
+insert into
+    district(province_id, id, name)
+values('37', '261', 'Huyện Nho Quan');
+
+insert into
+    district(province_id, id, name)
+values('37', '262', 'Huyện Gia Viễn');
+
+insert into
+    district(province_id, id, name)
+values('37', '263', 'Huyện Hoa Lư');
+
+insert into
+    district(province_id, id, name)
+values('37', '264', 'Huyện Yên Khánh');
+
+insert into
+    district(province_id, id, name)
+values('37', '265', 'Huyện Kim Sơn');
+
+insert into
+    district(province_id, id, name)
+values('37', '266', 'Huyện Yên Mô');
+
+insert into
+    district(province_id, id, name)
+values('38', '267', 'Thành phố Thanh Hóa');
+
+insert into
+    district(province_id, id, name)
+values('38', '268', 'Thị xã Bỉm Sơn');
+
+insert into
+    district(province_id, id, name)
+values('38', '269', 'Thành phố Sầm Sơn');
+
+insert into
+    district(province_id, id, name)
+values('38', '270', 'Huyện Mường Lát');
+
+insert into
+    district(province_id, id, name)
+values('38', '271', 'Huyện Quan Hóa');
+
+insert into
+    district(province_id, id, name)
+values('38', '272', 'Huyện Bá Thước');
+
+insert into
+    district(province_id, id, name)
+values('38', '273', 'Huyện Quan Sơn');
+
+insert into
+    district(province_id, id, name)
+values('38', '274', 'Huyện Lang Chánh');
+
+insert into
+    district(province_id, id, name)
+values('38', '275', 'Huyện Ngọc Lặc');
+
+insert into
+    district(province_id, id, name)
+values('38', '276', 'Huyện Cẩm Thủy');
+
+insert into
+    district(province_id, id, name)
+values('38', '277', 'Huyện Thạch Thành');
+
+insert into
+    district(province_id, id, name)
+values('38', '278', 'Huyện Hà Trung');
+
+insert into
+    district(province_id, id, name)
+values('38', '279', 'Huyện Vĩnh Lộc');
+
+insert into
+    district(province_id, id, name)
+values('38', '280', 'Huyện Yên Định');
+
+insert into
+    district(province_id, id, name)
+values('38', '281', 'Huyện Thọ Xuân');
+
+insert into
+    district(province_id, id, name)
+values('38', '282', 'Huyện Thường Xuân');
+
+insert into
+    district(province_id, id, name)
+values('38', '283', 'Huyện Triệu Sơn');
+
+insert into
+    district(province_id, id, name)
+values('38', '284', 'Huyện Thiệu Hóa');
+
+insert into
+    district(province_id, id, name)
+values('38', '285', 'Huyện Hoằng Hóa');
+
+insert into
+    district(province_id, id, name)
+values('38', '286', 'Huyện Hậu Lộc');
+
+insert into
+    district(province_id, id, name)
+values('38', '287', 'Huyện Nga Sơn');
+
+insert into
+    district(province_id, id, name)
+values('38', '288', 'Huyện Như Xuân');
+
+insert into
+    district(province_id, id, name)
+values('38', '289', 'Huyện Như Thanh');
+
+insert into
+    district(province_id, id, name)
+values('38', '290', 'Huyện Nông Cống');
+
+insert into
+    district(province_id, id, name)
+values('38', '291', 'Huyện Đông Sơn');
+
+insert into
+    district(province_id, id, name)
+values('38', '292', 'Huyện Quảng Xương');
+
+insert into
+    district(province_id, id, name)
+values('38', '293', 'Thị xã Nghi Sơn');
+
+insert into
+    district(province_id, id, name)
+values('40', '294', 'Thành phố Vinh');
+
+insert into
+    district(province_id, id, name)
+values('40', '295', 'Thị xã Cửa Lò');
+
+insert into
+    district(province_id, id, name)
+values('40', '296', 'Thị xã Thái Hoà');
+
+insert into
+    district(province_id, id, name)
+values('40', '297', 'Huyện Quế Phong');
+
+insert into
+    district(province_id, id, name)
+values('40', '298', 'Huyện Quỳ Châu');
+
+insert into
+    district(province_id, id, name)
+values('40', '299', 'Huyện Kỳ Sơn');
+
+insert into
+    district(province_id, id, name)
+values('40', '300', 'Huyện Tương Dương');
+
+insert into
+    district(province_id, id, name)
+values('40', '301', 'Huyện Nghĩa Đàn');
+
+insert into
+    district(province_id, id, name)
+values('40', '302', 'Huyện Quỳ Hợp');
+
+insert into
+    district(province_id, id, name)
+values('40', '303', 'Huyện Quỳnh Lưu');
+
+insert into
+    district(province_id, id, name)
+values('40', '304', 'Huyện Con Cuông');
+
+insert into
+    district(province_id, id, name)
+values('40', '305', 'Huyện Tân Kỳ');
+
+insert into
+    district(province_id, id, name)
+values('40', '306', 'Huyện Anh Sơn');
+
+insert into
+    district(province_id, id, name)
+values('40', '307', 'Huyện Diễn Châu');
+
+insert into
+    district(province_id, id, name)
+values('40', '308', 'Huyện Yên Thành');
+
+insert into
+    district(province_id, id, name)
+values('40', '309', 'Huyện Đô Lương');
+
+insert into
+    district(province_id, id, name)
+values('40', '310', 'Huyện Thanh Chương');
+
+insert into
+    district(province_id, id, name)
+values('40', '311', 'Huyện Nghi Lộc');
+
+insert into
+    district(province_id, id, name)
+values('40', '312', 'Huyện Nam Đàn');
+
+insert into
+    district(province_id, id, name)
+values('40', '313', 'Huyện Hưng Nguyên');
+
+insert into
+    district(province_id, id, name)
+values('40', '314', 'Thị xã Hoàng Mai');
+
+insert into
+    district(province_id, id, name)
+values('42', '315', 'Thành phố Hà Tĩnh');
+
+insert into
+    district(province_id, id, name)
+values('42', '316', 'Thị xã Hồng Lĩnh');
+
+insert into
+    district(province_id, id, name)
+values('42', '317', 'Huyện Hương Sơn');
+
+insert into
+    district(province_id, id, name)
+values('42', '318', 'Huyện Đức Thọ');
+
+insert into
+    district(province_id, id, name)
+values('42', '319', 'Huyện Vũ Quang');
+
+insert into
+    district(province_id, id, name)
+values('42', '320', 'Huyện Nghi Xuân');
+
+insert into
+    district(province_id, id, name)
+values('42', '321', 'Huyện Can Lộc');
+
+insert into
+    district(province_id, id, name)
+values('42', '322', 'Huyện Hương Khê');
+
+insert into
+    district(province_id, id, name)
+values('42', '323', 'Huyện Thạch Hà');
+
+insert into
+    district(province_id, id, name)
+values('42', '324', 'Huyện Cẩm Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('42', '325', 'Huyện Kỳ Anh');
+
+insert into
+    district(province_id, id, name)
+values('42', '326', 'Huyện Lộc Hà');
+
+insert into
+    district(province_id, id, name)
+values('42', '327', 'Thị xã Kỳ Anh');
+
+insert into
+    district(province_id, id, name)
+values('44', '328', 'Thành Phố Đồng Hới');
+
+insert into
+    district(province_id, id, name)
+values('44', '329', 'Huyện Minh Hóa');
+
+insert into
+    district(province_id, id, name)
+values('44', '330', 'Huyện Tuyên Hóa');
+
+insert into
+    district(province_id, id, name)
+values('44', '331', 'Huyện Quảng Trạch');
+
+insert into
+    district(province_id, id, name)
+values('44', '332', 'Huyện Bố Trạch');
+
+insert into
+    district(province_id, id, name)
+values('44', '333', 'Huyện Quảng Ninh');
+
+insert into
+    district(province_id, id, name)
+values('44', '334', 'Huyện Lệ Thủy');
+
+insert into
+    district(province_id, id, name)
+values('44', '335', 'Thị xã Ba Đồn');
+
+insert into
+    district(province_id, id, name)
+values('45', '336', 'Thành phố Đông Hà');
+
+insert into
+    district(province_id, id, name)
+values('45', '337', 'Thị xã Quảng Trị');
+
+insert into
+    district(province_id, id, name)
+values('45', '338', 'Huyện Vĩnh Linh');
+
+insert into
+    district(province_id, id, name)
+values('45', '339', 'Huyện Hướng Hóa');
+
+insert into
+    district(province_id, id, name)
+values('45', '340', 'Huyện Gio Linh');
+
+insert into
+    district(province_id, id, name)
+values('45', '341', 'Huyện Đa Krông');
+
+insert into
+    district(province_id, id, name)
+values('45', '342', 'Huyện Cam Lộ');
+
+insert into
+    district(province_id, id, name)
+values('45', '343', 'Huyện Triệu Phong');
+
+insert into
+    district(province_id, id, name)
+values('45', '344', 'Huyện Hải Lăng');
+
+insert into
+    district(province_id, id, name)
+values('45', '345', 'Huyện Cồn Cỏ');
+
+insert into
+    district(province_id, id, name)
+values('46', '346', 'Thành phố Huế');
+
+insert into
+    district(province_id, id, name)
+values('46', '347', 'Huyện Phong Điền');
+
+insert into
+    district(province_id, id, name)
+values('46', '348', 'Huyện Quảng Điền');
+
+insert into
+    district(province_id, id, name)
+values('46', '349', 'Huyện Phú Vang');
+
+insert into
+    district(province_id, id, name)
+values('46', '350', 'Thị xã Hương Thủy');
+
+insert into
+    district(province_id, id, name)
+values('46', '351', 'Thị xã Hương Trà');
+
+insert into
+    district(province_id, id, name)
+values('46', '352', 'Huyện A Lưới');
+
+insert into
+    district(province_id, id, name)
+values('46', '353', 'Huyện Phú Lộc');
+
+insert into
+    district(province_id, id, name)
+values('46', '354', 'Huyện Nam Đông');
+
+insert into
+    district(province_id, id, name)
+values('48', '355', 'Quận Liên Chiểu');
+
+insert into
+    district(province_id, id, name)
+values('48', '356', 'Quận Thanh Khê');
+
+insert into
+    district(province_id, id, name)
+values('48', '357', 'Quận Hải Châu');
+
+insert into
+    district(province_id, id, name)
+values('48', '358', 'Quận Sơn Trà');
+
+insert into
+    district(province_id, id, name)
+values('48', '359', 'Quận Ngũ Hành Sơn');
+
+insert into
+    district(province_id, id, name)
+values('48', '360', 'Quận Cẩm Lệ');
+
+insert into
+    district(province_id, id, name)
+values('48', '361', 'Huyện Hòa Vang');
+
+insert into
+    district(province_id, id, name)
+values('48', '362', 'Huyện Hoàng Sa');
+
+insert into
+    district(province_id, id, name)
+values('49', '363', 'Thành phố Tam Kỳ');
+
+insert into
+    district(province_id, id, name)
+values('49', '364', 'Thành phố Hội An');
+
+insert into
+    district(province_id, id, name)
+values('49', '365', 'Huyện Tây Giang');
+
+insert into
+    district(province_id, id, name)
+values('49', '366', 'Huyện Đông Giang');
+
+insert into
+    district(province_id, id, name)
+values('49', '367', 'Huyện Đại Lộc');
+
+insert into
+    district(province_id, id, name)
+values('49', '368', 'Thị xã Điện Bàn');
+
+insert into
+    district(province_id, id, name)
+values('49', '369', 'Huyện Duy Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('49', '370', 'Huyện Quế Sơn');
+
+insert into
+    district(province_id, id, name)
+values('49', '371', 'Huyện Nam Giang');
+
+insert into
+    district(province_id, id, name)
+values('49', '372', 'Huyện Phước Sơn');
+
+insert into
+    district(province_id, id, name)
+values('49', '373', 'Huyện Hiệp Đức');
+
+insert into
+    district(province_id, id, name)
+values('49', '374', 'Huyện Thăng Bình');
+
+insert into
+    district(province_id, id, name)
+values('49', '375', 'Huyện Tiên Phước');
+
+insert into
+    district(province_id, id, name)
+values('49', '376', 'Huyện Bắc Trà My');
+
+insert into
+    district(province_id, id, name)
+values('49', '377', 'Huyện Nam Trà My');
+
+insert into
+    district(province_id, id, name)
+values('49', '378', 'Huyện Núi Thành');
+
+insert into
+    district(province_id, id, name)
+values('49', '379', 'Huyện Phú Ninh');
+
+insert into
+    district(province_id, id, name)
+values('49', '380', 'Huyện Nông Sơn');
+
+insert into
+    district(province_id, id, name)
+values('51', '381', 'Thành phố Quảng Ngãi');
+
+insert into
+    district(province_id, id, name)
+values('51', '382', 'Huyện Bình Sơn');
+
+insert into
+    district(province_id, id, name)
+values('51', '383', 'Huyện Trà Bồng');
+
+insert into
+    district(province_id, id, name)
+values('51', '384', 'Huyện Sơn Tịnh');
+
+insert into
+    district(province_id, id, name)
+values('51', '385', 'Huyện Tư Nghĩa');
+
+insert into
+    district(province_id, id, name)
+values('51', '386', 'Huyện Sơn Hà');
+
+insert into
+    district(province_id, id, name)
+values('51', '387', 'Huyện Sơn Tây');
+
+insert into
+    district(province_id, id, name)
+values('51', '388', 'Huyện Minh Long');
+
+insert into
+    district(province_id, id, name)
+values('51', '389', 'Huyện Nghĩa Hành');
+
+insert into
+    district(province_id, id, name)
+values('51', '390', 'Huyện Mộ Đức');
+
+insert into
+    district(province_id, id, name)
+values('51', '391', 'Thị xã Đức Phổ');
+
+insert into
+    district(province_id, id, name)
+values('51', '392', 'Huyện Ba Tơ');
+
+insert into
+    district(province_id, id, name)
+values('51', '393', 'Huyện Lý Sơn');
+
+insert into
+    district(province_id, id, name)
+values('52', '394', 'Thành phố Quy Nhơn');
+
+insert into
+    district(province_id, id, name)
+values('52', '395', 'Thị xã Hoài Nhơn');
+
+insert into
+    district(province_id, id, name)
+values('52', '396', 'Huyện Hoài Ân');
+
+insert into
+    district(province_id, id, name)
+values('52', '397', 'Huyện Phù Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('52', '398', 'Huyện Vĩnh Thạnh');
+
+insert into
+    district(province_id, id, name)
+values('52', '399', 'Huyện Tây Sơn');
+
+insert into
+    district(province_id, id, name)
+values('52', '400', 'Huyện Phù Cát');
+
+insert into
+    district(province_id, id, name)
+values('52', '401', 'Thị xã An Nhơn');
+
+insert into
+    district(province_id, id, name)
+values('52', '402', 'Huyện Tuy Phước');
+
+insert into
+    district(province_id, id, name)
+values('52', '403', 'Huyện Vân Canh');
+
+insert into
+    district(province_id, id, name)
+values('54', '404', 'Thành phố Tuy Hoà');
+
+insert into
+    district(province_id, id, name)
+values('54', '405', 'Thị xã Sông Cầu');
+
+insert into
+    district(province_id, id, name)
+values('54', '406', 'Huyện Đồng Xuân');
+
+insert into
+    district(province_id, id, name)
+values('54', '407', 'Huyện Tuy An');
+
+insert into
+    district(province_id, id, name)
+values('54', '408', 'Huyện Sơn Hòa');
+
+insert into
+    district(province_id, id, name)
+values('54', '409', 'Huyện Sông Hinh');
+
+insert into
+    district(province_id, id, name)
+values('54', '410', 'Huyện Tây Hoà');
+
+insert into
+    district(province_id, id, name)
+values('54', '411', 'Huyện Phú Hoà');
+
+insert into
+    district(province_id, id, name)
+values('54', '412', 'Thị xã Đông Hòa');
+
+insert into
+    district(province_id, id, name)
+values('56', '413', 'Thành phố Nha Trang');
+
+insert into
+    district(province_id, id, name)
+values('56', '414', 'Thành phố Cam Ranh');
+
+insert into
+    district(province_id, id, name)
+values('56', '415', 'Huyện Cam Lâm');
+
+insert into
+    district(province_id, id, name)
+values('56', '416', 'Huyện Vạn Ninh');
+
+insert into
+    district(province_id, id, name)
+values('56', '417', 'Thị xã Ninh Hòa');
+
+insert into
+    district(province_id, id, name)
+values('56', '418', 'Huyện Khánh Vĩnh');
+
+insert into
+    district(province_id, id, name)
+values('56', '419', 'Huyện Diên Khánh');
+
+insert into
+    district(province_id, id, name)
+values('56', '420', 'Huyện Khánh Sơn');
+
+insert into
+    district(province_id, id, name)
+values('56', '421', 'Huyện Trường Sa');
+
+insert into
+    district(province_id, id, name)
+values('58', '422', 'Thành phố Phan Rang-Tháp Chàm');
+
+insert into
+    district(province_id, id, name)
+values('58', '423', 'Huyện Bác Ái');
+
+insert into
+    district(province_id, id, name)
+values('58', '424', 'Huyện Ninh Sơn');
+
+insert into
+    district(province_id, id, name)
+values('58', '425', 'Huyện Ninh Hải');
+
+insert into
+    district(province_id, id, name)
+values('58', '426', 'Huyện Ninh Phước');
+
+insert into
+    district(province_id, id, name)
+values('58', '427', 'Huyện Thuận Bắc');
+
+insert into
+    district(province_id, id, name)
+values('58', '428', 'Huyện Thuận Nam');
+
+insert into
+    district(province_id, id, name)
+values('60', '429', 'Thành phố Phan Thiết');
+
+insert into
+    district(province_id, id, name)
+values('60', '430', 'Thị xã La Gi');
+
+insert into
+    district(province_id, id, name)
+values('60', '431', 'Huyện Tuy Phong');
+
+insert into
+    district(province_id, id, name)
+values('60', '432', 'Huyện Bắc Bình');
+
+insert into
+    district(province_id, id, name)
+values('60', '433', 'Huyện Hàm Thuận Bắc');
+
+insert into
+    district(province_id, id, name)
+values('60', '434', 'Huyện Hàm Thuận Nam');
+
+insert into
+    district(province_id, id, name)
+values('60', '435', 'Huyện Tánh Linh');
+
+insert into
+    district(province_id, id, name)
+values('60', '436', 'Huyện Đức Linh');
+
+insert into
+    district(province_id, id, name)
+values('60', '437', 'Huyện Hàm Tân');
+
+insert into
+    district(province_id, id, name)
+values('60', '438', 'Huyện Phú Quí');
+
+insert into
+    district(province_id, id, name)
+values('62', '439', 'Thành phố Kon Tum');
+
+insert into
+    district(province_id, id, name)
+values('62', '440', 'Huyện Đắk Glei');
+
+insert into
+    district(province_id, id, name)
+values('62', '441', 'Huyện Ngọc Hồi');
+
+insert into
+    district(province_id, id, name)
+values('62', '442', 'Huyện Đắk Tô');
+
+insert into
+    district(province_id, id, name)
+values('62', '443', 'Huyện Kon Plông');
+
+insert into
+    district(province_id, id, name)
+values('62', '444', 'Huyện Kon Rẫy');
+
+insert into
+    district(province_id, id, name)
+values('62', '445', 'Huyện Đắk Hà');
+
+insert into
+    district(province_id, id, name)
+values('62', '446', 'Huyện Sa Thầy');
+
+insert into
+    district(province_id, id, name)
+values('62', '447', 'Huyện Tu Mơ Rông');
+
+insert into
+    district(province_id, id, name)
+values('62', '448', 'Huyện Ia H'' Drai');
+
+insert into
+    district(province_id, id, name)
+values('64', '449', 'Thành phố Pleiku');
+
+insert into
+    district(province_id, id, name)
+values('64', '450', 'Thị xã An Khê');
+
+insert into
+    district(province_id, id, name)
+values('64', '451', 'Thị xã Ayun Pa');
+
+insert into
+    district(province_id, id, name)
+values('64', '452', 'Huyện KBang');
+
+insert into
+    district(province_id, id, name)
+values('64', '453', 'Huyện Đăk Đoa');
+
+insert into
+    district(province_id, id, name)
+values('64', '454', 'Huyện Chư Păh');
+
+insert into
+    district(province_id, id, name)
+values('64', '455', 'Huyện Ia Grai');
+
+insert into
+    district(province_id, id, name)
+values('64', '456', 'Huyện Mang Yang');
+
+insert into
+    district(province_id, id, name)
+values('64', '457', 'Huyện Kông Chro');
+
+insert into
+    district(province_id, id, name)
+values('64', '458', 'Huyện Đức Cơ');
+
+insert into
+    district(province_id, id, name)
+values('64', '459', 'Huyện Chư Prông');
+
+insert into
+    district(province_id, id, name)
+values('64', '460', 'Huyện Chư Sê');
+
+insert into
+    district(province_id, id, name)
+values('64', '461', 'Huyện Đăk Pơ');
+
+insert into
+    district(province_id, id, name)
+values('64', '462', 'Huyện Ia Pa');
+
+insert into
+    district(province_id, id, name)
+values('64', '463', 'Huyện Krông Pa');
+
+insert into
+    district(province_id, id, name)
+values('64', '464', 'Huyện Phú Thiện');
+
+insert into
+    district(province_id, id, name)
+values('64', '465', 'Huyện Chư Pưh');
+
+insert into
+    district(province_id, id, name)
+values('66', '466', 'Thành phố Buôn Ma Thuột');
+
+insert into
+    district(province_id, id, name)
+values('66', '467', 'Thị Xã Buôn Hồ');
+
+insert into
+    district(province_id, id, name)
+values('66', '468', 'Huyện Ea H''leo');
+
+insert into
+    district(province_id, id, name)
+values('66', '469', 'Huyện Ea Súp');
+
+insert into
+    district(province_id, id, name)
+values('66', '470', 'Huyện Buôn Đôn');
+
+insert into
+    district(province_id, id, name)
+values('66', '471', 'Huyện Cư M''gar');
+
+insert into
+    district(province_id, id, name)
+values('66', '472', 'Huyện Krông Búk');
+
+insert into
+    district(province_id, id, name)
+values('66', '473', 'Huyện Krông Năng');
+
+insert into
+    district(province_id, id, name)
+values('66', '474', 'Huyện Ea Kar');
+
+insert into
+    district(province_id, id, name)
+values('66', '475', 'Huyện M''Đrắk');
+
+insert into
+    district(province_id, id, name)
+values('66', '476', 'Huyện Krông Bông');
+
+insert into
+    district(province_id, id, name)
+values('66', '477', 'Huyện Krông Pắc');
+
+insert into
+    district(province_id, id, name)
+values('66', '478', 'Huyện Krông A Na');
+
+insert into
+    district(province_id, id, name)
+values('66', '479', 'Huyện Lắk');
+
+insert into
+    district(province_id, id, name)
+values('66', '480', 'Huyện Cư Kuin');
+
+insert into
+    district(province_id, id, name)
+values('67', '481', 'Thành phố Gia Nghĩa');
+
+insert into
+    district(province_id, id, name)
+values('67', '482', 'Huyện Đăk Glong');
+
+insert into
+    district(province_id, id, name)
+values('67', '483', 'Huyện Cư Jút');
+
+insert into
+    district(province_id, id, name)
+values('67', '484', 'Huyện Đắk Mil');
+
+insert into
+    district(province_id, id, name)
+values('67', '485', 'Huyện Krông Nô');
+
+insert into
+    district(province_id, id, name)
+values('67', '486', 'Huyện Đắk Song');
+
+insert into
+    district(province_id, id, name)
+values('67', '487', 'Huyện Đắk R''Lấp');
+
+insert into
+    district(province_id, id, name)
+values('67', '488', 'Huyện Tuy Đức');
+
+insert into
+    district(province_id, id, name)
+values('68', '489', 'Thành phố Đà Lạt');
+
+insert into
+    district(province_id, id, name)
+values('68', '490', 'Thành phố Bảo Lộc');
+
+insert into
+    district(province_id, id, name)
+values('68', '491', 'Huyện Đam Rông');
+
+insert into
+    district(province_id, id, name)
+values('68', '492', 'Huyện Lạc Dương');
+
+insert into
+    district(province_id, id, name)
+values('68', '493', 'Huyện Lâm Hà');
+
+insert into
+    district(province_id, id, name)
+values('68', '494', 'Huyện Đơn Dương');
+
+insert into
+    district(province_id, id, name)
+values('68', '495', 'Huyện Đức Trọng');
+
+insert into
+    district(province_id, id, name)
+values('68', '496', 'Huyện Di Linh');
+
+insert into
+    district(province_id, id, name)
+values('68', '497', 'Huyện Đạ Huoai');
+
+insert into
+    district(province_id, id, name)
+values('68', '498', 'Huyện Đạ Tẻh');
+
+insert into
+    district(province_id, id, name)
+values('68', '499', 'Huyện Cát Tiên');
+
+insert into
+    district(province_id, id, name)
+values('70', '500', 'Thị xã Phước Long');
+
+insert into
+    district(province_id, id, name)
+values('70', '501', 'Thành phố Đồng Xoài');
+
+insert into
+    district(province_id, id, name)
+values('70', '502', 'Thị xã Bình Long');
+
+insert into
+    district(province_id, id, name)
+values('70', '503', 'Huyện Bù Gia Mập');
+
+insert into
+    district(province_id, id, name)
+values('70', '504', 'Huyện Lộc Ninh');
+
+insert into
+    district(province_id, id, name)
+values('70', '505', 'Huyện Bù Đốp');
+
+insert into
+    district(province_id, id, name)
+values('70', '506', 'Huyện Hớn Quản');
+
+insert into
+    district(province_id, id, name)
+values('70', '507', 'Huyện Đồng Phú');
+
+insert into
+    district(province_id, id, name)
+values('70', '508', 'Huyện Bù Đăng');
+
+insert into
+    district(province_id, id, name)
+values('70', '509', 'Huyện Chơn Thành');
+
+insert into
+    district(province_id, id, name)
+values('70', '510', 'Huyện Phú Riềng');
+
+insert into
+    district(province_id, id, name)
+values('72', '511', 'Thành phố Tây Ninh');
+
+insert into
+    district(province_id, id, name)
+values('72', '512', 'Huyện Tân Biên');
+
+insert into
+    district(province_id, id, name)
+values('72', '513', 'Huyện Tân Châu');
+
+insert into
+    district(province_id, id, name)
+values('72', '514', 'Huyện Dương Minh Châu');
+
+insert into
+    district(province_id, id, name)
+values('72', '515', 'Huyện Châu Thành');
+
+insert into
+    district(province_id, id, name)
+values('72', '516', 'Thị xã Hòa Thành');
+
+insert into
+    district(province_id, id, name)
+values('72', '517', 'Huyện Gò Dầu');
+
+insert into
+    district(province_id, id, name)
+values('72', '518', 'Huyện Bến Cầu');
+
+insert into
+    district(province_id, id, name)
+values('72', '519', 'Thị xã Trảng Bàng');
+
+insert into
+    district(province_id, id, name)
+values('74', '520', 'Thành phố Thủ Dầu Một');
+
+insert into
+    district(province_id, id, name)
+values('74', '521', 'Huyện Bàu Bàng');
+
+insert into
+    district(province_id, id, name)
+values('74', '522', 'Huyện Dầu Tiếng');
+
+insert into
+    district(province_id, id, name)
+values('74', '523', 'Thị xã Bến Cát');
+
+insert into
+    district(province_id, id, name)
+values('74', '524', 'Huyện Phú Giáo');
+
+insert into
+    district(province_id, id, name)
+values('74', '525', 'Thị xã Tân Uyên');
+
+insert into
+    district(province_id, id, name)
+values('75', '526', 'Thành phố Dĩ An');
+
+insert into
+    district(province_id, id, name)
+values('75', '527', 'Thành phố Thuận An');
+
+insert into
+    district(province_id, id, name)
+values('75', '528', 'Huyện Bắc Tân Uyên');
+
+insert into
+    district(province_id, id, name)
+values('75', '529', 'Thành phố Biên Hòa');
+
+insert into
+    district(province_id, id, name)
+values('75', '530', 'Thành phố Long Khánh');
+
+insert into
+    district(province_id, id, name)
+values('75', '531', 'Huyện Tân Phú');
+
+insert into
+    district(province_id, id, name)
+values('75', '532', 'Huyện Vĩnh Cửu');
+
+insert into
+    district(province_id, id, name)
+values('75', '533', 'Huyện Định Quán');
+
+insert into
+    district(province_id, id, name)
+values('75', '534', 'Huyện Trảng Bom');
+
+insert into
+    district(province_id, id, name)
+values('75', '535', 'Huyện Thống Nhất');
+
+insert into
+    district(province_id, id, name)
+values('75', '536', 'Huyện Cẩm Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('75', '537', 'Huyện Long Thành');
+
+insert into
+    district(province_id, id, name)
+values('75', '538', 'Huyện Xuân Lộc');
+
+insert into
+    district(province_id, id, name)
+values('75', '539', 'Huyện Nhơn Trạch');
+
+insert into
+    district(province_id, id, name)
+values('77', '540', 'Thành phố Vũng Tàu');
+
+insert into
+    district(province_id, id, name)
+values('77', '541', 'Thành phố Bà Rịa');
+
+insert into
+    district(province_id, id, name)
+values('77', '542', 'Huyện Châu Đức');
+
+insert into
+    district(province_id, id, name)
+values('77', '543', 'Huyện Xuyên Mộc');
+
+insert into
+    district(province_id, id, name)
+values('77', '544', 'Huyện Long Điền');
+
+insert into
+    district(province_id, id, name)
+values('77', '545', 'Huyện Đất Đỏ');
+
+insert into
+    district(province_id, id, name)
+values('77', '546', 'Thị xã Phú Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('77', '547', 'Huyện Côn Đảo');
+
+insert into
+    district(province_id, id, name)
+values('79', '548', 'Quận 1');
+
+insert into
+    district(province_id, id, name)
+values('79', '549', 'Quận 12');
+
+insert into
+    district(province_id, id, name)
+values('79', '550', 'Quận Gò Vấp');
+
+insert into
+    district(province_id, id, name)
+values('79', '551', 'Quận Bình Thạnh');
+
+insert into
+    district(province_id, id, name)
+values('79', '552', 'Quận Tân Bình');
+
+insert into
+    district(province_id, id, name)
+values('79', '553', 'Quận Tân Phú');
+
+insert into
+    district(province_id, id, name)
+values('79', '554', 'Quận Phú Nhuận');
+
+insert into
+    district(province_id, id, name)
+values('79', '555', 'Thành phố Thủ Đức');
+
+insert into
+    district(province_id, id, name)
+values('79', '556', 'Quận 3');
+
+insert into
+    district(province_id, id, name)
+values('79', '557', 'Quận 10');
+
+insert into
+    district(province_id, id, name)
+values('79', '558', 'Quận 11');
+
+insert into
+    district(province_id, id, name)
+values('79', '559', 'Quận 4');
+
+insert into
+    district(province_id, id, name)
+values('79', '560', 'Quận 5');
+
+insert into
+    district(province_id, id, name)
+values('79', '561', 'Quận 6');
+
+insert into
+    district(province_id, id, name)
+values('79', '562', 'Quận 8');
+
+insert into
+    district(province_id, id, name)
+values('79', '563', 'Quận Bình Tân');
+
+insert into
+    district(province_id, id, name)
+values('79', '564', 'Quận 7');
+
+insert into
+    district(province_id, id, name)
+values('79', '565', 'Huyện Củ Chi');
+
+insert into
+    district(province_id, id, name)
+values('79', '566', 'Huyện Hóc Môn');
+
+insert into
+    district(province_id, id, name)
+values('79', '567', 'Huyện Bình Chánh');
+
+insert into
+    district(province_id, id, name)
+values('79', '568', 'Huyện Nhà Bè');
+
+insert into
+    district(province_id, id, name)
+values('79', '569', 'Huyện Cần Giờ');
+
+insert into
+    district(province_id, id, name)
+values('80', '570', 'Thành phố Tân An');
+
+insert into
+    district(province_id, id, name)
+values('80', '571', 'Thị xã Kiến Tường');
+
+insert into
+    district(province_id, id, name)
+values('80', '572', 'Huyện Tân Hưng');
+
+insert into
+    district(province_id, id, name)
+values('80', '573', 'Huyện Vĩnh Hưng');
+
+insert into
+    district(province_id, id, name)
+values('80', '574', 'Huyện Mộc Hóa');
+
+insert into
+    district(province_id, id, name)
+values('80', '575', 'Huyện Tân Thạnh');
+
+insert into
+    district(province_id, id, name)
+values('80', '576', 'Huyện Thạnh Hóa');
+
+insert into
+    district(province_id, id, name)
+values('80', '577', 'Huyện Đức Huệ');
+
+insert into
+    district(province_id, id, name)
+values('80', '578', 'Huyện Đức Hòa');
+
+insert into
+    district(province_id, id, name)
+values('80', '579', 'Huyện Bến Lức');
+
+insert into
+    district(province_id, id, name)
+values('80', '580', 'Huyện Thủ Thừa');
+
+insert into
+    district(province_id, id, name)
+values('80', '581', 'Huyện Tân Trụ');
+
+insert into
+    district(province_id, id, name)
+values('80', '582', 'Huyện Cần Đước');
+
+insert into
+    district(province_id, id, name)
+values('80', '583', 'Huyện Cần Giuộc');
+
+insert into
+    district(province_id, id, name)
+values('80', '584', 'Huyện Châu Thành');
+
+insert into
+    district(province_id, id, name)
+values('82', '585', 'Thành phố Mỹ Tho');
+
+insert into
+    district(province_id, id, name)
+values('82', '586', 'Thị xã Gò Công');
+
+insert into
+    district(province_id, id, name)
+values('82', '587', 'Thị xã Cai Lậy');
+
+insert into
+    district(province_id, id, name)
+values('82', '588', 'Huyện Tân Phước');
+
+insert into
+    district(province_id, id, name)
+values('82', '589', 'Huyện Cái Bè');
+
+insert into
+    district(province_id, id, name)
+values('82', '590', 'Huyện Cai Lậy');
+
+insert into
+    district(province_id, id, name)
+values('82', '591', 'Huyện Chợ Gạo');
+
+insert into
+    district(province_id, id, name)
+values('82', '592', 'Huyện Gò Công Tây');
+
+insert into
+    district(province_id, id, name)
+values('82', '593', 'Huyện Gò Công Đông');
+
+insert into
+    district(province_id, id, name)
+values('82', '594', 'Huyện Tân Phú Đông');
+
+insert into
+    district(province_id, id, name)
+values('83', '595', 'Thành phố Bến Tre');
+
+insert into
+    district(province_id, id, name)
+values('83', '596', 'Huyện Chợ Lách');
+
+insert into
+    district(province_id, id, name)
+values('83', '597', 'Huyện Mỏ Cày Nam');
+
+insert into
+    district(province_id, id, name)
+values('83', '598', 'Huyện Giồng Trôm');
+
+insert into
+    district(province_id, id, name)
+values('83', '599', 'Huyện Bình Đại');
+
+insert into
+    district(province_id, id, name)
+values('83', '600', 'Huyện Ba Tri');
+
+insert into
+    district(province_id, id, name)
+values('83', '601', 'Huyện Thạnh Phú');
+
+insert into
+    district(province_id, id, name)
+values('83', '602', 'Huyện Mỏ Cày Bắc');
+
+insert into
+    district(province_id, id, name)
+values('84', '603', 'Thành phố Trà Vinh');
+
+insert into
+    district(province_id, id, name)
+values('84', '604', 'Huyện Càng Long');
+
+insert into
+    district(province_id, id, name)
+values('84', '605', 'Huyện Cầu Kè');
+
+insert into
+    district(province_id, id, name)
+values('84', '606', 'Huyện Tiểu Cần');
+
+insert into
+    district(province_id, id, name)
+values('84', '607', 'Huyện Cầu Ngang');
+
+insert into
+    district(province_id, id, name)
+values('84', '608', 'Huyện Trà Cú');
+
+insert into
+    district(province_id, id, name)
+values('84', '609', 'Huyện Duyên Hải');
+
+insert into
+    district(province_id, id, name)
+values('84', '610', 'Thị xã Duyên Hải');
+
+insert into
+    district(province_id, id, name)
+values('86', '611', 'Thành phố Vĩnh Long');
+
+insert into
+    district(province_id, id, name)
+values('86', '612', 'Huyện Long Hồ');
+
+insert into
+    district(province_id, id, name)
+values('86', '613', 'Huyện Mang Thít');
+
+insert into
+    district(province_id, id, name)
+values('86', '614', 'Huyện  Vũng Liêm');
+
+insert into
+    district(province_id, id, name)
+values('86', '615', 'Huyện Tam Bình');
+
+insert into
+    district(province_id, id, name)
+values('86', '616', 'Thị xã Bình Minh');
+
+insert into
+    district(province_id, id, name)
+values('86', '617', 'Huyện Trà Ôn');
+
+insert into
+    district(province_id, id, name)
+values('86', '618', 'Huyện Bình Tân');
+
+insert into
+    district(province_id, id, name)
+values('87', '619', 'Thành phố Cao Lãnh');
+
+insert into
+    district(province_id, id, name)
+values('87', '620', 'Thành phố Sa Đéc');
+
+insert into
+    district(province_id, id, name)
+values('87', '621', 'Thành phố Hồng Ngự');
+
+insert into
+    district(province_id, id, name)
+values('87', '622', 'Huyện Tân Hồng');
+
+insert into
+    district(province_id, id, name)
+values('87', '623', 'Huyện Hồng Ngự');
+
+insert into
+    district(province_id, id, name)
+values('87', '624', 'Huyện Tháp Mười');
+
+insert into
+    district(province_id, id, name)
+values('87', '625', 'Huyện Cao Lãnh');
+
+insert into
+    district(province_id, id, name)
+values('87', '626', 'Huyện Thanh Bình');
+
+insert into
+    district(province_id, id, name)
+values('87', '627', 'Huyện Lấp Vò');
+
+insert into
+    district(province_id, id, name)
+values('87', '628', 'Huyện Lai Vung');
+
+insert into
+    district(province_id, id, name)
+values('87', '629', 'Huyện Châu Thành');
+
+insert into
+    district(province_id, id, name)
+values('89', '630', 'Thành phố Long Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('89', '631', 'Thành phố Châu Đốc');
+
+insert into
+    district(province_id, id, name)
+values('89', '632', 'Huyện An Phú');
+
+insert into
+    district(province_id, id, name)
+values('89', '633', 'Thị xã Tân Châu');
+
+insert into
+    district(province_id, id, name)
+values('89', '634', 'Huyện Phú Tân');
+
+insert into
+    district(province_id, id, name)
+values('89', '635', 'Huyện Châu Phú');
+
+insert into
+    district(province_id, id, name)
+values('89', '636', 'Huyện Tịnh Biên');
+
+insert into
+    district(province_id, id, name)
+values('89', '637', 'Huyện Tri Tôn');
+
+insert into
+    district(province_id, id, name)
+values('89', '638', 'Huyện Thoại Sơn');
+
+insert into
+    district(province_id, id, name)
+values('91', '639', 'Thành phố Rạch Giá');
+
+insert into
+    district(province_id, id, name)
+values('91', '640', 'Thành phố Hà Tiên');
+
+insert into
+    district(province_id, id, name)
+values('91', '641', 'Huyện Kiên Lương');
+
+insert into
+    district(province_id, id, name)
+values('91', '642', 'Huyện Hòn Đất');
+
+insert into
+    district(province_id, id, name)
+values('91', '643', 'Huyện Tân Hiệp');
+
+insert into
+    district(province_id, id, name)
+values('91', '644', 'Huyện Giồng Riềng');
+
+insert into
+    district(province_id, id, name)
+values('91', '645', 'Huyện Gò Quao');
+
+insert into
+    district(province_id, id, name)
+values('91', '646', 'Huyện An Biên');
+
+insert into
+    district(province_id, id, name)
+values('91', '647', 'Huyện An Minh');
+
+insert into
+    district(province_id, id, name)
+values('91', '648', 'Huyện Vĩnh Thuận');
+
+insert into
+    district(province_id, id, name)
+values('91', '649', 'Thành phố Phú Quốc');
+
+insert into
+    district(province_id, id, name)
+values('91', '650', 'Huyện Kiên Hải');
+
+insert into
+    district(province_id, id, name)
+values('91', '651', 'Huyện U Minh Thượng');
+
+insert into
+    district(province_id, id, name)
+values('91', '652', 'Huyện Giang Thành');
+
+insert into
+    district(province_id, id, name)
+values('93', '653', 'Quận Ninh Kiều');
+
+insert into
+    district(province_id, id, name)
+values('93', '654', 'Quận Ô Môn');
+
+insert into
+    district(province_id, id, name)
+values('93', '655', 'Quận Bình Thuỷ');
+
+insert into
+    district(province_id, id, name)
+values('93', '656', 'Quận Cái Răng');
+
+insert into
+    district(province_id, id, name)
+values('93', '657', 'Quận Thốt Nốt');
+
+insert into
+    district(province_id, id, name)
+values('93', '658', 'Huyện Cờ Đỏ');
+
+insert into
+    district(province_id, id, name)
+values('93', '659', 'Huyện Thới Lai');
+
+insert into
+    district(province_id, id, name)
+values('93', '660', 'Thành phố Vị Thanh');
+
+insert into
+    district(province_id, id, name)
+values('93', '661', 'Thành phố Ngã Bảy');
+
+insert into
+    district(province_id, id, name)
+values('93', '662', 'Huyện Châu Thành A');
+
+insert into
+    district(province_id, id, name)
+values('93', '663', 'Huyện Phụng Hiệp');
+
+insert into
+    district(province_id, id, name)
+values('93', '664', 'Huyện Vị Thuỷ');
+
+insert into
+    district(province_id, id, name)
+values('93', '665', 'Huyện Long Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('93', '666', 'Thị xã Long Mỹ');
+
+insert into
+    district(province_id, id, name)
+values('94', '667', 'Thành phố Sóc Trăng');
+
+insert into
+    district(province_id, id, name)
+values('94', '668', 'Huyện Kế Sách');
+
+insert into
+    district(province_id, id, name)
+values('94', '669', 'Huyện Mỹ Tú');
+
+insert into
+    district(province_id, id, name)
+values('94', '670', 'Huyện Cù Lao Dung');
+
+insert into
+    district(province_id, id, name)
+values('94', '671', 'Huyện Long Phú');
+
+insert into
+    district(province_id, id, name)
+values('94', '672', 'Huyện Mỹ Xuyên');
+
+insert into
+    district(province_id, id, name)
+values('94', '673', 'Thị xã Ngã Năm');
+
+insert into
+    district(province_id, id, name)
+values('94', '674', 'Huyện Thạnh Trị');
+
+insert into
+    district(province_id, id, name)
+values('94', '675', 'Thị xã Vĩnh Châu');
+
+insert into
+    district(province_id, id, name)
+values('94', '676', 'Huyện Trần Đề');
+
+insert into
+    district(province_id, id, name)
+values('95', '677', 'Thành phố Bạc Liêu');
+
+insert into
+    district(province_id, id, name)
+values('95', '678', 'Huyện Hồng Dân');
+
+insert into
+    district(province_id, id, name)
+values('95', '679', 'Huyện Phước Long');
+
+insert into
+    district(province_id, id, name)
+values('95', '680', 'Huyện Vĩnh Lợi');
+
+insert into
+    district(province_id, id, name)
+values('95', '681', 'Thị xã Giá Rai');
+
+insert into
+    district(province_id, id, name)
+
+values('95', '682', 'Huyện Đông Hải');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('95', '683', 'Huyện Hoà Bình');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '684', 'Thành phố Cà Mau');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '685', 'Huyện U Minh');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '686', 'Huyện Thới Bình');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '687', 'Huyện Trần Văn Thời');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '688', 'Huyện Cái Nước');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '689', 'Huyện Đầm Dơi');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '690', 'Huyện Năm Căn');
+
+
+
+insert into
+
+    district(province_id, id, name)
+
+values('96', '691', 'Huyện Ngọc Hiển');
+
+insert into
+    ward(district_id, id, name)
+values('1', '1', 'Phường Phúc Xá');
+
+= "insert into ward(district_id, id, name) values('" & A2 & "','" & B2 & "','" & C2 & "');"
+insert into
+    ward(district_id, id, name)
+values('1', '1', 'Phường Phúc Xá');
+
+insert into
+    ward(district_id, id, name)
+values('1', '2', 'Phường Trúc Bạch');
+
+insert into
+    ward(district_id, id, name)
+values('1', '3', 'Phường Vĩnh Phúc');
+
+insert into
+    ward(district_id, id, name)
+values('1', '4', 'Phường Cống Vị');
+
+insert into
+    ward(district_id, id, name)
+values('1', '5', 'Phường Liễu Giai');
+
+insert into
+    ward(district_id, id, name)
+values('1', '6', 'Phường Nguyễn Trung Trực');
+
+insert into
+    ward(district_id, id, name)
+values('1', '7', 'Phường Quán Thánh');
+
+insert into
+    ward(district_id, id, name)
+values('1', '8', 'Phường Ngọc Hà');
+
+insert into
+    ward(district_id, id, name)
+values('1', '9', 'Phường Điện Biên');
+
+insert into
+    ward(district_id, id, name)
+values('1', '10', 'Phường Đội Cấn');
+
+insert into
+    ward(district_id, id, name)
+values('1', '11', 'Phường Ngọc Khánh');
+
+insert into
+    ward(district_id, id, name)
+values('1', '12', 'Phường Kim Mã');
+
+insert into
+    ward(district_id, id, name)
+values('1', '13', 'Phường Giảng Võ');
+
+insert into
+    ward(district_id, id, name)
+values('1', '14', 'Phường Thành Công');
+
+insert into
+    ward(district_id, id, name)
+values('2', '15', 'Phường Phúc Tân');
+
+insert into
+    ward(district_id, id, name)
+values('2', '16', 'Phường Đồng Xuân');
+
+insert into
+    ward(district_id, id, name)
+values('2', '17', 'Phường Hàng Mã');
+
+insert into
+    ward(district_id, id, name)
+values('2', '18', 'Phường Hàng Buồm');
+
+insert into
+    ward(district_id, id, name)
+values('2', '19', 'Phường Hàng Đào');
+
+insert into
+    ward(district_id, id, name)
+values('2', '20', 'Phường Hàng Bồ');
+
+insert into
+    ward(district_id, id, name)
+values('2', '21', 'Phường Cửa Đông');
+
+insert into
+    ward(district_id, id, name)
+values('2', '22', 'Phường Lý Thái Tổ');
+
+insert into
+    ward(district_id, id, name)
+values('2', '23', 'Phường Hàng Bạc');
+
+insert into
+    ward(district_id, id, name)
+values('2', '24', 'Phường Hàng Gai');
+
+insert into
+    ward(district_id, id, name)
+values('2', '25', 'Phường Chương Dương');
+
+insert into
+    ward(district_id, id, name)
+values('2', '26', 'Phường Hàng Trống');
+
+insert into
+    ward(district_id, id, name)
+values('2', '27', 'Phường Cửa Nam');
+
+insert into
+    ward(district_id, id, name)
+values('2', '28', 'Phường Hàng Bông');
+
+insert into
+    ward(district_id, id, name)
+values('2', '29', 'Phường Tràng Tiền');
+
+insert into
+    ward(district_id, id, name)
+values('2', '30', 'Phường Trần Hưng Đạo');
+
+insert into
+    ward(district_id, id, name)
+values('2', '31', 'Phường Phan Chu Trinh');
+
+insert into
+    ward(district_id, id, name)
+values('2', '32', 'Phường Hàng Bài');
+
+insert into
+    ward(district_id, id, name)
+values('3', '33', 'Phường Phú Thượng');
+
+insert into
+    ward(district_id, id, name)
+values('3', '34', 'Phường Nhật Tân');
+
+insert into
+    ward(district_id, id, name)
+values('3', '35', 'Phường Tứ Liên');
+
+insert into
+    ward(district_id, id, name)
+values('3', '36', 'Phường Quảng An');
+
+insert into
+    ward(district_id, id, name)
+values('3', '37', 'Phường Xuân La');
+
+insert into
+    ward(district_id, id, name)
+values('3', '38', 'Phường Yên Phụ');
+
+insert into
+    ward(district_id, id, name)
+values('3', '39', 'Phường Bưởi');
+
+insert into
+    ward(district_id, id, name)
+values('3', '40', 'Phường Thụy Khuê');
+
+insert into
+    ward(district_id, id, name)
+values('4', '41', 'Phường Thượng Thanh');
+
+insert into
+    ward(district_id, id, name)
+values('4', '42', 'Phường Ngọc Thụy');
+
+insert into
+    ward(district_id, id, name)
+values('4', '43', 'Phường Giang Biên');
+
+insert into
+    ward(district_id, id, name)
+values('4', '44', 'Phường Đức Giang');
+
+insert into
+    ward(district_id, id, name)
+values('4', '45', 'Phường Việt Hưng');
+
+insert into
+    ward(district_id, id, name)
+values('4', '46', 'Phường Gia Thụy');
+
+insert into
+    ward(district_id, id, name)
+values('4', '47', 'Phường Ngọc Lâm');
+
+insert into
+    ward(district_id, id, name)
+values('4', '48', 'Phường Phúc Lợi');
+
+insert into
+    ward(district_id, id, name)
+values('4', '49', 'Phường Bồ Đề');
+
+insert into
+    ward(district_id, id, name)
+values('4', '50', 'Phường Sài Đồng');
+
+insert into
+    ward(district_id, id, name)
+values('4', '51', 'Phường Long Biên');
+
+insert into
+    ward(district_id, id, name)
+values('4', '52', 'Phường Thạch Bàn');
+
+insert into
+    ward(district_id, id, name)
+values('4', '53', 'Phường Phúc Đồng');
+
+insert into
+    ward(district_id, id, name)
+values('4', '54', 'Phường Cự Khối');
+
+insert into
+    ward(district_id, id, name)
+values('5', '55', 'Phường Nghĩa Đô');
+
+insert into
+    ward(district_id, id, name)
+values('5', '56', 'Phường Nghĩa Tân');
+
+insert into
+    ward(district_id, id, name)
+values('5', '57', 'Phường Mai Dịch');
+
+insert into
+    ward(district_id, id, name)
+values('5', '58', 'Phường Dịch Vọng');
+
+insert into
+    ward(district_id, id, name)
+values('5', '59', 'Phường Dịch Vọng Hậu');
+
+insert into
+    ward(district_id, id, name)
+values('5', '60', 'Phường Quan Hoa');
+
+insert into
+    ward(district_id, id, name)
+values('5', '61', 'Phường Yên Hoà');
+
+insert into
+    ward(district_id, id, name)
+values('5', '62', 'Phường Trung Hoà');
+
+insert into
+    ward(district_id, id, name)
+values('6', '63', 'Phường Cát Linh');
+
+insert into
+    ward(district_id, id, name)
+values('6', '64', 'Phường Văn Miếu');
+
+insert into
+    ward(district_id, id, name)
+values('6', '65', 'Phường Quốc Tử Giám');
+
+insert into
+    ward(district_id, id, name)
+values('6', '66', 'Phường Láng Thượng');
+
+insert into
+    ward(district_id, id, name)
+values('6', '67', 'Phường Ô Chợ Dừa');
+
+insert into
+    ward(district_id, id, name)
+values('6', '68', 'Phường Văn Chương');
+
+insert into
+    ward(district_id, id, name)
+values('6', '69', 'Phường Hàng Bột');
+
+insert into
+    ward(district_id, id, name)
+values('6', '70', 'Phường Láng Hạ');
+
+insert into
+    ward(district_id, id, name)
+values('6', '71', 'Phường Khâm Thiên');
+
+insert into
+    ward(district_id, id, name)
+values('6', '72', 'Phường Thổ Quan');
+
+insert into
+    ward(district_id, id, name)
+values('6', '73', 'Phường Nam Đồng');
+
+insert into
+    ward(district_id, id, name)
+values('6', '74', 'Phường Trung Phụng');
+
+insert into
+    ward(district_id, id, name)
+values('6', '75', 'Phường Quang Trung');
+
+insert into
+    ward(district_id, id, name)
+values('6', '76', 'Phường Trung Liệt');
+
+insert into
+    ward(district_id, id, name)
+values('6', '77', 'Phường Phương Liên');
+
+insert into
+    ward(district_id, id, name)
+values('6', '78', 'Phường Thịnh Quang');
+
+insert into
+    ward(district_id, id, name)
+values('6', '79', 'Phường Trung Tự');
+
+insert into
+    ward(district_id, id, name)
+values('6', '80', 'Phường Kim Liên');
+
+insert into
+    ward(district_id, id, name)
+values('6', '81', 'Phường Phương Mai');
+
+insert into
+    ward(district_id, id, name)
+values('6', '82', 'Phường Ngã Tư Sở');
+
+insert into
+    ward(district_id, id, name)
+values('6', '83', 'Phường Khương Thượng');
+
+insert into
+    ward(district_id, id, name)
+values('7', '84', 'Phường Nguyễn Du');
+
+insert into
+    ward(district_id, id, name)
+values('7', '85', 'Phường Bạch Đằng');
+
+insert into
+    ward(district_id, id, name)
+values('7', '86', 'Phường Phạm Đình Hổ');
+
+insert into
+    ward(district_id, id, name)
+values('7', '87', 'Phường Lê Đại Hành');
+
+insert into
+    ward(district_id, id, name)
+values('7', '88', 'Phường Đồng Nhân');
+
+insert into
+    ward(district_id, id, name)
+values('7', '89', 'Phường Phố Huế');
+
+insert into
+    ward(district_id, id, name)
+values('7', '90', 'Phường Đống Mác');
+
+insert into
+    ward(district_id, id, name)
+values('7', '91', 'Phường Thanh Lương');
+
+insert into
+    ward(district_id, id, name)
+values('7', '92', 'Phường Thanh Nhàn');
+
+insert into
+    ward(district_id, id, name)
+values('7', '93', 'Phường Cầu Dền');
+
+insert into
+    ward(district_id, id, name)
+values('7', '94', 'Phường Bách Khoa');
+
+insert into
+    ward(district_id, id, name)
+values('7', '95', 'Phường Đồng Tâm');
