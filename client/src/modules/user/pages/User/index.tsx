@@ -4,6 +4,7 @@ import confirm from 'antd/lib/modal/confirm';
 import Button, { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
+import RegionForm from 'modules/user/components/RegionForm';
 import { TableHeadingWrapper } from 'components/Table/styles';
 import { roleList } from 'helper/consts';
 import ModalDetailForm from 'modules/user/components/ModalDetailForm';
@@ -24,6 +25,7 @@ interface IFacilitiesProps {}
 
 const User: React.FC<IFacilitiesProps> = () => {
     const dispatch = useDispatch();
+    const [isShowRegionForm, setIsShowRegionForm] = useState(false);
     const [isShowUserForm, setIsShowUserForm] = useState<boolean>(false);
     const [isShowUserUpdateForm, setIsShowUserUpdateForm] = useState<boolean>(false);
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -44,13 +46,13 @@ const User: React.FC<IFacilitiesProps> = () => {
         {
             title: 'Họ tên',
             key: 'displayName',
-            width: 150,
+            width: 120,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.displayName}</div>,
         },
         {
             title: 'Nhóm quyền',
             key: 'roles',
-            width: 200,
+            width: 170,
             render: (text: string, row: any, index: number) => (
                 <div className="text-center">
                     {row.roles.map((item: number) => roleList.find(ele => ele.id === item)?.name).join(', ')}
@@ -60,7 +62,7 @@ const User: React.FC<IFacilitiesProps> = () => {
         {
             title: 'Số điện thoại',
             key: 'phoneNumber',
-            width: 150,
+            width: 120,
             render: (text: string, row: any, index: number) => <div className="text-center">{row.phoneNumber}</div>,
         },
         {
@@ -71,17 +73,9 @@ const User: React.FC<IFacilitiesProps> = () => {
         },
         {
             title: 'Khu vực quản lý',
-            key: 'KVQL',
+            key: 'wards',
             render: (text: string, row: any, index: number) => (
-                <div
-                    onClick={() => {
-                        setIsModalVisible(true);
-                    }}
-                    className="text-center"
-                    style={{ color: '#2260bd' }}
-                >
-                    {row.KVQL}
-                </div>
+                <div className="text-center">{row.wards.join(' ,')}</div>
             ),
         },
         {
@@ -168,6 +162,16 @@ const User: React.FC<IFacilitiesProps> = () => {
 
     return (
         <UserWrapper>
+            {isShowRegionForm && (
+                <RegionForm
+                    visible={isShowRegionForm}
+                    onCancel={() => setIsShowRegionForm(false)}
+                    onOk={() => {
+                        setIsShowRegionForm(false);
+                    }}
+                    isUpdate={false}
+                />
+            )}
             {isModalVisible && (
                 <ModalDetailForm
                     visible={isModalVisible}
@@ -209,6 +213,17 @@ const User: React.FC<IFacilitiesProps> = () => {
                         <div className="table-heading">Danh sách người dùng trong hệ thống</div>
                     </div>
                     <Space>
+                        <Button
+                            color="primary"
+                            $fill
+                            icon={<Icon name="add" size={16} className="mr-1" />}
+                            onClick={() => {
+                                // dispatch(setRoleGroupID(''));
+                                setIsShowRegionForm(true);
+                            }}
+                        >
+                            Thêm địa bàn quản lý cho chuyên viên
+                        </Button>
                         <Button
                             color="primary"
                             $fill

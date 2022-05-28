@@ -1,6 +1,6 @@
 import Button from 'components/Button';
 import Icon from 'components/Icon/Icon';
-import ActivityForm from 'modules/plan/components/ActivityForm';
+import SampleForm from 'modules/plan/components/SampleForm';
 import SampleTable from 'modules/plan/components/SampleTable';
 import SampleSearch from 'modules/plan/components/SampleSearch';
 import { postGetListSampleStart, postGetListFoodStart, postGetListInspectionUnitStart } from 'modules/plan/redux';
@@ -33,7 +33,7 @@ const Sample: React.FC<ISampleProps> = () => {
     return (
         <ActivityContainer>
             {isShowActivityForm && (
-                <ActivityForm
+                <SampleForm
                     visible={isShowActivityForm}
                     onCancel={() => {
                         setIsShowActivityForm(false);

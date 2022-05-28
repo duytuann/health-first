@@ -48,7 +48,9 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
         {
             title: 'Địa chỉ',
             key: 'address',
-            render: (text: string, row: any, index: number) => <div className="text-center">{row.address}</div>,
+            render: (text: string, row: any, index: number) => (
+                <div className="text-center">{`${row.address} - ${row.ward} - ${row.district} - ${row.province}`}</div>
+            ),
         },
         {
             width: 150,

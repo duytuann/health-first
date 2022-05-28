@@ -21,3 +21,15 @@ export interface updateUserParams extends createUserParams {
 export interface deleteUserParams {
     id: number;
 }
+
+export interface addRoleUserParams {
+    username: string;
+    roleId: number;
+}
+
+export interface addRegionUserParams {
+    username: string;
+    districtId: number | null;
+    wardId: number | null;
+    provinceId: number | null;
+}

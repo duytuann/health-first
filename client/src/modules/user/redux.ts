@@ -1,5 +1,12 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
-import { createUserParams, updateUserParams, deleteUserParams, getListUserParams } from 'core/http/apis/user/types';
+import {
+    addRoleUserParams,
+    createUserParams,
+    deleteUserParams,
+    getListUserParams,
+    updateUserParams,
+    addRegionUserParams,
+} from 'core/http/apis/user/types';
 import { ReduxData, ReduxStateType } from 'redux/types';
 
 export interface UserState {
@@ -68,6 +75,24 @@ const userSlice = createSlice({
         postDeleteUserError: (state, action: PayloadAction<Error>) => {
             state.status = ReduxStateType.ERROR;
         },
+        postAddRoleUserStart: (state, action: PayloadAction<addRoleUserParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postAddRoleUserSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postAddRoleUserError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
+        postAddRegionUserStart: (state, action: PayloadAction<addRegionUserParams>) => {
+            state.status = ReduxStateType.LOADING;
+        },
+        postAddRegionUserSuccess: (state, action: PayloadAction<any>) => {
+            state.status = ReduxStateType.SUCCESS;
+        },
+        postAddRegionUserError: (state, action: PayloadAction<Error>) => {
+            state.status = ReduxStateType.ERROR;
+        },
     },
 });
 export const {
@@ -85,5 +110,11 @@ export const {
     postUpdateUserError,
     postUpdateUserStart,
     postUpdateUserSuccess,
+    postAddRoleUserError,
+    postAddRoleUserStart,
+    postAddRoleUserSuccess,
+    postAddRegionUserStart,
+    postAddRegionUserSuccess,
+    postAddRegionUserError,
 } = userSlice.actions;
 export default userSlice.reducer;

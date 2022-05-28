@@ -1,6 +1,13 @@
 import httpUsers from 'core/http/singleton/user';
-import { createUserParams, updateUserParams, deleteUserParams, getListUserParams } from './types';
-import { getListUrl, createUrl, updateUrl, deleteUrl } from './urls';
+import {
+    addRegionUserParams,
+    addRoleUserParams,
+    createUserParams,
+    deleteUserParams,
+    getListUserParams,
+    updateUserParams,
+} from './types';
+import { addRegionUserUrl, addRoleUserUrl, createUrl, deleteUrl, getListUrl, updateUrl } from './urls';
 
 export const getGetListUserApi = async (body: getListUserParams): Promise<any> => {
     const res = await httpUsers.post(getListUrl, body);
@@ -22,6 +29,18 @@ export const postUpdatePlanApi = async (body: updateUserParams): Promise<any> =>
 
 export const postDeletePlanApi = async (body: deleteUserParams): Promise<any> => {
     const res = await httpUsers.post(deleteUrl, body);
+    if (!res || !res.data) throw new Error('Opps');
+    return res.data;
+};
+
+export const postAddRoleUserApi = async (body: addRoleUserParams): Promise<any> => {
+    const res = await httpUsers.post(addRoleUserUrl, body);
+    if (!res || !res.data) throw new Error('Opps');
+    return res.data;
+};
+
+export const postAddRegionUserApi = async (body: addRegionUserParams): Promise<any> => {
+    const res = await httpUsers.post(addRegionUserUrl, body);
     if (!res || !res.data) throw new Error('Opps');
     return res.data;
 };

@@ -1,18 +1,34 @@
 import { all, call, put, select, takeLatest } from '@redux-saga/core/effects';
-import { getGetListUserApi, postCreatePlanApi, postDeletePlanApi, postUpdatePlanApi } from 'core/http/apis/user';
+import {
+    getGetListUserApi,
+    postAddRoleUserApi,
+    postCreatePlanApi,
+    postDeletePlanApi,
+    postUpdatePlanApi,
+    postAddRegionUserApi,
+} from 'core/http/apis/user';
 import { ResultResponse } from 'core/models/ResultResponse';
 import { toast } from 'react-toastify';
 import { RootState } from 'redux/store';
 import {
+    postAddRegionUserError,
+    postAddRegionUserStart,
+    postAddRegionUserSuccess,
+    postAddRoleUserError,
+    postAddRoleUserStart,
+    postAddRoleUserSuccess,
     postCreateUserError,
     postCreateUserStart,
     postCreateUserSuccess,
     postDeleteUserError,
     postDeleteUserStart,
-    postDeleteUserSuccess, postGetListUserError, postGetListUserStart,
-    postGetListUserSuccess, postUpdateUserError,
+    postDeleteUserSuccess,
+    postGetListUserError,
+    postGetListUserStart,
+    postGetListUserSuccess,
+    postUpdateUserError,
     postUpdateUserStart,
-    postUpdateUserSuccess
+    postUpdateUserSuccess,
 } from './redux';
 
 function* postGetListUser(action: ReturnType<typeof postGetListUserStart>) {
@@ -85,6 +101,46 @@ function* postDeleteUser(action: ReturnType<typeof postDeleteUserStart>) {
         toast.error('Xoá người dùng thất bại');
     }
 }
+
+function* postAddRoleUser(action: ReturnType<typeof postAddRoleUserStart>) {
+    const { searchUser } = yield select((state: RootState) => state.user.data);
+    try {
+        const res: ResultResponse<any> = yield call(postAddRoleUserApi, action.payload);
+        if (res.responseCode === '1') {
+            yield put({
+                type: postAddRoleUserSuccess.type,
+            });
+            toast.success('Thêm quyền người dùng thành công');
+            yield put({
+                type: postGetListUserStart.type,
+                payload: searchUser,
+            });
+        }
+    } catch (error) {
+        yield put({ type: postAddRoleUserError });
+        toast.error('Thêm quyền người dùng thất bại');
+    }
+}
+function* postAddRegionUser(action: ReturnType<typeof postAddRegionUserStart>) {
+    const { searchUser } = yield select((state: RootState) => state.user.data);
+    try {
+        const res: ResultResponse<any> = yield call(postAddRegionUserApi, action.payload);
+        if (res.responseCode === '1') {
+            yield put({
+                type: postAddRegionUserSuccess.type,
+            });
+            toast.success('Thêm quyền người dùng thành công');
+            yield put({
+                type: postGetListUserStart.type,
+                payload: searchUser,
+            });
+        }
+    } catch (error) {
+        yield put({ type: postAddRegionUserError });
+        toast.error('Thêm quyền người dùng thất bại');
+    }
+}
+
 function* watchPostCreateUser() {
     yield takeLatest(postCreateUserStart.type, postCreateUser);
 }
@@ -98,7 +154,19 @@ function* watchPostDeleteUser() {
 function* watchGetListUser() {
     yield takeLatest(postGetListUserStart.type, postGetListUser);
 }
-
+function* watchAddRoleUser() {
+    yield takeLatest(postAddRoleUserStart.type, postAddRoleUser);
+}
+function* watchAddRegionUser() {
+    yield takeLatest(postAddRegionUserStart.type, postAddRegionUser);
+}
 export default function* UsersSaga() {
-    yield all([watchGetListUser(), watchPostCreateUser(), watchPostUpdateUser(), watchPostDeleteUser()]);
+    yield all([
+        watchGetListUser(),
+        watchPostCreateUser(),
+        watchPostUpdateUser(),
+        watchPostDeleteUser(),
+        watchAddRoleUser(),
+        watchAddRegionUser(),
+    ]);
 }
