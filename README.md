@@ -17,7 +17,6 @@ cd server/user-service -> mvn spring-boot:run
 
 <div>---</div>
 
-
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Hệ thống quản lý các cơ sở sản xuất thực phẩm, kinh doanh dịch vụ <span class="GramE">ăn</span> uống</span>
 
@@ -52,17 +51,7 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
   mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
   text1;padding:0in 5.4pt 0in 5.4pt" width="510" valign="top">
 
-**<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Tiêu chí chấm điểm</span>**
-
-</td>
-
-<td style="width:59.4pt;border:solid black 1.0pt;
-  mso-border-themecolor:text1;border-left:none;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-**<span style="font-size:13.0pt;font-family:
-  &quot;Times New Roman&quot;,&quot;serif&quot;">Hệ số</span>**
+**<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Tiêu chí</span>**
 
 </td>
 
@@ -90,17 +79,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
 </td>
 
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.35</span>
-
-</td>
-
 </tr>
 
 <tr style="mso-yfti-irow:2">
@@ -122,17 +100,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
   text1;padding:0in 5.4pt 0in 5.4pt" width="510" valign="top">
 
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Thiết kế: Logic, dễ sử dụng, đẹp</span>
-
-</td>
-
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.15</span>
 
 </td>
 
@@ -160,17 +127,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
 </td>
 
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.1</span>
-
-</td>
-
 </tr>
 
 <tr style="mso-yfti-irow:4">
@@ -194,18 +150,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Hiệu năng: Sử dụng fetch hoặc AJAX để tải bộ phận, không tải lại, backend API, sử dụng dữ liệu JSON, <span class="GramE">cập</span> nhật DOM trên frontend.</span>
 
 </td>
-
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.1</span>
-
-</td>
-
 </tr>
 
 <tr style="mso-yfti-irow:5">
@@ -227,17 +171,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
   text1;padding:0in 5.4pt 0in 5.4pt" width="510" valign="top">
 
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Phong cách lập trình: Sử dụng mẫu thiết kế, tách biệt mã tạo giao diện và mã xử lý nghiệp vụ, tổ chức thư viện, lớp và kế thừa, trình bày và chú thích mã<span class="GramE">, ...</span></span>
-
-</td>
-
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.1</span>
 
 </td>
 
@@ -265,17 +198,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
 </td>
 
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.05</span>
-
-</td>
-
 </tr>
 
 <tr style="mso-yfti-irow:7">
@@ -297,17 +219,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
   text1;padding:0in 5.4pt 0in 5.4pt" width="510" valign="top">
 
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Xử lý phiên, xác thực, an ninh</span>
-
-</td>
-
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.05</span>
 
 </td>
 
@@ -335,17 +246,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
 </td>
 
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.05</span>
-
-</td>
-
 </tr>
 
 <tr style="mso-yfti-irow:9;mso-yfti-lastrow:yes">
@@ -369,18 +269,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Thao tác CSDL theo lập trình hướng đối và độc lập CSDL</span>
 
 </td>
-
-<td style="width:59.4pt;border-top:none;border-left:none;
-  border-bottom:solid black 1.0pt;mso-border-bottom-themecolor:text1;
-  border-right:solid black 1.0pt;mso-border-right-themecolor:text1;mso-border-top-alt:
-  solid black .5pt;mso-border-top-themecolor:text1;mso-border-left-alt:solid black .5pt;
-  mso-border-left-themecolor:text1;mso-border-alt:solid black .5pt;mso-border-themecolor:
-  text1;padding:0in 5.4pt 0in 5.4pt" width="79" valign="top">
-
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">0.05</span>
-
-</td>
-
 </tr>
 
 </tbody>
@@ -451,4 +339,3 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
-
