@@ -3,6 +3,12 @@
 <div class="WordSection1">
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><h1>Healthy First</h1></span>
 
+<h2><b>
+Tech-stack:
+</b></h2>
+<h3>Front-end: React.js, TypeScript, Redux, Saga</h3>
+<h3>Back-end: Java, Spring Boot</h3>
+
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Hệ thống quản lý các cơ sở sản xuất thực phẩm, kinh doanh dịch vụ <span class="GramE">ăn</span> uống</span>
 
@@ -12,10 +18,7 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 **<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">1. Thực hiện</span>**
 
 <span style="font-size:13.0pt;
-font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">- Thực hiện <span class="GramE">theo</span> nhóm (team) 3 sinh viên.</span>
-
-<span style="font-size:13.0pt;
-font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">- Trình bày sản phẩm tại buổi thi vấn đáp.</span>
+font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">- Thực hiện <span class="GramE">theo</span> nhóm (team) 2 sinh viên.</span>
 
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
@@ -440,8 +443,3 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
-<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">------- Hết -------</span>
-
-</div>
-
-</div>
