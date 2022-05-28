@@ -33,6 +33,7 @@ export interface FacilitiesState {
     wardsByListId: AddressResp[];
     facilitiesList: Facility[];
     currentFacilityId: number;
+    currentFacility: any;
 }
 const initialState: ReduxData<FacilitiesState> = {
     data: {
@@ -55,6 +56,9 @@ const initialState: ReduxData<FacilitiesState> = {
         provincesList: [],
         districtsListById: [],
         wardsByListId: [],
+
+        //for initValue Edit
+        currentFacility: {},
     },
     status: ReduxStateType.INIT,
 };
@@ -62,6 +66,9 @@ const facilitiesSlice = createSlice({
     name: 'facilitiesSlice',
     initialState,
     reducers: {
+        changeCurrentFacility: (state, action: PayloadAction<any>) => {
+            state.data.currentFacility = action.payload;
+        },
         changeSearchCondition: (state, action: PayloadAction<any>) => {
             state.data.conditionSearch = action.payload;
         },
@@ -147,6 +154,7 @@ const facilitiesSlice = createSlice({
     },
 });
 export const {
+    changeCurrentFacility,
     changeSearchCondition,
     changeCurrentProvinceId,
     resetWardsByList,

@@ -36,6 +36,7 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
             currentProvinceId,
             currentDistrictId,
             currentFacilityId,
+            currentFacility,
         },
         status,
     } = useSelector((state: RootState) => state.facilities);
@@ -78,6 +79,15 @@ const FacilitiesForm: React.FC<IAddTopicFormProps> = ({ visible, onOk, onCancel,
             })
         );
     }, [currentDistrictId]);
+
+    useEffect(() => {
+        form.setFieldsValue({
+            name: currentFacility.name,
+            businessTypeId: 1,
+            facilityStateId: currentFacility.facilityStateId,
+            address: currentFacility.address,   
+        });
+    }, []);
 
     return (
         <Modal

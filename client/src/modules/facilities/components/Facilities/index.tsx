@@ -5,7 +5,7 @@ import { LinkButton } from 'components/Button';
 import Icon from 'components/Icon/Icon';
 import Table from 'components/Table';
 import FacilitiesForm from 'modules/facilities/components/FacilitiesForm';
-import { changeCurrentFacilityId, postDeleteFacilityStart } from 'modules/facilities/redux';
+import { changeCurrentFacilityId, postDeleteFacilityStart, changeCurrentFacility } from 'modules/facilities/redux';
 import { FacilitiesContainer } from 'modules/plan/components/PlanTable/styles';
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -73,6 +73,7 @@ const FacilitiesTable: React.FC<IWeeklyNewsProps> = () => {
                                 size="small"
                                 icon={<Icon name="edit" color="primary" size={20} className="mx-auto" />}
                                 onClick={() => {
+                                    dispatch(changeCurrentFacility(record));
                                     dispatch(changeCurrentFacilityId(record.id));
                                     setIsUpdateFacilityForm(true);
                                 }}

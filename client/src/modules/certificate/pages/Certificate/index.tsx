@@ -47,10 +47,16 @@ const Certificate: React.FC = () => {
         {
             title: 'Số giấy chứng nhận',
             key: 'certificateNumber',
-            width: 200,
+            width: 150,
             render: (text: string, row: any, index: number) => (
                 <div className="text-center">{row.certificateNumber}</div>
             ),
+        },
+        {
+            title: 'Cơ sở',
+            key: 'facilityName',
+            width: 150,
+            render: (text: string, row: any, index: number) => <div className="text-center">{row.facilityName}</div>,
         },
         {
             title: 'Ngày phát hành',

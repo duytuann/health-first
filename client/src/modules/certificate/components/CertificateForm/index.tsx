@@ -95,20 +95,6 @@ const CertificateForm: React.FC<ICertificateFormProps> = ({ visible, onOk, onCan
             >
                 <FormDetailWrapper form={form} name="basic" layout="vertical" initialValues={{}}>
                     <Form.Item
-                        label="Mã giấy chứng nhận"
-                        name="certificateNumber"
-                        rules={[
-                            {
-                                type: 'string',
-                                required: true,
-                                message: 'Mã giấy chứng nhận không được để trống',
-                                whitespace: true,
-                            },
-                        ]}
-                    >
-                        <Input placeholder="Nhập mã giấy chứng nhận" />
-                    </Form.Item>
-                    <Form.Item
                         label="Trạng thái giấy chứng nhận"
                         name="certificateStateId"
                         rules={[
