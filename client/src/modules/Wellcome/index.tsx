@@ -16,7 +16,7 @@ export default function Wellcome() {
             <div className="mb-3">
                 <img alt="logo" src={logo} width="800px" />
             </div>
-            <h1>Wellcome</h1>
+            <h1>Wellcome to Health First</h1>
         </WellcomeWrapper>
     );
 }
