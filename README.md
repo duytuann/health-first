@@ -4,8 +4,10 @@
 <span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"><h1>Healthy First</h1></span>
 
  <h3>Link bài thuyết trình: </h3>
-  https://drive.google.com/file/d/1ZhxLLeQFRgdVtWPm23DpzPSqkZgZShH-/view?usp=sharing
- 
+     drive.google.com/file/d/1ZhxLLeQFRgdVtWPm23DpzPSqkZgZShH-/view?usp=sharing
+  
+ <h3>Đặc tả dự án: </h3>
+     drive.google.com/file/d/1_KB652UKETM9HkZ2yJ7rwXNjGGF8M1I7/view?usp=sharing
 <h2><b>
 Tech-stack:
 </b></h2>
@@ -27,9 +29,6 @@ font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">Hệ thống quản l
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
 
 **<span style="font-size:13.0pt;font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">1. Thực hiện</span>**
-
-<span style="font-size:13.0pt;
-font-family:&quot;Times New Roman&quot;,&quot;serif&quot;">- Thực hiện <span class="GramE">theo</span> nhóm (team) 2 sinh viên.</span>
 
 <span style="font-size:13.0pt;
 font-family:&quot;Times New Roman&quot;,&quot;serif&quot;"></span>
